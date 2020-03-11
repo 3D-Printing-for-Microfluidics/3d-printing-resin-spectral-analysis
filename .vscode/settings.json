@@ -11,5 +11,5 @@
     "**/*.pyc": true,
     "**/__pycache__": true
   },
-  "python.pythonPath": "./env/bin/python"
+  "python.pythonPath": "./.venv/bin/python"
 }
