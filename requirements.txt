@@ -12,8 +12,10 @@ defusedxml==0.6.0
 entrypoints==0.3
 importlib-metadata==1.5.0
 ipykernel==5.1.4
+ipympl==0.5.3
 ipython==7.13.0
 ipython-genutils==0.2.0
+ipywidgets==7.5.1
 isort==4.3.21
 jedi==0.16.0
 Jinja2==2.11.1
@@ -51,13 +53,14 @@ Pygments==2.6.1
 pylint==2.4.4
 pyparsing==2.4.6
 pyrsistent==0.15.7
+PySimpleGUI==4.16.0
 python-dateutil==2.8.1
 PyYAML==5.3
 pyzmq==19.0.0
 regex==2020.2.20
 Send2Trash==1.5.0
 six==1.14.0
--e git+https://github.com/gregnordin/3dprinter_spectra_and_tools.git@6ef3921d14a73867c71685c3360d36850baee9fe#egg=spectra
+-e git+https://github.com/gregnordin/3dprinter_spectra_and_tools.git@ecdeff5a79e7e244421509c211ffa5f39189ab3d#egg=spectra
 terminado==0.8.3
 testpath==0.4.4
 toml==0.10.0
@@ -66,5 +69,6 @@ traitlets==4.3.3
 typed-ast==1.4.1
 wcwidth==0.1.8
 webencodings==0.5.1
+widgetsnbextension==3.5.1
 wrapt==1.11.2
 zipp==3.1.0
