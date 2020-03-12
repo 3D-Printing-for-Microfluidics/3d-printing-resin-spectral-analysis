@@ -10,3 +10,4 @@
 ## Notes
 
 - The main directory can have other files if desired, such as jupyter notebooks. So can the `raw_data` directory, except that all `*.txt` files are considered spectrum data files.
+- If there are multiple `*.txt` files in `raw_data`, the first one will be chosen from which to create `measured_spectrum_normalized.csv`
