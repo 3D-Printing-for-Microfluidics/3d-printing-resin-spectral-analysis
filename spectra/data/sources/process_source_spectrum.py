@@ -1,25 +1,64 @@
+"""Convert raw spectrometer spectrum file to csv format with normalized data and
+comment lines preceded with `#` and put in a standard location
+with standard name, `measured_spectrum_normalized`.
+"""
+
 from pathlib import Path
 
-if __name__ == "__main__":
-    main()
+import numpy as np
+import PySimpleGUI as sg
 
 
-def main():
-    """Stand-alone format converter from v0.2 to v0.1 for 3D printer json control files."""
+def read_Fire_spectrum_data_file(file, skiprows=14, clip_to_zero=True):
+    """Read header and data from spectrum data file collected by Ocean Optics FIRE spectrometer."""
 
-    import PySimpleGUI as sg
+    # Data
+    data = np.loadtxt(file, skiprows=skiprows)
+    if clip_to_zero:
+        data = np.clip(data, 0, None)
 
-    # Use pysimplegui to open a file browser to get input json file
-    layout = [
-        [
-            sg.Text(
-                "Enter json 3D printer control file in version 0.2 format\nto convert to version 0.1 format"
-            )
-        ],
-        [sg.Text("File 1", size=(8, 1)), sg.Input(), sg.FileBrowse()],
-        [sg.Submit(), sg.Cancel()],
-    ]
-    window = sg.Window("Select JSON file", layout)
-    event, values = window.read()  # pylint: disable=unused-variable
-    window.close()
-    print(f"You chose file:\n    {values[0]}")
+    # Header lines
+    header_lines = []
+    with file.open() as f:
+        for i in range(skiprows):  # pylint: disable=unused-variable
+            header_lines.append(f.readline().strip())
+
+    return header_lines, data
+
+
+# Open a file browser to get spectrometer data file for input
+layout = [
+    [sg.Text("Spectrometer data file")],
+    [sg.Input(), sg.FileBrowse(initial_folder=Path.cwd()),],
+    [sg.Submit(), sg.Cancel()],
+]
+window = sg.Window("Select JSON file", layout)
+event, values = window.read()  # pylint: disable=unused-variable
+window.close()
+
+if event != "Submit":
+    print("No file selected. Now exiting...")
+    exit()
+
+input_data_file = Path(values[0])
+print(f"You chose file:\n    {input_data_file}")
+
+if input_data_file.parent.name != "raw_data":
+    print("\n~~~INVALID DATA FILE LOCATION~~~")
+    print("Data file must reside in a directory named 'raw_data'.")
+    print("Exiting...\n\n")
+    exit()
+
+if input_data_file.suffix != ".txt":
+    print("\n~~~INVALID DATA FILE EXTENSION~~~")
+    print("Data file must be named '*.txt'")
+    print("Exiting...\n\n")
+    exit()
+
+header, data = read_Fire_spectrum_data_file(input_data_file)
+
+data[:, 1] = data[:, 1] / np.amax(data[:, 1])
+
+output_data_file = input_data_file.parent.parent / "measured_spectrum_normalized.csv"
+np.savetxt(output_data_file, data, delimiter=",", header="\n".join(header))
+print(f"Output data file:\n    {output_data_file}")
