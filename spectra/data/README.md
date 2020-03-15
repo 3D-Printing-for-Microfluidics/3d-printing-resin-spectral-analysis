@@ -10,7 +10,7 @@ This directory contains data for absorbers, photoinitiators, resins, and sources
     ├── resins
     └── sources
 
-The `absorbers` and `photoinitiators` directories contain absorption spectrum data for various materials measured with an Ocean Optics QE65PRO-ABS spectrometer with 100 &mu;m core diameter fiber and 10 &mu;m slit, 191-994 nm range, 1.6 nm resolution, and purchased October 2012.
+The `absorbers` and `photoinitiators` directories contain absorption spectrum data for various materials measured with an Ocean Optics QE65PRO-ABS spectrometer with 100 &mu;m core diameter fiber and 10 &mu;m slit, 199-1001 nm range, 1.6 nm resolution, and purchased October 2012.
 
 The `sources` directories contain emission spectrum data for various 3D printers and LEDs. Measurements are made with an [Ocean Optics Flame Spectrometer FLMS15581](https://www.oceaninsight.com/products/spectrometers/) with 300-440 nm range, 0.23 nm resolution, and purchased August 2019. Spectrum measurements before this date were made with the QE65PRO-ABS.
 

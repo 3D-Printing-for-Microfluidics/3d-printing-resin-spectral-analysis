@@ -8,6 +8,8 @@ from pathlib import Path
 import numpy as np
 import PySimpleGUI as sg
 
+from spectra.utilities import read_FIRE_spectrum_data_file
+
 
 def read_Fire_spectrum_data_file(file, skiprows=14, clip_to_zero=True):
     """Read header and data from spectrum data file collected by Ocean Optics FIRE spectrometer."""
@@ -55,7 +57,7 @@ if input_data_file.suffix != ".txt":
     print("Exiting...\n\n")
     exit()
 
-header, data = read_Fire_spectrum_data_file(input_data_file)
+header, data = read_FIRE_spectrum_data_file(input_data_file)
 
 data[:, 1] = data[:, 1] / np.amax(data[:, 1])
 
