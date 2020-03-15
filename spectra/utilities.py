@@ -3,6 +3,17 @@ from pathlib import Path
 import numpy as np
 
 
+def find_index_of_nearest(var_array, value):
+    """
+    Find index of nearest value to value
+
+    Example:
+        idx_low = find_index_of_nearest(var_array[0:idx_peak], 0.5)
+    """
+    idx = (np.abs(var_array - value)).argmin()
+    return idx
+
+
 def read_spectrometer_file(file, skiprows, clip_to_zero=True):
     """Read spectrometer-generated spectrum data file.
 
