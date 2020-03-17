@@ -14,7 +14,7 @@ The following models are from [Custom 3D printer and resin for 18 μm × 20 μm 
 
 $$D_n(z) = \exp(-z/b)$$
 
-### Model 3
+### Model 2
 
 $$D_n(z) = 1 - a(1 - \exp(-z/b))$$
 
