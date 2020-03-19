@@ -2,7 +2,7 @@
 
 ## Next
 
-- Create module process_absorber_spectrum.py
+- &#9989; Create module process_absorber_spectrum.py
 - Add tests for process_absorber_spectrum.py
 - Add 2017 avobenzone measurements using a pull request
 - Create an AbsorberSpectrum class similar to the SourceSpectrum class

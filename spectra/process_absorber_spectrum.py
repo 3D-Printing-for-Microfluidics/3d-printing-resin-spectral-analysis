@@ -7,9 +7,9 @@ import numpy as np
 from spectra.utilities import read_OE65PRO_spectrum_data_file, find_index_of_nearest
 
 
-def read_spectrum_config_json(directory, spectrum_config_file="spectrum_config.json"):
-    assert isinstance(directory, Path)
-    with (directory / spectrum_config_file).open() as f:
+def read_spectrum_config_json(spectrum_config_file):
+    assert isinstance(spectrum_config_file, Path)
+    with spectrum_config_file.open() as f:
         temp = json.load(f)
     return temp
 
@@ -182,5 +182,44 @@ def process_spectrum_data(directory, spectrum_config, wavelength_range=[300, 540
         molar_absorptivity,
         delimiter=",",
         header=json.dumps(spectrum_config),
+    )
+
+
+if __name__ == "__main__":
+    import PySimpleGUI as sg
+
+    # Open a file browser to get spectrum_config.json file
+    layout = [
+        [sg.Text("Select JSON spectrum config file")],
+        [sg.Input(), sg.FileBrowse(initial_folder=Path.cwd()),],
+        [sg.Submit(), sg.Cancel()],
+    ]
+    window = sg.Window("Select JSON file", layout)
+    event, values = window.read()  # pylint: disable=unused-variable
+    window.close()
+
+    # Only continue if file was selected
+    if event != "Submit":
+        print("No file selected. Now exiting...")
+        exit()
+
+    # Echo chosen file
+    input_json_file = Path(values[0])
+    print(f"You chose file:\n    {input_json_file}")
+
+    # Make sure file has expected suffix
+    if input_json_file.suffix != ".json":
+        print("\n~~~INVALID DATA FILE EXTENSION~~~")
+        print("Data file must be named '*.json'")
+        print("Exiting...\n\n")
+        exit()
+
+    spectrum_config = read_spectrum_config_json(input_json_file)
+    print()
+    print(spectrum_config)
+
+    process_spectrum_data(input_json_file.parent, spectrum_config)
+    print(
+        f"Spectrum successfully processed to create 'absorbance.csv' and 'molar_absorptivity.csv'"
     )
 

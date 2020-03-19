@@ -25,11 +25,11 @@ def main():
         [sg.Input(), sg.FileBrowse(initial_folder=Path.cwd()),],
         [sg.Submit(), sg.Cancel()],
     ]
-    window = sg.Window("Select JSON file", layout)
+    window = sg.Window("Select spectrometer data file", layout)
     event, values = window.read()  # pylint: disable=unused-variable
     window.close()
 
-    # Only continue if file  was selected
+    # Only continue if file was selected
     if event != "Submit":
         print("No file selected. Now exiting...")
         exit()
