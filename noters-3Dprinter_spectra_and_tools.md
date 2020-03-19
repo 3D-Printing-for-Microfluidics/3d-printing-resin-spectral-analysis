@@ -1,6 +1,5 @@
-# Wednesday, 3/18/20
 
-## Next
+# Next
 
 - &#9989; Create module process_absorber_spectrum.py
 - Add tests for process_absorber_spectrum.py
@@ -20,3 +19,19 @@
     - Fit to Models 1 and 2
 - Use to plot normalized dose as a function of lambda and z
 - Add tests for all code
+
+
+# Wednesday, 3/18/20
+
+## Create process absorber code
+
+- `process_absorber_spectrum.py` and preceeding notebooks
+
+## pytest
+
+    $ pip install pytest
+    $ pip install pytest-cov
+    $ pip freeze > requirement.txt
+
+
+

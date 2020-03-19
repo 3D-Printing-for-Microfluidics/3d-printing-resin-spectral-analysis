@@ -6,6 +6,7 @@ backcall==0.1.0
 black==19.10b0
 bleach==3.1.1
 click==7.1.1
+coverage==5.0.4
 cycler==0.10.0
 decorator==4.4.2
 defusedxml==0.6.0
@@ -37,30 +38,36 @@ MarkupSafe==1.1.1
 matplotlib==3.2.0
 mccabe==0.6.1
 mistune==0.8.4
+more-itertools==8.2.0
 nbconvert==5.6.1
 nbformat==5.0.4
 notebook==6.0.3
 numpy==1.18.1
+packaging==20.3
 pandocfilters==1.4.2
 parso==0.6.2
 pathspec==0.7.0
 pexpect==4.8.0
 pickleshare==0.7.5
+pluggy==0.13.1
 prometheus-client==0.7.1
 prompt-toolkit==3.0.4
 ptyprocess==0.6.0
+py==1.8.1
 Pygments==2.6.1
 pylint==2.4.4
 pyparsing==2.4.6
 pyrsistent==0.15.7
 PySimpleGUI==4.16.0
+pytest==5.4.1
+pytest-cov==2.8.1
 python-dateutil==2.8.1
 PyYAML==5.3
 pyzmq==19.0.0
 regex==2020.2.20
 Send2Trash==1.5.0
 six==1.14.0
--e git+https://github.com/gregnordin/3dprinter_spectra_and_tools.git@ecdeff5a79e7e244421509c211ffa5f39189ab3d#egg=spectra
+-e git+https://github.com/gregnordin/3dprinter_spectra_and_tools.git@ff3ecd8189f20ca36d0e734bcb951784c47206ed#egg=spectra
 terminado==0.8.3
 testpath==0.4.4
 toml==0.10.0

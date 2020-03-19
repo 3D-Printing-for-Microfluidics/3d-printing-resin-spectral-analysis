@@ -20,5 +20,7 @@ setuptools.setup(
         "jupyterlab",
         "ipykernel",
         "pysimplegui",
+        "pytest",
+        "pytest-cov",
     ],
 )
