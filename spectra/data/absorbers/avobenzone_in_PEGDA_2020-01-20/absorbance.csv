@@ -1,17 +1,4 @@
-# Data from QEPB00791_17-18-57-140.txt Node
-# 
-# Date: Mon Jan 20 17:18:57 MST 2020
-# User: ecestudent
-# Spectrometer: QEPB0079
-# Trigger mode: 0
-# Integration Time (sec): 8.000000E-3
-# Scans to average: 1
-# Electric dark correction enabled: true
-# Nonlinearity correction enabled: false
-# Boxcar width: 0
-# XAxis mode: Wavelengths
-# Number of Pixels in Spectrum: 1044
-# >>>>>Begin Spectral Data<<<<<
+# {"Measurement": "Avobenzone absorption in PEGDA", "Measurement Date": "2020-01-20", "Measurement Spectrometer": "Ocean Optics FIRE", "Absorber": "Avobenzone", "Concentration w/w percent": 0.24, "Film thickness microns": 60, "Molar mass g/mole": 310.39, "Solvent": "PEGDA", "Solvent density g/L": 1110, "Solvent absorption measurement file": "QEPB00791_17-10-07-458.txt", "Solvent + absorber absorption measurement file": "QEPB00791_17-18-57-140.txt"}
 2.999689999999999941e+02,3.277615346469827662e-01
 3.007669999999999959e+02,3.241809346445437834e-01
 3.015649999999999977e+02,3.419478796615164629e-01

@@ -56,7 +56,7 @@ def read_OE65PRO_spectrum_data_file(file, skiprows=14, clip_to_zero=True):
     See docstring for `read_spectrometer_file`.
     """
 
-    print(file)
+    # print(file)
     return read_spectrometer_file(file, skiprows, clip_to_zero)
 
 
@@ -66,5 +66,5 @@ def read_FIRE_spectrum_data_file(file, skiprows=14, clip_to_zero=True):
     See docstring for `read_spectrometer_file`.
     """
 
-    print(file)
+    # print(file)
     return read_spectrometer_file(file, skiprows, clip_to_zero)
