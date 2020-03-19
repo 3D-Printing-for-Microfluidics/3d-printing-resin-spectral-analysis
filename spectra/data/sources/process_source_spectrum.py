@@ -11,26 +11,9 @@ import PySimpleGUI as sg
 from spectra.utilities import read_FIRE_spectrum_data_file
 
 
-def read_Fire_spectrum_data_file(file, skiprows=14, clip_to_zero=True):
-    """Read header and data from spectrum data file collected by Ocean Optics FIRE spectrometer."""
-
-    # Data
-    data = np.loadtxt(file, skiprows=skiprows)
-    if clip_to_zero:
-        data = np.clip(data, 0, None)
-
-    # Header lines
-    header_lines = []
-    with file.open() as f:
-        for i in range(skiprows):  # pylint: disable=unused-variable
-            header_lines.append(f.readline().strip())
-
-    return header_lines, data
-
-
 # Open a file browser to get spectrometer data file for input
 layout = [
-    [sg.Text("Spectrometer data file")],
+    [sg.Text("Spectrometer data file for LED source")],
     [sg.Input(), sg.FileBrowse(initial_folder=Path.cwd()),],
     [sg.Submit(), sg.Cancel()],
 ]
