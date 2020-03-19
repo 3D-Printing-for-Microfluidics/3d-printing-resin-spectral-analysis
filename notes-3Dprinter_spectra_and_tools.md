@@ -29,9 +29,16 @@
 
 ## pytest
 
+### Install
+
     $ pip install pytest
     $ pip install pytest-cov
     $ pip freeze > requirement.txt
 
+### Use
+
+Pytest command to get code coverage, verbose, and allow code to print to terminal:
+
+    $ pytest --cov spectra --cov-report term-missing -vv -s
 
 
