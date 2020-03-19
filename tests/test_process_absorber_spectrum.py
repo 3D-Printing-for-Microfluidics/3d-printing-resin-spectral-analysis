@@ -15,7 +15,22 @@ from spectra.process_absorber_spectrum import (
 
 
 def test_read_spectrum_config_json():
-    pass
+    json_file = Path(__file__).parent / "files_for_tests" / "spectrum_config.json"
+    temp = read_spectrum_config_json(json_file)
+    result = {
+        "Measurement": "Avobenzone absorption in PEGDA",
+        "Measurement Date": "2020-01-20",
+        "Measurement Spectrometer": "Ocean Optics FIRE",
+        "Absorber": "Avobenzone",
+        "Concentration w/w percent": 0.24,
+        "Film thickness microns": 60,
+        "Molar mass g/mole": 310.39,
+        "Solvent": "PEGDA",
+        "Solvent density g/L": 1110,
+        "Solvent absorption measurement file": "QEPB00791_17-10-07-458.txt",
+        "Solvent + absorber absorption measurement file": "QEPB00791_17-18-57-140.txt",
+    }
+    assert temp == result
 
 
 def test_select_wavelength_range():
