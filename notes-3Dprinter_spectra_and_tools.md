@@ -11,6 +11,8 @@
     - Read json string in first line of data files
     - Use json string for various labels, etc.
 - &#9989; Compare 2020 and 2017 avobenzone molar absorptivity
+- &#9989; Move absorbers and sources to data/__init__.py from data/absorbers/__init__.py and data/sources/__init__.py
+- Add & process spectrum data for more 2017 absorber measurements
 - Create a PhotoinitiatorSpectrum class?
 - Add 2020 Irgacure 819 absorption measurements
 - Add 2017 Irgacure 819 absorption measurements and compare to 2020
@@ -30,6 +32,7 @@
 # Friday, 3/20/20
 
 - Find that when using `%matplotlib widget` I need to save figure files as `.svg`.
+- Move absorbers and sources to data/__init__.py from data/absorbers/__init__.py and data/sources/__init__.py
 
 
 # Thursday, 3/19/20
