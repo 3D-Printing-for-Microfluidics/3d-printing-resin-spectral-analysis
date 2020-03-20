@@ -3,13 +3,18 @@
 
 - &#9989; Create module process_absorber_spectrum.py
 - &#9989; Add tests for process_absorber_spectrum.py
-- Change process_absorber_spectrum.py so that it handles FIRE files and older csv files
-- Add 2017 avobenzone measurements using a pull request
-- Create an AbsorberSpectrum class similar to the SourceSpectrum class
-- Compare 2020 and 2017 avobenzone molar absorptivity
+- &#9989; Change process_absorber_spectrum.py so that it handles FIRE files and older csv files
+- &#9989; Add 2017 avobenzone measurements using a pull request
+- &#9989; Create an AbsorberSpectrum class similar to the SourceSpectrum class
+    - Read absorbance as well as molar absorptivity
+    - Put in error checks for presence of 2 data files
+    - Read json string in first line of data files
+    - Use json string for various labels, etc.
+- &#9989; Compare 2020 and 2017 avobenzone molar absorptivity
 - Create a PhotoinitiatorSpectrum class?
 - Add 2020 Irgacure 819 absorption measurements
 - Add 2017 Irgacure 819 absorption measurements and compare to 2020
+- Add other absorbers and photoinitiators
 - Create interpolation function for spectra
 - Create a Resin class that includes one or more photoinitiators and absorbers
     - Since they are all absorbers, can probably put them all into a list
@@ -37,7 +42,12 @@ Current spectrometer data file format is different from several years ago:
     - 2 header lines starting with `#`
     - `,` separator between values
 
-Modify spectra.utilities.read_spectrometer_file to read both spectrometer file types    
+Modify spectra.utilities.read_spectrometer_file to read both spectrometer file types 
+
+- Process 2017-04-13 avobenzone data
+- Create an AbsorberSpectrum class
+- Compare 2020 and 2017 avobenzone molar absorptivity
+
 
 # Wednesday, 3/18/20
 
