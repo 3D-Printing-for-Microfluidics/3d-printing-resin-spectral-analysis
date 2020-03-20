@@ -1,0 +1,13 @@
+{
+  "Measurement": "Avobenzone absorption in PEGDA",
+  "Measurement Date": "2019-04-13",
+  "Measurement Spectrometer": "Ocean Optics OE65PRO",
+  "Absorber": "Avobenzone",
+  "Concentration w/w percent": 0.24,
+  "Film thickness microns": 60,
+  "Molar mass g/mole": 310.39,
+  "Solvent": "PEGDA",
+  "Solvent density g/L": 1110,
+  "Solvent absorption measurement file": "Avobenzone_01per_noresin_80ms_0_01.csv",
+  "Solvent + absorber absorption measurement file": "Avobenzone_01per_80ms_0_01.csv"
+}
