@@ -1,4 +1,4 @@
-# {"Measurement": "Avobenzone absorption in PEGDA", "Measurement Date": "2020-01-20", "Measurement Spectrometer": "Ocean Optics FIRE", "Absorber": "Avobenzone", "Concentration w/w percent": 0.24, "Film thickness microns": 60, "Molar mass g/mole": 310.39, "Solvent": "PEGDA", "Solvent density g/L": 1110, "Solvent absorption measurement file": "QEPB00791_17-10-07-458.txt", "Solvent + absorber absorption measurement file": "QEPB00791_17-18-57-140.txt"}
+# {"Measurement": "Avobenzone absorption in PEGDA", "Measurement Date": "2020-01-20", "Measurement Spectrometer": "Ocean Optics OE65PRO", "Absorber": "Avobenzone", "Concentration w/w percent": 0.24, "Film thickness microns": 60, "Molar mass g/mole": 310.39, "Solvent": "PEGDA", "Solvent density g/L": 1110, "Solvent absorption measurement file": "QEPB00791_17-10-07-458.txt", "Solvent + absorber absorption measurement file": "QEPB00791_17-18-57-140.txt"}
 2.999689999999999941e+02,6.364733654847159414e+03
 3.007669999999999959e+02,6.295202721741738969e+03
 3.015649999999999977e+02,6.640215363372003594e+03

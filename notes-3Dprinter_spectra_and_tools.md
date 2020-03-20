@@ -2,7 +2,8 @@
 # Next
 
 - &#9989; Create module process_absorber_spectrum.py
-- Add tests for process_absorber_spectrum.py
+- &#9989; Add tests for process_absorber_spectrum.py
+- Change process_absorber_spectrum.py so that it handles FIRE files and older csv files
 - Add 2017 avobenzone measurements using a pull request
 - Create an AbsorberSpectrum class similar to the SourceSpectrum class
 - Compare 2020 and 2017 avobenzone molar absorptivity

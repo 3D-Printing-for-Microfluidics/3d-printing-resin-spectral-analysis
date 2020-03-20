@@ -1,7 +1,7 @@
 {
   "Measurement": "Avobenzone absorption in PEGDA",
   "Measurement Date": "2020-01-20",
-  "Measurement Spectrometer": "Ocean Optics FIRE",
+  "Measurement Spectrometer": "Ocean Optics OE65PRO",
   "Absorber": "Avobenzone",
   "Concentration w/w percent": 0.24,
   "Film thickness microns": 60,
