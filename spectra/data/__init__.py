@@ -1,5 +1,8 @@
 from pathlib import Path
 
+from spectra.absorberspectrum import AbsorberSpectrum
+from spectra.sourcespectrum import SourceSpectrum
+
 
 def _get_data_directories(directory):
     filename_bad_first_characters = [".", "_"]
@@ -12,38 +15,40 @@ def _get_data_directories(directory):
     )
 
 
+def _populate_data_type(dir_name, class_type):
+    """Get all data for a particular type (sources, absorbers, photoinitiators).
+
+    Parameters
+    ----------
+    dir_name - str
+        Name of directory that contains data for a particular type
+    class_type - Class
+        Class to contain data (either AbsorberSpectrum or SourceSpectrum)
+    """
+    main_directory = Path(__file__).resolve().parent / dir_name
+    data_directories = _get_data_directories(main_directory)
+    result = {}
+    for d in data_directories:
+        result[d.name] = class_type(d)
+    return result
+
+
 # -----------------------------------------------------------------------------
 #  Absorbers
 # -----------------------------------------------------------------------------
 
-from spectra.absorberspectrum import AbsorberSpectrum
-
-absorbers_directory = Path(__file__).resolve().parent / "absorbers"
-_directories = _get_data_directories(absorbers_directory)
-absorbers = {}
-for _d in _directories:
-    absorbers[_d.name] = AbsorberSpectrum(_d)
+absorbers = _populate_data_type("absorbers", AbsorberSpectrum)
 
 
 # -----------------------------------------------------------------------------
 #  Photoinitiators
 # -----------------------------------------------------------------------------
 
-photoinitiators_directory = Path(__file__).resolve().parent / "photoinitiators"
-_directories = _get_data_directories(photoinitiators_directory)
-photoinitiators = {}
-for _d in _directories:
-    photoinitiators[_d.name] = AbsorberSpectrum(_d)
+photoinitiators = _populate_data_type("photoinitiators", AbsorberSpectrum)
 
 
 # -----------------------------------------------------------------------------
 #  Sources
 # -----------------------------------------------------------------------------
 
-from spectra.sourcespectrum import SourceSpectrum
-
-sources_directory = Path(__file__).resolve().parent / "sources"
-_directories = _get_data_directories(sources_directory)
-sources = {}
-for _d in _directories:
-    sources[_d.name] = SourceSpectrum(_d)
+sources = _populate_data_type("sources", SourceSpectrum)

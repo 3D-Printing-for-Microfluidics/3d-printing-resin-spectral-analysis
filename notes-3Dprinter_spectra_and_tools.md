@@ -33,6 +33,7 @@
 
 - Find that when using `%matplotlib widget` I need to save figure files as `.svg`.
 - Move absorbers and sources to data/__init__.py from data/absorbers/__init__.py and data/sources/__init__.py
+- DRY refactor of data/__init__.py
 
 
 # Thursday, 3/19/20
