@@ -39,7 +39,7 @@ def calc_absorbance(
     absorber_spectrum,
     wavelength_low,
     wavelength_high,
-    force_positive=True,
+    force_zero=True,
     num_samples_for_average=10,
 ):
 
@@ -61,10 +61,9 @@ def calc_absorbance(
 
     # Make sure the average absorbance is 0 in the high wavelength range
     # where there is presumably no absorption
-    if force_positive:
+    if force_zero:
         avg = np.mean(absorbance[-num_samples_for_average:, 1])
-        if avg < 0.0:
-            absorbance[:, 1] += -avg
+        absorbance[:, 1] -= avg
 
     return absorbance
 
@@ -87,7 +86,7 @@ def process_spectrum_data(
     directory,
     spectrum_config,
     wavelength_range=[300, 540],
-    force_positive=True,
+    force_zero=True,
     num_samples_for_average=10,
 ):
     """Process spectrometer data to create absorbance and molar absorptivity csv files.
@@ -103,7 +102,7 @@ def process_spectrum_data(
         Wavelength range over which to do calculations. Low end is set by signal to noise
         ratio of data, and high end is larger than 532 nm laser wavelength, but smaller than
         saturated measurement data starting at 543 nm.
-    force_positive - bool
+    force_zero - bool
         Used in calc_absorbance()
     num_samples_for_average - int
         Used in calc_absorbance()
@@ -157,7 +156,7 @@ def process_spectrum_data(
         solvent_spectrometer_data,
         solvent_and_absorber_spectrometer_data,
         *wavelength_range,
-        force_positive=force_positive,
+        force_zero=force_zero,
         num_samples_for_average=num_samples_for_average,
     )
     output_data_file = directory / "absorbance.csv"
@@ -234,4 +233,3 @@ if __name__ == "__main__":
     print(
         f"Spectrum successfully processed to create 'absorbance.csv' and 'molar_absorptivity.csv'"
     )
-
