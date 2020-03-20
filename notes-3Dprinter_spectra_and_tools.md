@@ -37,6 +37,8 @@ Current spectrometer data file format is different from several years ago:
     - 2 header lines starting with `#`
     - `,` separator between values
 
+Modify spectra.utilities.read_spectrometer_file to read both spectrometer file types    
+
 # Wednesday, 3/18/20
 
 ## Code to process absorber spectrum

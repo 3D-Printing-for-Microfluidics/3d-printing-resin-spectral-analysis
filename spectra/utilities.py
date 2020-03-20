@@ -14,7 +14,7 @@ def find_index_of_nearest(var_array, value):
     return idx
 
 
-def read_spectrometer_file(file, skiprows, clip_to_zero=True):
+def read_spectrometer_file(file, clip_to_zero=True):
     """Read spectrometer-generated spectrum data file.
 
     Parameters
@@ -33,11 +33,17 @@ def read_spectrometer_file(file, skiprows, clip_to_zero=True):
     """
 
     assert isinstance(file, Path)
-    assert isinstance(skiprows, int)
     assert isinstance(clip_to_zero, bool)
 
+    if file.name.endswith(".txt"):
+        skiprows = 14
+        delimiter = None
+    elif file.name.endswith(".csv"):
+        skiprows = 2
+        delimiter = ","
+
     # Data
-    data = np.loadtxt(file, skiprows=skiprows)
+    data = np.loadtxt(file, skiprows=skiprows, delimiter=delimiter)
     if clip_to_zero:
         data = np.clip(data, 0, None)
 
@@ -50,21 +56,21 @@ def read_spectrometer_file(file, skiprows, clip_to_zero=True):
     return header_lines, data
 
 
-def read_OE65PRO_spectrum_data_file(file, skiprows=14, clip_to_zero=True):
+def read_OE65PRO_spectrum_data_file(file, clip_to_zero=True):
     """Read header and data from spectrum data file collected by Ocean Optics QE65PRO-ABS spectrometer.
 
     See docstring for `read_spectrometer_file`.
     """
 
     # print(file)
-    return read_spectrometer_file(file, skiprows, clip_to_zero)
+    return read_spectrometer_file(file, clip_to_zero)
 
 
-def read_FIRE_spectrum_data_file(file, skiprows=14, clip_to_zero=True):
+def read_FIRE_spectrum_data_file(file, clip_to_zero=True):
     """Read header and data from spectrum data file collected by Ocean Optics FIRE spectrometer.
 
     See docstring for `read_spectrometer_file`.
     """
 
     # print(file)
-    return read_spectrometer_file(file, skiprows, clip_to_zero)
+    return read_spectrometer_file(file, clip_to_zero)
