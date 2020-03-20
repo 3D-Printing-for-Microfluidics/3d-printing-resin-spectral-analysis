@@ -26,6 +26,16 @@
 
 - Write tests for `process_spectrum_data` in `process_absorber_spectrum.py`
 
+Current spectrometer data file format is different from several years ago:
+
+- Current
+    - `.txt`
+    - 14 header lines with no particular starting character
+    - ` ` separator between values
+- Previous
+    - `.csv `
+    - 2 header lines starting with `#`
+    - `,` separator between values
 
 # Wednesday, 3/18/20
 
