@@ -27,6 +27,11 @@
 - Add tests for all code
 
 
+# Friday, 3/20/20
+
+- Find that when using `%matplotlib widget` I need to save figure files as `.svg`.
+
+
 # Thursday, 3/19/20
 
 - Write tests for `process_spectrum_data` in `process_absorber_spectrum.py`
