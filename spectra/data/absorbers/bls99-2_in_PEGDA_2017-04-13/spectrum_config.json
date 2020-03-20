@@ -1,0 +1,13 @@
+{
+  "Measurement": "BLS99-2 absorption in PEGDA",
+  "Measurement Date": "2017-04-13",
+  "Measurement Spectrometer": "Ocean Optics OE65PRO",
+  "Absorber": "BLS99-2",
+  "Concentration w/w percent": 0.5,
+  "Film thickness microns": 63.5,
+  "Molar mass g/mole": 437.6,
+  "Solvent": "PEGDA",
+  "Solvent density g/L": 1110,
+  "Solvent absorption measurement file": "BLS99-2_05per_noresin_72ms_0_01.csv",
+  "Solvent + absorber absorption measurement file": "BLS99-2_05per_72ms_0_01.csv"
+}

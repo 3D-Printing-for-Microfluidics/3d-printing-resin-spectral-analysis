@@ -1,0 +1,13 @@
+{
+  "Measurement": "Martius Yellow absorption in PEGDA",
+  "Measurement Date": "2017-04-13",
+  "Measurement Spectrometer": "Ocean Optics OE65PRO",
+  "Absorber": "Martius Yellow",
+  "Concentration w/w percent": 0.4,
+  "Film thickness microns": 66.04,
+  "Molar mass g/mole": 234.17,
+  "Solvent": "PEGDA",
+  "Solvent density g/L": 1110,
+  "Solvent absorption measurement file": "MY_04per_noresin_72ms_0_01.csv",
+  "Solvent + absorber absorption measurement file": "MY_04per_72ms_0_01.csv"
+}

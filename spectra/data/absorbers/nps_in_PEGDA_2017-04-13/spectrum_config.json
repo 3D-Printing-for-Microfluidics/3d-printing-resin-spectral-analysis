@@ -1,0 +1,13 @@
+{
+  "Measurement": "NPS absorption in PEGDA",
+  "Measurement Date": "2017-04-13",
+  "Measurement Spectrometer": "Ocean Optics OE65PRO",
+  "Absorber": "NPS",
+  "Concentration w/w percent": 0.5,
+  "Film thickness microns": 63.5,
+  "Molar mass g/mole": 231.27,
+  "Solvent": "PEGDA",
+  "Solvent density g/L": 1110,
+  "Solvent absorption measurement file": "NPS_05per_noresin_72ms_0_01.csv",
+  "Solvent + absorber absorption measurement file": "NPS_05per_72ms_0_01.csv"
+}

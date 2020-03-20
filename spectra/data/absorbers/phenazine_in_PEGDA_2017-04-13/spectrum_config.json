@@ -1,0 +1,13 @@
+{
+  "Measurement": "Phenazine absorption in PEGDA",
+  "Measurement Date": "2017-04-13",
+  "Measurement Spectrometer": "Ocean Optics OE65PRO",
+  "Absorber": "Phenazine",
+  "Concentration w/w percent": 0.2,
+  "Film thickness microns": 58.42,
+  "Molar mass g/mole": 180.21,
+  "Solvent": "PEGDA",
+  "Solvent density g/L": 1110,
+  "Solvent absorption measurement file": "Phenazine_02per_noresin_68ms_0_01.csv",
+  "Solvent + absorber absorption measurement file": "Phenazine_02per_68ms_0_01.csv"
+}

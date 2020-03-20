@@ -1,0 +1,13 @@
+{
+  "Measurement": "Octocrylene absorption in PEGDA",
+  "Measurement Date": "2017-04-13",
+  "Measurement Spectrometer": "Ocean Optics OE65PRO",
+  "Absorber": "Octocrylene",
+  "Concentration w/w percent": 1.0,
+  "Film thickness microns": 63.5,
+  "Molar mass g/mole": 361.48,
+  "Solvent": "PEGDA",
+  "Solvent density g/L": 1110,
+  "Solvent absorption measurement file": "Octocrylene_1per_noresin_80ms_0_01.csv",
+  "Solvent + absorber absorption measurement file": "Octocrylene_1per_80ms_0_01.csv"
+}

@@ -12,11 +12,11 @@
     - Use json string for various labels, etc.
 - &#9989; Compare 2020 and 2017 avobenzone molar absorptivity
 - &#9989; Move absorbers and sources to data/__init__.py from data/absorbers/__init__.py and data/sources/__init__.py
-- Add & process spectrum data for more 2017 absorber measurements
-- Create a PhotoinitiatorSpectrum class?
+- &#9989; Add & process spectrum data for more 2017 absorber measurements
+- &#10060; Create a PhotoinitiatorSpectrum class?
 - Add 2020 Irgacure 819 absorption measurements
 - Add 2017 Irgacure 819 absorption measurements and compare to 2020
-- Add other absorbers and photoinitiators and sources
+- Add photoinitiators and other sources
 - Create interpolation function for spectra
 - Create a Resin class that includes one or more photoinitiators and absorbers
     - Since they are all absorbers, can probably put them all into a list
@@ -34,6 +34,9 @@
 - Find that when using `%matplotlib widget` I need to save figure files as `.svg`.
 - Move absorbers and sources to data/__init__.py from data/absorbers/__init__.py and data/sources/__init__.py
 - DRY refactor of data/__init__.py
+- Change flag to zero absorbance in long wavelength, no absorption region
+- Add absorbance data to AbsorberSpectrum
+- Add a bunch of absorbers from 2017
 
 
 # Thursday, 3/19/20
