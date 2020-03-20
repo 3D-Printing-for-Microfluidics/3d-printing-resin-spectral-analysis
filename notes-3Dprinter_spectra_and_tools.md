@@ -16,7 +16,7 @@
 - Create a PhotoinitiatorSpectrum class?
 - Add 2020 Irgacure 819 absorption measurements
 - Add 2017 Irgacure 819 absorption measurements and compare to 2020
-- Add other absorbers and photoinitiators
+- Add other absorbers and photoinitiators and sources
 - Create interpolation function for spectra
 - Create a Resin class that includes one or more photoinitiators and absorbers
     - Since they are all absorbers, can probably put them all into a list

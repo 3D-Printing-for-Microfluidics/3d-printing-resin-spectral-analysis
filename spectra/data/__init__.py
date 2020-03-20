@@ -30,25 +30,27 @@ def _populate_data_type(dir_name, class_type):
     result = {}
     for d in data_directories:
         result[d.name] = class_type(d)
-    return result
+    return result, main_directory
 
 
 # -----------------------------------------------------------------------------
 #  Absorbers
 # -----------------------------------------------------------------------------
 
-absorbers = _populate_data_type("absorbers", AbsorberSpectrum)
+absorbers, absorbers_directory = _populate_data_type("absorbers", AbsorberSpectrum)
 
 
 # -----------------------------------------------------------------------------
 #  Photoinitiators
 # -----------------------------------------------------------------------------
 
-photoinitiators = _populate_data_type("photoinitiators", AbsorberSpectrum)
+photoinitiators, photoinitiators_directory = _populate_data_type(
+    "photoinitiators", AbsorberSpectrum
+)
 
 
 # -----------------------------------------------------------------------------
 #  Sources
 # -----------------------------------------------------------------------------
 
-sources = _populate_data_type("sources", SourceSpectrum)
+sources, sources_directory = _populate_data_type("sources", SourceSpectrum)
