@@ -83,7 +83,13 @@ def calc_molar_absorptivity(absorbance, molar_concentration, length_um):
     return absorbance / (molar_concentration * length_cm)
 
 
-def process_spectrum_data(directory, spectrum_config, wavelength_range=[300, 540]):
+def process_spectrum_data(
+    directory,
+    spectrum_config,
+    wavelength_range=[300, 540],
+    force_positive=True,
+    num_samples_for_average=10,
+):
     """Process spectrometer data to create absorbance and molar absorptivity csv files.
     
     Parameters
@@ -97,6 +103,10 @@ def process_spectrum_data(directory, spectrum_config, wavelength_range=[300, 540
         Wavelength range over which to do calculations. Low end is set by signal to noise
         ratio of data, and high end is larger than 532 nm laser wavelength, but smaller than
         saturated measurement data starting at 543 nm.
+    force_positive - bool
+        Used in calc_absorbance()
+    num_samples_for_average - int
+        Used in calc_absorbance()
         
     Returns
     -------
@@ -147,6 +157,8 @@ def process_spectrum_data(directory, spectrum_config, wavelength_range=[300, 540
         solvent_spectrometer_data,
         solvent_and_absorber_spectrometer_data,
         *wavelength_range,
+        force_positive=force_positive,
+        num_samples_for_average=num_samples_for_average,
     )
     output_data_file = directory / "absorbance.csv"
     np.savetxt(

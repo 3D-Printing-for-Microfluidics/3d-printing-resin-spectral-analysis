@@ -67,3 +67,61 @@ def test_calc_molar_absorptivity():
     # Use made-up values
     molar_absorptivity = calc_molar_absorptivity(1.0, 0.02, 100)
     assert molar_absorptivity == 5000.0
+
+
+def test_process_spectrum_data():
+
+    # Point to correct directory
+    directory = (
+        Path(__file__).parent / "files_for_tests" / "data_for_test_process_spectrum_data"
+    )
+
+    # Get json config file
+    json_file = directory / "spectrum_config.json"
+    spectrum_config = read_spectrum_config_json(json_file)
+
+    # Process spectrum data
+    process_spectrum_data(
+        directory, spectrum_config, wavelength_range=[300, 500], num_samples_for_average=3
+    )
+
+    # Read data files just created
+    temp_absorbance = np.loadtxt(directory / "absorbance.csv", delimiter=",")
+    temp_molar_absorptivity = np.loadtxt(
+        directory / "molar_absorptivity.csv", delimiter=","
+    )
+
+    # Read data files to compare to
+    result_absorbance = np.loadtxt(
+        directory / "results" / "absorbance.csv", delimiter=","
+    )
+    result_molar_absorptivity = np.loadtxt(
+        directory / "results" / "molar_absorptivity.csv", delimiter=","
+    )
+
+    assert np.allclose(temp_absorbance, result_absorbance)
+    assert np.allclose(temp_molar_absorptivity, result_molar_absorptivity)
+
+    # Now test special cases
+
+    # Missing key in spectrum_config to calculate absorbance
+    temp_spectrum_config = spectrum_config.copy()
+    del temp_spectrum_config["Solvent absorption measurement file"]
+    with pytest.raises(KeyError):
+        assert process_spectrum_data(
+            directory,
+            temp_spectrum_config,
+            wavelength_range=[300, 500],
+            num_samples_for_average=3,
+        )
+
+    # Missing key in spectrum_config to calculate molar absorptivity
+    temp_spectrum_config = spectrum_config.copy()
+    del temp_spectrum_config["Film thickness microns"]
+    with pytest.raises(SystemExit):
+        assert process_spectrum_data(
+            directory,
+            temp_spectrum_config,
+            wavelength_range=[300, 500],
+            num_samples_for_average=3,
+        )

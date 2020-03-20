@@ -21,11 +21,17 @@
 - Add tests for all code
 
 
+# Thursday, 3/19/20
+
+- Write tests for `process_spectrum_data` in `process_absorber_spectrum.py`
+
+
 # Wednesday, 3/18/20
 
-## Create process absorber code
+## Code to process absorber spectrum
 
 - `process_absorber_spectrum.py` and preceeding notebooks
+- Start to develop tests
 
 ## pytest
 
