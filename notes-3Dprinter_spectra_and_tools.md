@@ -16,9 +16,11 @@
 - &#10060; Create a PhotoinitiatorSpectrum class?
 - &#9989; Need to be able to override `force_zero` for Sudan I absorber
 - &#9989; Re-do Sudan I absorber
-- Add 2020 Irgacure 819 absorption measurements
-- Add 2017 Irgacure 819 absorption measurements and compare to 2020
-- Add photoinitiators and other sources
+- In process_absorber_spectrum.py read spectrum_config.json, display values, allow to override values
+- &#9989; Add 2020 Irgacure 819 absorption measurements
+- &#9989; Add 2017 Irgacure 819 absorption measurements and compare to 2020
+- Add other photoinitiators
+- Add other sources
 - Create interpolation function for spectra
 - Create a Resin class that includes one or more photoinitiators and absorbers
     - Since they are all absorbers, can probably put them all into a list
@@ -29,6 +31,7 @@
     - Fit to Models 1 and 2
 - Use to plot normalized dose as a function of lambda and z
 - Add tests for all code
+- Create data and classes to handle thickness vs exposure time measurements and Model 3 & 4 fits
 
 
 # Saturday, 3/21/20

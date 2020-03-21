@@ -1,0 +1,13 @@
+{
+  "Measurement": "Irgacure 819 absorption in PEGDA",
+  "Measurement Date": "2020-01-20",
+  "Measurement Spectrometer": "Ocean Optics OE65PRO",
+  "Absorber": "Irgacure 819",
+  "Concentration w/w percent": 1.0,
+  "Film thickness microns": 60,
+  "Molar mass g/mole": 418.5,
+  "Solvent": "PEGDA",
+  "Solvent density g/L": 1110,
+  "Solvent absorption measurement file": "QEPB00791_17-10-07-458.txt",
+  "Solvent + absorber absorption measurement file": "QEPB00791_17-13-57-708.txt"
+}
