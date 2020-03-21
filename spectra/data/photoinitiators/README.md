@@ -1,0 +1,1 @@
+To add absorption data for a photoinitiator, follow the same instructions as for adding an absorber. These are found at [absorbers/README.md](../absorbers/README.md). The only difference is perform Step 1 in the `spectra/data/photoinitiators` directory instead of in the `spectra/data/absorbers` directory.

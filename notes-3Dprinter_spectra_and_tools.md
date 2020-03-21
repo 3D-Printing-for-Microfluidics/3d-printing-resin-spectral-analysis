@@ -19,7 +19,7 @@
 - In process_absorber_spectrum.py read spectrum_config.json, display values, allow to override values
 - &#9989; Add 2020 Irgacure 819 absorption measurements
 - &#9989; Add 2017 Irgacure 819 absorption measurements and compare to 2020
-- Add other photoinitiators
+- &#10060; Add other photoinitiators
 - Add other sources
 - Create interpolation function for spectra
 - Create a Resin class that includes one or more photoinitiators and absorbers
@@ -46,7 +46,8 @@
         - Inaccurate resin thickness measurement
             - Systematic error measuring thickness of white films
             - Bowing of glass slides when ends are clamped, which can lead to difference in thickness from white film thickness, and position-dependent thickness
-
+    - Measure multiple resin samples in the same slide sandwich?
+- Provide clear instructions to add a spectrum in `data/absorbers/README.md` and `data/photoinitiators/README.md`
 
 # Friday, 3/20/20
 
