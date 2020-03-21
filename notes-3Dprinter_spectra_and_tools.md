@@ -37,6 +37,15 @@
 # Saturday, 3/21/20
 
 - Modify `process_absorber_spectrum.py` GUI with checkbox for `force_zero` to handle Sudan I case
+- Add 2020-01-20 Irgacure 819 absorption spectrum measurement 
+    - it has a different magnitude than the 2017-04-13 measurement
+    - **Do we need to measure the transmission spectrum multiple times for PEGDA and PEGDA+Absorber and do averages for each??? Or calculate absorbance for each and average absorbances??**
+    - **Move the sandwiched sample slides between each measurement so sample different physical locations on the slide sandwich??**
+    - It all comes down to what is the source for the measurement variations:
+        - Position-dependent resin thickness between the 2 slides?
+        - Inaccurate resin thickness measurement
+            - Systematic error measuring thickness of white films
+            - Bowing of glass slides when ends are clamped, which can lead to difference in thickness from white film thickness, and position-dependent thickness
 
 
 # Friday, 3/20/20
