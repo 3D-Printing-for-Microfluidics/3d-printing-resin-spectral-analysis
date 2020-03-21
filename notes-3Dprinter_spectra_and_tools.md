@@ -48,6 +48,7 @@
             - Bowing of glass slides when ends are clamped, which can lead to difference in thickness from white film thickness, and position-dependent thickness
     - Measure multiple resin samples in the same slide sandwich?
 - Provide clear instructions to add a spectrum in `data/absorbers/README.md` and `data/photoinitiators/README.md`
+- Add more sources: Asiga 405 nm, HR1 385 nm, MR1 Wintech 365 nm with and without 370 nm short pass filter
 
 # Friday, 3/20/20
 
