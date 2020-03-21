@@ -51,6 +51,7 @@
 - Add more sources: Asiga 405 nm, HR1 385 nm, MR1 Wintech 365 nm with and without 370 nm short pass filter
 - Add interpolation methods to SourceSpectrum and AbsorberSpectrum
 - Add test for SourceSpectrum
+- Add test for AbsorberSpectrum
 
 
 # Friday, 3/20/20
