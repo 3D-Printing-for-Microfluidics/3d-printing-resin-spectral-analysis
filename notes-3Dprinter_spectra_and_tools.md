@@ -14,6 +14,7 @@
 - &#9989; Move absorbers and sources to data/__init__.py from data/absorbers/__init__.py and data/sources/__init__.py
 - &#9989; Add & process spectrum data for more 2017 absorber measurements
 - &#10060; Create a PhotoinitiatorSpectrum class?
+- Need to be able to override `force_zero` for Sudan I absorber
 - Add 2020 Irgacure 819 absorption measurements
 - Add 2017 Irgacure 819 absorption measurements and compare to 2020
 - Add photoinitiators and other sources

@@ -1,0 +1,13 @@
+{
+  "Measurement": "Sudan I absorption in PEGDA",
+  "Measurement Date": "2017-04-13",
+  "Measurement Spectrometer": "Ocean Optics OE65PRO",
+  "Absorber": "Sudan I",
+  "Concentration w/w percent": 0.2,
+  "Film thickness microns": 60.96,
+  "Molar mass g/mole": 248.28,
+  "Solvent": "PEGDA",
+  "Solvent density g/L": 1110,
+  "Solvent absorption measurement file": "SudanI_02per_noresin_64ms_0_01.csv",
+  "Solvent + absorber absorption measurement file": "SudanI_02per_64ms_0_01.csv"
+}
