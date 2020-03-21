@@ -8,3 +8,14 @@ This repository contains spectra and associated tools for resin and 3D printer d
 [Custom 3D printer and resin for 18 μm × 20 μm microfluidic flow channels](https://www.ncbi.nlm.nih.gov/pubmed/28726927)  
 
 
+# Installation
+
+TBD
+
+# How to use
+
+TBD
+
+# Run tests
+
+    $ pytest --cov spectra --cov-report term-missing -vv -s

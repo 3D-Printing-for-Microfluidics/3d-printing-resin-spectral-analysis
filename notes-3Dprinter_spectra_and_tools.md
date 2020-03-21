@@ -20,8 +20,8 @@
 - &#9989; Add 2020 Irgacure 819 absorption measurements
 - &#9989; Add 2017 Irgacure 819 absorption measurements and compare to 2020
 - &#10060; Add other photoinitiators
-- Add other sources
-- Create interpolation function for spectra
+- &#9989; Add other sources
+- &#9989; Create interpolation function for spectra
 - Create a Resin class that includes one or more photoinitiators and absorbers
     - Since they are all absorbers, can probably put them all into a list
     - Calculates absorption coefficient
@@ -49,6 +49,7 @@
     - Measure multiple resin samples in the same slide sandwich?
 - Provide clear instructions to add a spectrum in `data/absorbers/README.md` and `data/photoinitiators/README.md`
 - Add more sources: Asiga 405 nm, HR1 385 nm, MR1 Wintech 365 nm with and without 370 nm short pass filter
+- Add interpolation methods to SourceSpectrum and AbsorberSpectrum
 
 # Friday, 3/20/20
 
