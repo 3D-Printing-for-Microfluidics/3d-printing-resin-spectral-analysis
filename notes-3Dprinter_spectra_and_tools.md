@@ -50,6 +50,8 @@
 - Provide clear instructions to add a spectrum in `data/absorbers/README.md` and `data/photoinitiators/README.md`
 - Add more sources: Asiga 405 nm, HR1 385 nm, MR1 Wintech 365 nm with and without 370 nm short pass filter
 - Add interpolation methods to SourceSpectrum and AbsorberSpectrum
+- Add test for SourceSpectrum
+
 
 # Friday, 3/20/20
 
