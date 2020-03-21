@@ -200,23 +200,28 @@ if __name__ == "__main__":
     import PySimpleGUI as sg
 
     # Open a file browser to get spectrum_config.json file
+    checkbox_text = "Correct absorbance to zero at long wavelengths"
+    size = (40, 1)
     layout = [
         [sg.Text("Select JSON spectrum config file")],
-        [sg.Input(), sg.FileBrowse(initial_folder=Path.cwd()),],
-        [sg.Submit(), sg.Cancel()],
+        [sg.Input(size=size), sg.FileBrowse(initial_folder=Path.cwd()),],
+        [sg.Checkbox(checkbox_text, default=True, size=size), sg.Submit(), sg.Cancel(),],
     ]
     window = sg.Window("Select JSON file", layout)
     event, values = window.read()  # pylint: disable=unused-variable
     window.close()
+
+    # print(f"values: {values}")
 
     # Only continue if file was selected
     if event != "Submit":
         print("No file selected. Now exiting...")
         exit()
 
-    # Echo chosen file
+    # Extract GUI values
     input_json_file = Path(values[0])
     print(f"You chose file:\n    {input_json_file}")
+    force_zero = values[1]
 
     # Make sure file has expected suffix
     if input_json_file.suffix != ".json":
@@ -226,10 +231,10 @@ if __name__ == "__main__":
         exit()
 
     spectrum_config = read_spectrum_config_json(input_json_file)
-    print()
-    print(spectrum_config)
+    print("spectrum_config.json:")
+    print(json.dumps(spectrum_config, indent=2))
 
-    process_spectrum_data(input_json_file.parent, spectrum_config)
+    process_spectrum_data(input_json_file.parent, spectrum_config, force_zero=force_zero)
     print(
         f"Spectrum successfully processed to create 'absorbance.csv' and 'molar_absorptivity.csv'"
     )
