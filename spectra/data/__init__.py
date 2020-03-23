@@ -2,6 +2,7 @@ from pathlib import Path
 
 from spectra.absorberspectrum import AbsorberSpectrum
 from spectra.sourcespectrum import SourceSpectrum
+from spectra.monomer import Monomer
 
 
 def _get_data_directories(directory):
@@ -54,3 +55,10 @@ photoinitiators, photoinitiators_directory = _populate_data_type(
 # -----------------------------------------------------------------------------
 
 sources, sources_directory = _populate_data_type("sources", SourceSpectrum)
+
+
+# -----------------------------------------------------------------------------
+#  Monomers
+# -----------------------------------------------------------------------------
+
+monomers, monomers_directory = _populate_data_type("monomers", Monomer)
