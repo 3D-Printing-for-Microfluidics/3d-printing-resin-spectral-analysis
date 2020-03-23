@@ -50,16 +50,10 @@ def _populate_data_from_directories(dir_name, class_type):
 def _populate_data_from_json_files(dir_name, class_type):
     main_directory = Path(__file__).resolve().parent / dir_name
     json_files = sorted([f for f in main_directory.glob("*.json")])
-    print()
-    print(main_directory)
-    print(json_files)
-    print()
-    result = []
+    result = {}
     for json_file in json_files:
-        result.append(Monomer(json_file))
-
-    for m in result:
-        m.print()
+        temp = Monomer(json_file)
+        result[temp.name] = temp
 
     return result, main_directory
 

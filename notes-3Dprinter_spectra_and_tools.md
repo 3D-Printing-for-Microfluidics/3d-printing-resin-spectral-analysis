@@ -37,6 +37,7 @@
 # Monday, 3/23/20
 
 - Add a Monomers class, create data.monomers
+- Add tests for Monomers class and debug
 
 
 # Saturday, 3/21/20
