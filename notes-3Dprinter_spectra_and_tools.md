@@ -34,6 +34,11 @@
 - Create data and classes to handle thickness vs exposure time measurements and Model 3 & 4 fits
 
 
+# Monday, 3/23/20
+
+- Add a Monomers class, create data.monomers
+
+
 # Saturday, 3/21/20
 
 - Modify `process_absorber_spectrum.py` GUI with checkbox for `force_zero` to handle Sudan I case
