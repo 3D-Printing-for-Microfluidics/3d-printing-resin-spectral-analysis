@@ -41,6 +41,7 @@
 
 - Make `ResinConstituentAbsorber` and `ResinConstituentMonomer` classes
 - Add docstrings and examples to `ResinConstituent...` classes
+- Create docstring for `Resin` class prior to writing code
 
 
 # Monday, 3/23/20
