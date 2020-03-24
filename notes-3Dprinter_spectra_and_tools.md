@@ -24,7 +24,9 @@
 - &#9989; Create interpolation function for spectra
 - Create a Resin class that includes one or more photoinitiators and absorbers
     - Since they are all absorbers, can probably put them all into a list
-    - Calculates absorption coefficient
+    - Calculates molar concentrations that can be used in absorption coefficient calculation
+    - Calculates absorption coefficient, alpha(lambda)
+        - Make this so can linearly interpolate values for arbitrary wavelengths
 - Create a ResinAndSource class
     - Calculate D_n(lambda)?
     - Calculate D'(z)
@@ -32,11 +34,13 @@
 - Use to plot normalized dose as a function of lambda and z
 - Add tests for all code
 - Create data and classes to handle thickness vs exposure time measurements and Model 3 & 4 fits
+- Create documentation to explain theory and how code works
 
 
 # Tuesday, 3/24/20
 
 - Make `ResinConstituentAbsorber` and `ResinConstituentMonomer` classes
+- Add docstrings and examples to `ResinConstituent...` classes
 
 
 # Monday, 3/23/20
