@@ -6,7 +6,7 @@
 - &#9989; Change process_absorber_spectrum.py so that it handles FIRE files and older csv files
 - &#9989; Add 2017 avobenzone measurements using a pull request
 - &#9989; Create an AbsorberSpectrum class similar to the SourceSpectrum class
-    - Read absorbance as well as molar absorptivity
+    - &#9989; Read absorbance as well as molar absorptivity
     - Put in error checks for presence of 2 data files
     - Read json string in first line of data files
     - Use json string for various labels, etc.
@@ -38,6 +38,7 @@
 
 - Add a Monomers class, create data.monomers
 - Add tests for Monomers class and debug
+- Start to develop a Resin class, starting with constituent materials
 
 
 # Saturday, 3/21/20
