@@ -34,6 +34,11 @@
 - Create data and classes to handle thickness vs exposure time measurements and Model 3 & 4 fits
 
 
+# Tuesday, 3/24/20
+
+- Make `ResinConstituentAbsorber` and `ResinConstituentMonomer` classes
+
+
 # Monday, 3/23/20
 
 - Add a Monomers class, create data.monomers

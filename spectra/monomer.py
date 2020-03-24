@@ -17,9 +17,10 @@ class Monomer:
         self.name = self._from_json["Name"]
         self.long_name = self._from_json["Long name"]
         self.density = self._from_json["Density g/L"]
+        self.density_units = "g/L"
 
     def __repr__(self):
         return f"Monomer({self._json_file})"
 
-    def print(self):
-        print(self.__dict__)
+    # def print(self):
+    #     print(self.__dict__)
