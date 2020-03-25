@@ -42,6 +42,7 @@
 - Make `ResinConstituentAbsorber` and `ResinConstituentMonomer` classes
 - Add docstrings and examples to `ResinConstituent...` classes
 - Create docstring for `Resin` class prior to writing code
+- Add `molar_mass_g_per_mole` to `AbsorberSpectrum` by reading json 1st line in `molar_absorptivity.csv`, update tests
 
 
 # Monday, 3/23/20

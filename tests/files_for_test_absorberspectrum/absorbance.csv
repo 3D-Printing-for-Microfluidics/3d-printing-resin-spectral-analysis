@@ -1,4 +1,4 @@
-# Dummy spectrum data file
+# {"Measurement": "Dummy spectrum data file", "Measurement Date": "2020-03-20", "Measurement Spectrometer": "Ocean Optics OE65PRO", "Absorber": "Avobenzone", "Concentration w/w percent": 0.1, "Film thickness microns": 63.5, "Molar mass g/mole": 310.39, "Solvent": "PEGDA", "Solvent density g/L": 1110, "Solvent absorption measurement file": "none.csv", "Solvent + absorber absorption measurement file": "none.csv"}
 300.0, 1.0
 350.0, 2.0
 400.0, 4.0

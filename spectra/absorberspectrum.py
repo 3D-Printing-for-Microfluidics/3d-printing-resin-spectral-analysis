@@ -1,4 +1,5 @@
 import numpy as np
+import json
 
 
 class AbsorberSpectrum:
@@ -7,15 +8,27 @@ class AbsorberSpectrum:
 
     def __init__(self, directory):
 
+        # Read absorbance data
         self._data_absorbance = np.loadtxt(directory / "absorbance.csv", delimiter=",")
         self.wavelength_absorbance = self._data_absorbance[:, 0]
         self.absorbance = self._data_absorbance[:, 1]
 
+        # Read molar absorptivity data
         self._data = np.loadtxt(directory / "molar_absorptivity.csv", delimiter=",")
         self.wavelength = self._data[:, 0]
         self.molar_absorptivity = self._data[:, 1]
 
+        # Make sure the two datasets have the same wavelengths (this helps ensure they
+        # came from the same calculation and are consistent)
         assert np.allclose(self.wavelength_absorbance, self.wavelength)
+
+        # Extract information from json string on first line of molar absorptivity file
+        with (directory / "molar_absorptivity.csv").open("r") as f:
+            temp = f.readline()
+        # remove leading '#' character
+        temp = temp[1:].strip()
+        self.parameters = json.loads(temp)
+        self.molar_mass_g_per_mole = self.parameters["Molar mass g/mole"]
 
     def calc_molar_absorptivity(self, wavelength):
         """Given wavelength, interpolate corresponding molar absorptivity value.

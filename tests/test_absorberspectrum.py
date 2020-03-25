@@ -10,6 +10,8 @@ def test_absorberspectrum():
     directory = Path(__file__).resolve().parent / "files_for_test_absorberspectrum"
     absorber = AbsorberSpectrum(directory)
 
+    assert absorber.molar_mass_g_per_mole == 310.39
+
     assert absorber.calc_absorbance(325.0) == 1.5
     assert np.allclose(
         absorber.calc_absorbance(np.array([375.0, 425.0])), np.array([3.0, 6.0])
