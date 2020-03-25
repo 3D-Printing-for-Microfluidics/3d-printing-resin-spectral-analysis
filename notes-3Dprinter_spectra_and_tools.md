@@ -27,7 +27,7 @@
     - Calculates molar concentrations that can be used in absorption coefficient calculation
     - Calculates absorption coefficient, alpha(lambda)
         - Make this so can linearly interpolate values for arbitrary wavelengths
-- Move Resin class to resin.py
+- &#9989; Move Resin class to resin.py
 - Create tests for Resin class
 - Create a ResinAndSource class
     - Calculate D_n(lambda)?
@@ -46,6 +46,8 @@
     - HR2 385 nm
     - HR3.3 365 nm with and without 370 nm short pass filter, both with and without tray
 - Move `Resin` and related classes from notebook to `resin.py`
+- Add source spectra for:
+    - MR1 385 nm
 
 
 # Tuesday, 3/24/20
