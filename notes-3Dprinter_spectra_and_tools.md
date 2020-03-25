@@ -40,6 +40,14 @@
 
 
 
+# Wednesday, 3/25/20
+
+- Add source spectra for:
+    - HR2 385 nm
+    - HR3.3 365 nm with and without 370 nm short pass filter, both with and without tray
+- Move `Resin` and related classes from notebook to `resin.py`
+
+
 # Tuesday, 3/24/20
 
 - Make `ResinConstituentAbsorber` and `ResinConstituentMonomer` classes
