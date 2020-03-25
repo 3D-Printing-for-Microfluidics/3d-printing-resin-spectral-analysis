@@ -48,6 +48,7 @@
 - Move `Resin` and related classes from notebook to `resin.py`
 - Add source spectra for:
     - MR1 385 nm
+    - MR1 365 nm no filter
 
 
 # Tuesday, 3/24/20
