@@ -22,11 +22,13 @@
 - &#10060; Add other photoinitiators
 - &#9989; Add other sources
 - &#9989; Create interpolation function for spectra
-- Create a Resin class that includes one or more photoinitiators and absorbers
+- &#9989; Create a Resin class that includes one or more photoinitiators and absorbers
     - Since they are all absorbers, can probably put them all into a list
     - Calculates molar concentrations that can be used in absorption coefficient calculation
     - Calculates absorption coefficient, alpha(lambda)
         - Make this so can linearly interpolate values for arbitrary wavelengths
+- Move Resin class to resin.py
+- Create tests for Resin class
 - Create a ResinAndSource class
     - Calculate D_n(lambda)?
     - Calculate D'(z)
@@ -37,12 +39,14 @@
 - Create documentation to explain theory and how code works
 
 
+
 # Tuesday, 3/24/20
 
 - Make `ResinConstituentAbsorber` and `ResinConstituentMonomer` classes
 - Add docstrings and examples to `ResinConstituent...` classes
 - Create docstring for `Resin` class prior to writing code
 - Add `molar_mass_g_per_mole` to `AbsorberSpectrum` by reading json 1st line in `molar_absorptivity.csv`, update tests
+- Create code for `Resin` class and try it out, still needs tested
 
 
 # Monday, 3/23/20
