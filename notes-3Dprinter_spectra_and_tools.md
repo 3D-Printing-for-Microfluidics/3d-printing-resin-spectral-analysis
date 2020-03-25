@@ -47,6 +47,7 @@
 - Create docstring for `Resin` class prior to writing code
 - Add `molar_mass_g_per_mole` to `AbsorberSpectrum` by reading json 1st line in `molar_absorptivity.csv`, update tests
 - Create code for `Resin` class and try it out, still needs tested
+- Try out the cases for Resin class when there are no absorbers or no photoinitiators or none of both
 
 
 # Monday, 3/23/20
