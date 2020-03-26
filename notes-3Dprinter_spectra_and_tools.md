@@ -28,7 +28,7 @@
     - Calculates absorption coefficient, alpha(lambda)
         - Make this so can linearly interpolate values for arbitrary wavelengths
 - &#9989; Move Resin class to resin.py
-- Create tests for Resin class
+- &#9989; Create tests for Resin class
 - Create a ResinAndSource class
     - Calculate D_n(lambda)?
     - Calculate D'(z)
@@ -50,6 +50,7 @@
     - MR1 385 nm
     - MR1 365 nm no filter
     - MR1 365 nm with filter
+- Create tests for `Resin` class
 
 
 # Tuesday, 3/24/20
