@@ -25,4 +25,4 @@ class SourceSpectrum:
         -------
         single value or 1D numpy array corresponding to shape of wavelength
         """
-        return np.interp(wavelength, self.wavelength, self.power)
+        return np.interp(wavelength, self.wavelength, self.power, left=0.0, right=0.0)

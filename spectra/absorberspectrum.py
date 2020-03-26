@@ -43,7 +43,9 @@ class AbsorberSpectrum:
         -------
         single value or 1D numpy array corresponding to shape of wavelength
         """
-        return np.interp(wavelength, self.wavelength, self.molar_absorptivity)
+        return np.interp(
+            wavelength, self.wavelength, self.molar_absorptivity, left=0.0, right=0.0
+        )
 
     def calc_absorbance(self, wavelength):
         """Given wavelength, interpolate corresponding absorbance value.
@@ -58,4 +60,6 @@ class AbsorberSpectrum:
         -------
         single value or 1D numpy array corresponding to shape of wavelength
         """
-        return np.interp(wavelength, self.wavelength, self.absorbance)
+        return np.interp(
+            wavelength, self.wavelength, self.absorbance, left=0.0, right=0.0
+        )

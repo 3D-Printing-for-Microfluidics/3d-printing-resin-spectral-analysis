@@ -151,7 +151,9 @@ class Resin:
         -------
         single value or 1D numpy array corresponding to shape of wavelength
         """
-        return np.interp(wavelength, self.wavelength, self.absorption_coeff)
+        return np.interp(
+            wavelength, self.wavelength, self.absorption_coeff, left=0.0, right=0.0
+        )
 
     @staticmethod
     def create_list(item, desired_type):
