@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import numpy as np
 
 
@@ -6,6 +8,8 @@ class SourceSpectrum:
     """
 
     def __init__(self, directory):
+        assert isinstance(directory, Path)
+        self.name = directory.name
         self._data = np.loadtxt(
             directory / "measured_spectrum_normalized.csv", delimiter=","
         )
