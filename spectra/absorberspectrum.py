@@ -29,6 +29,7 @@ class AbsorberSpectrum:
         temp = temp[1:].strip()
         self.parameters = json.loads(temp)
         self.molar_mass_g_per_mole = self.parameters["Molar mass g/mole"]
+        self.name = self.parameters["Absorber"]
 
     def calc_molar_absorptivity(self, wavelength):
         """Given wavelength, interpolate corresponding molar absorptivity value.

@@ -21,3 +21,5 @@ def test_absorberspectrum():
     assert np.allclose(
         absorber.calc_molar_absorptivity(np.array([375.0, 425.0])), np.array([3.0, 6.0])
     )
+
+    assert absorber.name == "Avobenzone"

@@ -41,6 +41,25 @@
 
 
 
+# Friday, 3/27/20
+
+## Name algorithm
+
+Central problem: given ?, get 3 letter abbreviation  
+Subsidiary problem: given concentration, format for number?
+
+What are the sources of information we can use to get the name of a material?
+
+- Absorber/Photoinitiator
+    - ResinConstituentAbsorber.material (AbsorberSpectrum) -> name
+- Monomer
+    - ResinConstituentMonomer.material (Monomer) -> name
+
+## Log
+
+- Add name attribute to `AbsorberSpectrum`
+
+
 # Thursday, 3/26/20
 
 ## New way to organize package:
@@ -51,13 +70,14 @@
     - resinmeas
         - measurements of polymerized thickness as a function of dose, Models 3 & 4
 
-## Standard way of naming resin
+We need a method of naming a resin, and naming a resin-spectrum combination. See https://nanomicro.byu.edu:31415/Nordin/5e7d20127e21f986afbc652a/page.
 
-We need a method of naming a resin, and naming a resin-spectrum combination. 
+## Log
+
 - Add left=0.0, right=0.0 to np.interp arguments
 - Add name attribute to SourceSpectrum
 - Come up with a resin naming convention with my students
-- Develop code for generating name abberviation and material type
+- Develop code in `spectra.data.__init__.py` for generating name abberviation and material type
 
 
 
