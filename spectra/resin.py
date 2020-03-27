@@ -106,16 +106,16 @@ class Resin:
         # Handle inputs. Treat photoinitiators as absorbers for purpose of calculating absorption coefficient
         self.monomers = self.create_list(monomers, ResinConstituentMonomer)
         self.check_monomers(self.monomers)
-        self.absorbers = self.create_list(
-            absorbers, ResinConstituentAbsorber
-        ) + self.create_list(photoinitiators, ResinConstituentAbsorber)
-        if not self.absorbers:
+        self.absorbers = self.create_list(absorbers, ResinConstituentAbsorber)
+        self.photoinitiators = self.create_list(photoinitiators, ResinConstituentAbsorber)
+        self._absorbers = self.absorbers + self.photoinitiators
+        if not self._absorbers:
             raise ValueError("There must be at least one absorber or one photoinitiator.")
 
         # Calculate molar concentration for absorbers, photoinitiators in list of absorbers
         self._density = self.calc_density(self.monomers)
         self._molar_concentrations = []
-        for a in self.absorbers:
+        for a in self._absorbers:
             self._molar_concentrations.append(
                 (a.concentration_ww_percent / 100)
                 * self._density
@@ -123,13 +123,13 @@ class Resin:
             )
 
         # Set wavelength to be the same as for the first absorber material
-        self.wavelength = self.absorbers[0].material.wavelength.copy()
+        self.wavelength = self._absorbers[0].material.wavelength.copy()
 
         # Calculate absorption coefficient as a function of wavelength
         self.absorption_coeff = np.zeros(
-            self.absorbers[0].material.molar_absorptivity.shape
+            self._absorbers[0].material.molar_absorptivity.shape
         )
-        for a in self.absorbers:
+        for a in self._absorbers:
             self.absorption_coeff += (
                 np.log(10)
                 * a.material.calc_molar_absorptivity(self.wavelength)
