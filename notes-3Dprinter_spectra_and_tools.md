@@ -43,6 +43,13 @@
 
 # Friday, 3/27/20
 
+## Log
+
+- Add name attribute to `AbsorberSpectrum`
+- Implement new resin name method
+- Create tests for new resin name method
+- Start to develop ResinSpectrumCombo class in notebook
+
 ## Name algorithm
 
 Central problem: given ?, get 3 letter abbreviation  
@@ -61,12 +68,6 @@ Where can we get the concentration of a material?
     - ResinConstituentAbsorber.material (AbsorberSpectrum) -> concentration_ww_percent
 - Monomer
     - ResinConstituentMonomer.material (Monomer) -> concentration_percent_monomer
-
-## Log
-
-- Add name attribute to `AbsorberSpectrum`
-- Implement new resin name method
-- Create tests for new resin name method
 
 
 # Thursday, 3/26/20
