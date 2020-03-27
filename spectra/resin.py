@@ -112,6 +112,8 @@ class Resin:
         if not self._absorbers:
             raise ValueError("There must be at least one absorber or one photoinitiator.")
 
+        self.build_name()
+
         # Calculate molar concentration for absorbers, photoinitiators in list of absorbers
         self._density = self.calc_density(self.monomers)
         self._molar_concentrations = []
@@ -136,6 +138,57 @@ class Resin:
                 * (a.concentration_ww_percent / 100)
                 * (self._density / a.material.molar_mass_g_per_mole)
             )
+
+    def build_name(self):
+
+        material_separator = "_"
+        material_type_separator = "__"
+        number_separator = "-"
+
+        def number_maker(number):
+            """Return number as a string without trailing 0's or decimal point
+
+            Examples
+            --------
+            100 -> 100.00 -> 100
+            0.38 -> 0.38 -> 0.38
+            55.2 -> 55.20 -> 55.2
+            2.0 -> 2.00 -> 2
+            """
+            temp = f"{number:.2f}"
+            # Remove trailing zeros
+            while temp.endswith("0"):
+                temp = temp[:-1]
+            # Remove trailing decimal
+            if temp.endswith("."):
+                temp = temp[:-1]
+            return temp
+
+        temp_name = ""
+
+        for i, m in enumerate(self.monomers):
+            if i:
+                temp_name += material_separator
+            temp_name += data.material_abbreviations[m.material.name]
+            temp_name += number_separator + number_maker(m.concentration_percent_monomer)
+
+        temp_name += material_type_separator
+
+        for i, a in enumerate(self.absorbers):
+            if i:
+                temp_name += material_separator
+            temp_name += data.material_abbreviations[a.material.name]
+            temp_name += number_separator + number_maker(a.concentration_ww_percent)
+
+        temp_name += material_type_separator
+
+        for i, p in enumerate(self.photoinitiators):
+            if i:
+                temp_name += material_separator
+            temp_name += data.material_abbreviations[p.material.name]
+            temp_name += number_separator + number_maker(p.concentration_ww_percent)
+
+        self.name = temp_name
 
     def calc_absorption_coef_inv_cm(self, wavelength):
         """Given wavelength, interpolate corresponding absorption coefficient value.

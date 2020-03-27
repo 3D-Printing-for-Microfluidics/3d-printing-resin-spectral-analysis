@@ -19,15 +19,15 @@ def test_sources_absorbers_monomers():
         assert isinstance(data.monomers[key], Monomer)
 
 
-def test_material_name_and_type():
-    assert data.material_name_and_type("Avobenzone") == ("Absorber", "Avo")
-    assert data.material_name_and_type("avobenzone") == ("Absorber", "avo")
-    assert data.material_name_and_type("Irgacure 819") == ("Photoinitiator", "Irg")
-    assert data.material_name_and_type("NPS") == ("Absorber", "NPS")
-    assert data.material_name_and_type("PEGDA") == ("Monomer", "PEG")
-    assert data.material_name_and_type("TMDPO") == ("Photoinitiator", "TMD")
-    assert data.material_name_and_type("Benetex OB+") == ("Absorber", "Ben")
-    assert data.material_name_and_type("Benetex OBplus") == ("Absorber", "Ben")
+# def test_material_name_and_type():
+#     assert data.material_name_and_type("Avobenzone") == ("Absorber", "Avo")
+#     assert data.material_name_and_type("avobenzone") == ("Absorber", "avo")
+#     assert data.material_name_and_type("Irgacure 819") == ("Photoinitiator", "Irg")
+#     assert data.material_name_and_type("NPS") == ("Absorber", "NPS")
+#     assert data.material_name_and_type("PEGDA") == ("Monomer", "PEG")
+#     assert data.material_name_and_type("TMDPO") == ("Photoinitiator", "TMD")
+#     assert data.material_name_and_type("Benetex OB+") == ("Absorber", "Ben")
+#     assert data.material_name_and_type("Benetex OBplus") == ("Absorber", "Ben")
 
-    with pytest.raises(ValueError):
-        temp = data.material_name_and_type("not a name")
+#     with pytest.raises(ValueError):
+#         temp = data.material_name_and_type("not a name")

@@ -29,7 +29,7 @@
         - Make this so can linearly interpolate values for arbitrary wavelengths
 - &#9989; Move Resin class to resin.py
 - &#9989; Create tests for Resin class
-- Need to modify SourceSpectrum class to give each object a name
+- &#9989; Need to modify Resin class to give a resin a name
 - Create a ResinAndSource class
     - Calculate D_n(lambda)?
     - Calculate D'(z)
@@ -55,9 +55,17 @@ What are the sources of information we can use to get the name of a material?
 - Monomer
     - ResinConstituentMonomer.material (Monomer) -> name
 
+Where can we get the concentration of a material?
+
+- Absorber/Photoinitiator
+    - ResinConstituentAbsorber.material (AbsorberSpectrum) -> concentration_ww_percent
+- Monomer
+    - ResinConstituentMonomer.material (Monomer) -> concentration_percent_monomer
+
 ## Log
 
 - Add name attribute to `AbsorberSpectrum`
+- Implement new resin name method
 
 
 # Thursday, 3/26/20
