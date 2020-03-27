@@ -24,6 +24,7 @@ def test_ResinConstituentMonomer():
 
 def test_Resin():
 
+    # PEGDA - Avobenzone - Irgacure 819
     pegda = ResinConstituentMonomer(data.monomers["PEGDA"], 100)
     avobenzone = ResinConstituentAbsorber(
         data.absorbers["avobenzone_in_PEGDA_2020-01-20"], 0.38
@@ -32,20 +33,44 @@ def test_Resin():
         data.photoinitiators["irgacure819_in_PEGDA_2020-01-20"], 1.0
     )
     resin = Resin(monomers=pegda, absorbers=avobenzone, photoinitiators=irgacure819)
-
+    assert resin.name == "PEG-100__Avo-0.38__Irg-1"
     result = 738.6
     assert np.isclose(resin.calc_absorption_coef_inv_cm(365.0), result, rtol=1.0e-4)
 
+    # PEGDA only
     with pytest.raises(ValueError):
         temp = Resin(monomers=pegda)  # pylint: disable=unused-variable
 
+    # PEGDA & wrong absorber data type in list
     with pytest.raises(AssertionError):
         temp = Resin(monomers=pegda, absorbers=[1])  # pylint: disable=unused-variable
 
+    # PEGDA & wrong absorber data type
     with pytest.raises(TypeError):
         temp = Resin(monomers=pegda, absorbers=1)  # pylint: disable=unused-variable
 
+    # Only monomers and no absorbers or photoinitiators
     with pytest.raises(ValueError):
         pegda1 = ResinConstituentMonomer(data.monomers["PEGDA"], 50)
         pegda2 = ResinConstituentMonomer(data.monomers["PEGDA"], 49)
         temp = Resin(monomers=[pegda1, pegda2])  # pylint: disable=unused-variable
+
+    # Extreme name case
+    hdda = ResinConstituentMonomer(data.monomers["PEGDA"], 85)
+    la = ResinConstituentMonomer(data.monomers["TET"], 15)
+    avobenzone = ResinConstituentAbsorber(
+        data.absorbers["avobenzone_in_PEGDA_2020-01-20"], 1.5
+    )
+    nps = ResinConstituentAbsorber(data.absorbers["nps_in_PEGDA_2017-04-13"], 2.0)
+    irgacure819 = ResinConstituentAbsorber(
+        data.photoinitiators["irgacure819_in_PEGDA_2020-01-20"], 1
+    )
+    tmdpo = ResinConstituentAbsorber(
+        data.photoinitiators["tmdpo_in_PEGDA_2017-04-13"], 0.25
+    )
+    resin = Resin(
+        monomers=[hdda, la],
+        absorbers=[avobenzone, nps],
+        photoinitiators=[irgacure819, tmdpo],
+    )
+    assert resin.name == "PEG-85_TET-15__Avo-1.5_NPS-2__Irg-1_TMD-0.25"

@@ -66,6 +66,7 @@ Where can we get the concentration of a material?
 
 - Add name attribute to `AbsorberSpectrum`
 - Implement new resin name method
+- Create tests for new resin name method
 
 
 # Thursday, 3/26/20
