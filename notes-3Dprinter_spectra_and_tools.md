@@ -53,57 +53,11 @@
 
 ## Standard way of naming resin
 
-We need a method of naming a resin, and naming a resin-spectrum combination. Possibilities:
-
-`MonomerApercentMonomerBpercent_AbsorberApercentAbsorberBpercent_PhotoinitiatorApercentPhotoinitiatorBpercent`
-
-Examples:
-
-- `PEGDA100_Avo0.38_Irgacure1`
-- `PEGDA100_Avobenzone0.38_Irgacure8191`
-- `PEGDA50TET50_Avobenzone1.5NPS2.0_Irga1.0`
-
-`MonomerA_percent_MonomerB_percent__AbsorberA_percent_AbsorberB_percent__PhotoinitiatorA_percent_PhotoinitiatorB_percent`
-
-Examples:
-
-- `PEGDA_100__Avo0.38__Irgacure_1`
-- `PEGDA_100__Avobenzone_0.38_Irgacure819_1`
-- `PEGDA_50_TET_50__Avobenzone_1.5_NPS_2.0__Irga_1.0`
-
-`MonomerA_percent__MonomerB_percent___AbsorberA_percent__AbsorberB_percent___PhotoinitiatorA_percent__PhotoinitiatorB_percent`
-
-Examples:
-
-- `PEGDA_100___Avo0.38___Irgacure_1`
-- `PEGDA_100___Avobenzone_0.38__Irgacure819_1`
-- `PEGDA_50__TET_50___Avobenzone_1.5__NPS_2.0___Irga819_1.0`
-
-`MoA_percent__MoB_percent___AbA_percent__AbB_percent___PIA_percent__PIB_percent`
-
-Examples:
-
-- `PEG_100___Avo_0.38___Irg_1`
-- `PEG_50__TET_50___Avo_1.5__NPS_2.0___Irg_1.0`
-
-`MoApercent_MoBpercent__AbApercent_AbBpercent__PIApercent_PIBpercent`
-
-Examples:
-
-- `PEG100__Avo0.38__Irg1`
-- `PEG50_TET50__Avo1.5_NPS2.0__Irg1.0`
-
-`MoApercentMoBpercent_AbApercentAbBpercent_PIApercentPIBpercent`
-
-Examples:
-
-- `PEG100_Avo0.38_Irg1`
-- `PEG50TET50_Avo1.5NPS2.0_Irg1.0`
-
-
-
-
+We need a method of naming a resin, and naming a resin-spectrum combination. 
 - Add left=0.0, right=0.0 to np.interp arguments
+- Add name attribute to SourceSpectrum
+- Come up with a resin naming convention with my students
+- Develop code for generating name abberviation and material type
 
 
 
