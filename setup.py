@@ -17,6 +17,7 @@ setuptools.setup(
         "pylint",
         "numpy",
         "matplotlib",
+        "scipy",
         "jupyterlab",
         "ipykernel",
         "pysimplegui",

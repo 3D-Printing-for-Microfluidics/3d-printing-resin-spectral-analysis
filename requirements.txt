@@ -65,9 +65,10 @@ python-dateutil==2.8.1
 PyYAML==5.3
 pyzmq==19.0.0
 regex==2020.2.20
+scipy==1.4.1
 Send2Trash==1.5.0
 six==1.14.0
--e git+https://github.com/gregnordin/3dprinter_spectra_and_tools.git@ff3ecd8189f20ca36d0e734bcb951784c47206ed#egg=spectra
+-e git+https://github.com/gregnordin/3dprinter_spectra_and_tools.git@cc72894c8c9a348e84756c367c845a12b4f52527#egg=spectra
 terminado==0.8.3
 testpath==0.4.4
 toml==0.10.0
