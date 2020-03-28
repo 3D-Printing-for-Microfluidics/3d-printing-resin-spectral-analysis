@@ -63,6 +63,8 @@ class ResinConstituentMonomer:
 class Resin:
     """Combine materials into a resin and calculate its absorption coefficient
     as a function of wavelength.
+
+    Note: self.absorption_coeff is in units of inverse cm
     
     Parameters
     ----------

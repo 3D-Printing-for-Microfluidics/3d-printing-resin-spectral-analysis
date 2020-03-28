@@ -30,10 +30,10 @@
 - &#9989; Move Resin class to resin.py
 - &#9989; Create tests for Resin class
 - &#9989; Need to modify Resin class to give a resin a name
-- Create a ResinAndSource class
-    - Calculate D_n(lambda)?
-    - Calculate D'(z)
-    - Fit to Models 1 and 2
+- &#9989; Create a ResinSourceCombo class
+    - &#9989; Calculate D_n(lambda)
+    - &#9989; Fit to Models 1 and 2
+- Validate D_n(z) - compare with what I got in January 2019?
 - Use to plot normalized dose as a function of lambda and z
 - Add tests for all code
 - Create data and classes to handle thickness vs exposure time measurements and Model 3 & 4 fits
@@ -49,6 +49,7 @@
 - Implement new resin name method
 - Create tests for new resin name method
 - Start to develop ResinSpectrumCombo class in notebook
+- Create a `ResinSourceCombo` class and calculate D_n(z)
 
 ## Name algorithm
 
