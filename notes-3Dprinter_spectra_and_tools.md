@@ -41,6 +41,20 @@
 
 
 
+# Tuesday, 3/31/20
+
+
+
+
+# Saturday, 3/28/20
+
+## Plan
+
+- Analytical method to test normalized dose
+- Swiss army knife normalized dose function or class
+- Compare 1-to-1 with 2017 normalized dose calculation
+
+
 # Friday, 3/27/20
 
 ## Log
