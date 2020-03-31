@@ -46,6 +46,7 @@
 ## Log
 
 - Start to develop `Irradiance` class in notebook
+- Use `Irradiance` class to examine effect of short pass filter on spectrum as function of z
 
 
 # Saturday, 3/28/20
