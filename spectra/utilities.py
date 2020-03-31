@@ -1,4 +1,5 @@
 from pathlib import Path
+import typing
 
 import numpy as np
 
@@ -12,6 +13,16 @@ def find_index_of_nearest(var_array, value):
     """
     idx = (np.abs(var_array - value)).argmin()
     return idx
+
+
+class ArrayParams(typing.NamedTuple):
+    """Container with named attributes for making 1D arrays of values.
+    Intended for use with numpy.linspace.
+    """
+
+    min_value: float
+    max_value: float
+    num_pnts: int
 
 
 def read_spectrometer_file(file, clip_to_zero=True):
