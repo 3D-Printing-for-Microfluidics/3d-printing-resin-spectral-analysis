@@ -43,7 +43,9 @@
 
 # Tuesday, 3/31/20
 
+## Log
 
+- Start to develop `Irradiance` class in notebook
 
 
 # Saturday, 3/28/20
