@@ -36,6 +36,9 @@ def test_Resin():
     assert resin.name == "PEG-100__Avo-0.38__Irg-1"
     result = 738.6
     assert np.isclose(resin.calc_absorption_coef_inv_cm(365.0), result, rtol=1.0e-4)
+    assert np.isclose(
+        resin.calc_absorption_coef_inv_um(365.0), result * 1e-4, rtol=1.0e-4
+    )
 
     # PEGDA only
     with pytest.raises(ValueError):

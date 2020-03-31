@@ -64,7 +64,7 @@ class Resin:
     """Combine materials into a resin and calculate its absorption coefficient
     as a function of wavelength.
 
-    Note: self.absorption_coeff is in units of inverse cm
+    Note: self.absorption_coeff_inv_cm is in units of inverse cm
     
     Parameters
     ----------
@@ -130,11 +130,11 @@ class Resin:
         self.wavelength = self._absorbers[0].material.wavelength.copy()
 
         # Calculate absorption coefficient as a function of wavelength
-        self.absorption_coeff = np.zeros(
+        self.absorption_coeff_inv_cm = np.zeros(
             self._absorbers[0].material.molar_absorptivity.shape
         )
         for a in self._absorbers:
-            self.absorption_coeff += (
+            self.absorption_coeff_inv_cm += (
                 np.log(10)
                 * a.material.calc_molar_absorptivity(self.wavelength)
                 * (a.concentration_ww_percent / 100)
@@ -207,8 +207,24 @@ class Resin:
         single value or 1D numpy array corresponding to shape of wavelength
         """
         return np.interp(
-            wavelength, self.wavelength, self.absorption_coeff, left=0.0, right=0.0
+            wavelength, self.wavelength, self.absorption_coeff_inv_cm, left=0.0, right=0.0
         )
+
+    def calc_absorption_coef_inv_um(self, wavelength):
+        """Given wavelength, interpolate corresponding absorption coefficient value.
+        Units: cm^(-1)
+
+        See numpy.interp documentation for interpolation details.
+
+        Parameters
+        ----------
+        wavelength - array_like (can be single value or 1D list/numpy.array of values)
+
+        Returns
+        -------
+        single value or 1D numpy array corresponding to shape of wavelength
+        """
+        return self.calc_absorption_coef_inv_cm(wavelength) * 1e-4
 
     @staticmethod
     def create_list(item, desired_type):
