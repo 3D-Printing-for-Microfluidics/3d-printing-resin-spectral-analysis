@@ -58,6 +58,7 @@
 - Evaluate propagation in 0.38% avobenzone resin for 4 LED cases using Irradiance class
 - Add tests for `ArrayParams` and other functions in utilities.py
 - Create `irradiance.py` and add tests
+- Try matplotlib 3D plots
 
 
 # Saturday, 3/28/20
