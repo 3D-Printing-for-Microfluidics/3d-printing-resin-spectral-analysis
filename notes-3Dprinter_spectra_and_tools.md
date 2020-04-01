@@ -46,8 +46,8 @@
 ## Next
 
 - &#9989; Make png graphs of filtered/unfiltered spectrum vs z?
-- Move Irradiance and ArrayParams to python files
-- Write tests for both
+- &#9989; Move Irradiance and ArrayParams to python files
+- &#9989; Write tests for both
 - Create a test source, absorber, monomer with analytically calculated parameters so can use for comparisons and tests
 
 ## Log
@@ -55,7 +55,8 @@
 - Start to develop `Irradiance` class in notebook
 - Use `Irradiance` class to examine effect of short pass filter on spectrum as function of z
 - Evaluate propagation in 0.38% avobenzone resin for 4 LED cases using Irradiance class
-- Add tests for test_ArrayParams and other functions in utilities.py
+- Add tests for `ArrayParams` and other functions in utilities.py
+- Create `irradiance.py` and add tests
 
 
 # Saturday, 3/28/20
