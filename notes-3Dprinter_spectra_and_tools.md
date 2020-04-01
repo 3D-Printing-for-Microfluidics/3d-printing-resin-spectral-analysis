@@ -33,6 +33,7 @@
 - &#9989; Create a ResinSourceCombo class
     - &#9989; Calculate D_n(lambda)
     - &#9989; Fit to Models 1 and 2
+- &#9989; Create an Irradiance class to calculate irradiance as a function of wavelength and z
 - Validate D_n(z) - compare with what I got in January 2019?
 - Use to plot normalized dose as a function of lambda and z
 - Add tests for all code
