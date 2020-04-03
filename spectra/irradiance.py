@@ -55,4 +55,3 @@ class Irradiance:
         assert isinstance(z_um, (float, int))
         temp = self.source_spectrum * np.exp(-self.absorption_coeff_inv_um * z_um)
         return temp
-

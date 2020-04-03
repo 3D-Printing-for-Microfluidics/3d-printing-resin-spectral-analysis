@@ -42,6 +42,13 @@
 
 
 
+# Friday, 4/3/20
+
+## Log
+
+- Create ideal uniform source 10 nm wide, 360-370 nm
+
+
 # Tuesday, 3/31/20
 
 ## Next
@@ -49,6 +56,8 @@
 - &#9989; Make png graphs of filtered/unfiltered spectrum vs z?
 - &#9989; Move Irradiance and ArrayParams to python files
 - &#9989; Write tests for both
+- &#10060; Add integrated power at z=0 to Irradiance - no, it should go elsewhere
+- &#10060; Add integrated power for all z's? - no, it should be done elsewhere
 - Create a test source, absorber, monomer with analytically calculated parameters so can use for comparisons and tests
 
 ## Log
