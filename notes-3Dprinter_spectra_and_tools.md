@@ -44,6 +44,15 @@
 
 
 
+# Saturday, 4/4/20
+
+## Log
+
+- Update README files to add instruction for how to add 3 letter abbreviation when add a new absorber, photoinitiator, or monomer
+- Add info about ideal uniform source and absorber
+- Add test for ideal uniform source and absorber and resin name without absorber or without photoinitiator
+
+
 # Friday, 4/3/20
 
 ## Log

@@ -58,6 +58,14 @@ def test_Resin():
         pegda2 = ResinConstituentMonomer(data.monomers["PEGDA"], 49)
         temp = Resin(monomers=[pegda1, pegda2])  # pylint: disable=unused-variable
 
+    # Name with only an absorber
+    temp = Resin(monomers=pegda, absorbers=avobenzone)
+    assert temp.name == "PEG-100__Avo-0.38__"
+
+    # Name with only a photoinitiator
+    temp = Resin(monomers=pegda, photoinitiators=irgacure819)
+    assert temp.name == "PEG-100____Irg-1"
+
     # Extreme name case
     hdda = ResinConstituentMonomer(data.monomers["PEGDA"], 85)
     la = ResinConstituentMonomer(data.monomers["TET"], 15)
@@ -77,3 +85,15 @@ def test_Resin():
         photoinitiators=[irgacure819, tmdpo],
     )
     assert resin.name == "PEG-85_TET-15__Avo-1.5_NPS-2__Irg-1_TMD-0.25"
+
+
+def test_resin_with_ideal_data():
+    monomer = ResinConstituentMonomer(data.monomers["Ideal"], 100)
+    absorber = ResinConstituentAbsorber(data.absorbers["ideal_uniform_absorber"], 1)
+    resin = Resin(monomers=monomer, absorbers=absorber)
+
+    assert resin.name == "Ide-100__Uni-1__"
+
+    # See my notes at "data/README.md" under section "Ideal uniform source and absorber for tests":
+    assert np.isclose(resin.calc_absorption_coef_inv_cm(365), 1e3)
+    assert np.isclose(resin.calc_absorption_coef_inv_um(365), 0.1)
