@@ -99,6 +99,7 @@ _monomer_abbreviations = {
     "HDDA": "HDD",
     "TET": "TET",
     "Lauryl acrylate": "Lau",
+    "Ideal": "Ide",
 }
 
 _absorber_abbreviations = {
@@ -111,6 +112,7 @@ _absorber_abbreviations = {
     "Phenazine": "Phe",
     "Salicylaldehyde": "Sal",
     "Sudan I": "SuI",
+    "Uniform absorber": "Uni",
 }
 
 _photoinitiator_abbreviations = {"Irgacure 819": "Irg", "TMDPO": "TMD", "BME": "BME"}

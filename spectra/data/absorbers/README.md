@@ -10,6 +10,7 @@
     - Solvent + absorber spectrum data
 4. Create `spectrum_config.json` in `<dir_name>`
 5. Edit `spectrum_config.json` with information needed to do absorbance (required) and molar absorptivity (optional but strongly recommended) calculations
+6. Edit `data/__init__.py` to add 3 letter abbreviation to `_absorber_abbreviations` dict. The key in the dict should be the value of `Absorber` in the `spectrum_config.json` file below.
 
 ## Example `spectrum_config.json` file
 
