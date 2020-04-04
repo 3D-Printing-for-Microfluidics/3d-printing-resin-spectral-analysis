@@ -48,6 +48,7 @@
 
 - Create ideal uniform source 10 nm wide, 360-370 nm
 - Create ideal uniform absorber, 320-390 nm
+- Create ideal monomer, density = 1000 g/L
 
 
 # Tuesday, 3/31/20
