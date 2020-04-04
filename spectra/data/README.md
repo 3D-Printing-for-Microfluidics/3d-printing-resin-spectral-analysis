@@ -21,3 +21,9 @@ The `resins` directory contains measured polymerization thickness as a function 
 # Adding new spectrum data
 
 See the README.md file in each sub-directory (sources, absorbers, photoinitiators) for directions on how to add new spectrum data.
+
+# Ideal uniform source and absorber for tests
+
+An ideal uniform source and absorber are included, as well as an ideal monomer, to facilitate testing code. They can also be used in exploratory calculations. Notes on the source and absorber are included below.
+
+![](Ideal_uniform_source_and_absorber.jpg)
