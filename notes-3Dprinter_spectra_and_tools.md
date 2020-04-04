@@ -47,6 +47,7 @@
 ## Log
 
 - Create ideal uniform source 10 nm wide, 360-370 nm
+- Create ideal uniform absorber, 320-390 nm
 
 
 # Tuesday, 3/31/20

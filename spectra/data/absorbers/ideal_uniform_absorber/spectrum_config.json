@@ -1,0 +1,13 @@
+{
+  "Measurement": "Ideal uniform absorber 320-390 nm",
+  "Measurement Date": "2020-04-03",
+  "Measurement Spectrometer": "Calculated data",
+  "Absorber": "Uniform absorber",
+  "Concentration w/w percent": 1,
+  "Film thickness microns": 10,
+  "Molar mass g/mole": 100,
+  "Solvent": "Ideal",
+  "Solvent density g/L": 1000,
+  "Solvent absorption measurement file": "None",
+  "Solvent + absorber absorption measurement file": "None"
+}
