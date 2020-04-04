@@ -34,6 +34,8 @@
     - &#9989; Calculate D_n(lambda)
     - &#9989; Fit to Models 1 and 2
 - &#9989; Create an Irradiance class to calculate irradiance as a function of wavelength and z
+- Create test that uses ideal source, absorber, density
+- Also use these for integrations checks over the source, and for D_n(z)
 - Validate D_n(z) - compare with what I got in January 2019?
 - Use to plot normalized dose as a function of lambda and z
 - Add tests for all code
@@ -60,7 +62,7 @@
 - &#9989; Write tests for both
 - &#10060; Add integrated power at z=0 to Irradiance - no, it should go elsewhere
 - &#10060; Add integrated power for all z's? - no, it should be done elsewhere
-- Create a test source, absorber, monomer with analytically calculated parameters so can use for comparisons and tests
+- &#10060; Create a test source, absorber, monomer with analytically calculated parameters so can use for comparisons and tests
 
 ## Log
 
