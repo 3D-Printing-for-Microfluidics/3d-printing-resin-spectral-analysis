@@ -34,11 +34,10 @@
     - &#9989; Calculate D_n(lambda)
     - &#9989; Fit to Models 1 and 2
 - &#9989; Create an Irradiance class to calculate irradiance as a function of wavelength and z
-- Create test that uses ideal source, absorber, density
+- &#9989; Create test that uses ideal source, absorber, density
 - Also use these for integrations checks over the source, and for D_n(z)
 - Validate D_n(z) - compare with what I got in January 2019?
 - Use to plot normalized dose as a function of lambda and z
-- Add tests for all code
 - Create data and classes to handle thickness vs exposure time measurements and Model 3 & 4 fits
 - Create documentation to explain theory and how code works
 
@@ -51,6 +50,7 @@
 - Update README files to add instruction for how to add 3 letter abbreviation when add a new absorber, photoinitiator, or monomer
 - Add info about ideal uniform source and absorber
 - Add test for ideal uniform source and absorber and resin name without absorber or without photoinitiator
+- Create class `NormalizedDose` and begin development in notebook
 
 
 # Friday, 4/3/20
