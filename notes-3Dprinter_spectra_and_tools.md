@@ -59,6 +59,7 @@
 - Create GraphViz diagram of relationships between classes
 - Learn how to use standard library package tempfile
 - Put `NormalizedDose` in python module and create tests
+- Play with colors of nodes in GraphViz diagram
 
 ![](notebooks/200410_class_relationships.png)
 

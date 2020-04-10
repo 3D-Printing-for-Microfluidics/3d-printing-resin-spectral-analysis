@@ -34,6 +34,7 @@ def test_normalizeddose():
         irradiance=irradiance, z_array_params=ArrayParams(0, 30, 5)
     )
 
+    # See my notes about the design of an ideal source and absorber for why the following is true
     assert np.allclose(norm_dose.normalized_dose, np.exp(-norm_dose.z_um / 10))
 
     with tempfile.TemporaryDirectory() as d:

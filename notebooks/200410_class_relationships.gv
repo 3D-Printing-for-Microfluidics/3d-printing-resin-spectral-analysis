@@ -5,6 +5,45 @@ digraph normalized_dose {
     label="Normalized Dose Class & Type Relationships\nApril 10, 2020";
     fontsize=18;
 
+    {
+        node [style=filled fillcolor=darkgoldenrod2] 
+        Resin;
+        Irradiance;
+        NormalizedDose;
+    }
+
+    {
+        node [style=filled fillcolor=thistle1]
+        "ResinConstituentAbsorber\n(for absorber)";
+        "ResinConstituentAbsorber\n(for photoinitiator)";
+        ResinConstituentMonomer;
+    }
+
+    {
+        node [style=filled fillcolor=slategray1]
+        "SourceSpectrum\n(data.sources[key])";
+        "AbsorberSpectrum\n(data.absorbers[key])";
+        "AbsorberSpectrum\n(data.photoinitiators[key])";
+        "Monomer\n(data.monomers[key])";
+    }
+    
+    {
+        node [style=filled fillcolor=snow1]
+        "Int or Float\n(percent monomer)";
+        "Int or Float\n(weight percent\nabsorber)";
+        "Int or Float\n(weight percent\nphotoinitiator)";
+    }
+
+    {
+        node [style=filled fillcolor=peachpuff]
+    }
+
+    {
+        node [style=filled fillcolor=papayawhip]
+        "ArrayParams\n(wavelength min, max, num_pnts)";
+        "ArrayParams\n(z min, max, num_pnts)";
+    }
+
     "Monomer\n(data.monomers[key])" -> ResinConstituentMonomer;
     "Int or Float\n(percent monomer)" -> ResinConstituentMonomer;
 
@@ -21,8 +60,6 @@ digraph normalized_dose {
     "SourceSpectrum\n(data.sources[key])" -> Irradiance;
     Resin -> Irradiance;
     "ArrayParams\n(wavelength min, max, num_pnts)" -> Irradiance;
-
-    //NormalizedDose [shape=box]
 
     Irradiance -> NormalizedDose;
     "ArrayParams\n(z min, max, num_pnts)" -> NormalizedDose;
