@@ -33,22 +33,25 @@
 - &#9989; Create a ResinSourceCombo class
     - &#9989; Calculate D_n(lambda)
     - &#9989; Fit to Models 1 and 2
-- &#9989; Create an Irradiance class to calculate irradiance as a function of wavelength and z
+- &#9989; Create an `Irradiance` class to calculate irradiance as a function of wavelength and z
 - &#9989; Create test that uses ideal source, absorber, density
-- Also use these for integrations checks over the source, and for D_n(z)
-- Use to plot normalized dose as a function of lambda and z
+- &#9989; Use Irradiance to plot normalized dose as a function of lambda and z
+- &#9989; Create graphviz diagram of class relationships
+- Put NormalizedDose in python module
+- Create examples that use the package
+- Also use ideal source, absorber for integrations checks over the source, and for D_n(z)
 - Validate D_n(z) - compare with what I got in January 2019?
-- Create graphviz diagram of class relationships
 - Create data and classes to handle thickness vs exposure time measurements and Model 3 & 4 fits
-- Create documentation to explain theory and how code works
 - Create a class like SourceSpectrum, except it lets you manipulate source with actual or ideal spectral filter
-
+- Create documentation to explain theory and how code works
+- Create way to use the code (Jupyter notebooks, straight python code, in a web browser)?
 
 
 # Friday, 4/10/20
 
 ## Log
 
+- Refactor NormalizedDose to calculate an array of values for each the model
 - Create GraphViz diagram of relationships between classes
 
 ![](notebooks/200410_class_relationships.png)

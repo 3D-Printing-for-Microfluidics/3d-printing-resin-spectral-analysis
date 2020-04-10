@@ -22,6 +22,8 @@ digraph normalized_dose {
     Resin -> Irradiance;
     "ArrayParams\n(wavelength min, max, num_pnts)" -> Irradiance;
 
+    //NormalizedDose [shape=box]
+
     Irradiance -> NormalizedDose;
     "ArrayParams\n(z min, max, num_pnts)" -> NormalizedDose;
 }
