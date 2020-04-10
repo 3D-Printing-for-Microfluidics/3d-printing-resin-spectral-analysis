@@ -1,0 +1,27 @@
+digraph normalized_dose {
+
+    overlap=false;
+    labelloc=top;
+    label="Normalized Dose Class & Type Relationships\nApril 10, 2020";
+    fontsize=18;
+
+    "Monomer\n(data.monomers[key])" -> ResinConstituentMonomer;
+    "Int or Float\n(percent monomer)" -> ResinConstituentMonomer;
+
+    "AbsorberSpectrum\n(data.absorbers[key])" -> "ResinConstituentAbsorber\n(for absorber)";
+    "Int or Float\n(weight percent\nabsorber)" -> "ResinConstituentAbsorber\n(for absorber)";
+
+    "AbsorberSpectrum\n(data.photoinitiators[key])" -> "ResinConstituentAbsorber\n(for photoinitiator)";
+    "Int or Float\n(weight percent\nphotoinitiator)" -> "ResinConstituentAbsorber\n(for photoinitiator)";
+
+    ResinConstituentMonomer -> Resin;
+    "ResinConstituentAbsorber\n(for absorber)" -> Resin;
+    "ResinConstituentAbsorber\n(for photoinitiator)" -> Resin;
+
+    "SourceSpectrum\n(data.sources[key])" -> Irradiance;
+    Resin -> Irradiance;
+    "ArrayParams\n(wavelength min, max, num_pnts)" -> Irradiance;
+
+    Irradiance -> NormalizedDose;
+    "ArrayParams\n(z min, max, num_pnts)" -> NormalizedDose;
+}

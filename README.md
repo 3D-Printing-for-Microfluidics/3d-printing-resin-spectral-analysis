@@ -16,6 +16,10 @@ TBD
 
 TBD
 
+# Class relationships
+
+![](notebooks/200410_class_relationships.png)
+
 # Run tests
 
     $ pytest --cov spectra --cov-report term-missing -vv -s
