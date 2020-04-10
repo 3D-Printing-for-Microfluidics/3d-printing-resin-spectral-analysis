@@ -37,7 +37,9 @@
 - &#9989; Create test that uses ideal source, absorber, density
 - &#9989; Use Irradiance to plot normalized dose as a function of lambda and z
 - &#9989; Create graphviz diagram of class relationships
+- &#9989; Put spectrum models in a python module
 - Put NormalizedDose in python module
+    - Create tests
 - Create examples that use the package
 - Also use ideal source, absorber for integrations checks over the source, and for D_n(z)
 - Validate D_n(z) - compare with what I got in January 2019?
@@ -51,7 +53,8 @@
 
 ## Log
 
-- Refactor NormalizedDose to calculate an array of values for each the model
+- Refactor NormalizedDose to calculate an array of values for each model
+- Put spectrum models in a python module and make tests
 - Create GraphViz diagram of relationships between classes
 
 ![](notebooks/200410_class_relationships.png)
