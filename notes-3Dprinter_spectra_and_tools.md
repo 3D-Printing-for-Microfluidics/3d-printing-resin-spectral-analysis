@@ -61,6 +61,7 @@
 - Put `NormalizedDose` in python module and create tests
 - Play with colors of nodes in GraphViz diagram
 - Refactor read_spectrometer_file in spectra.utilities to correctly read csv files with variable numbers of comment lines
+- Add new source: 2018-11-22 measurement of Visitech and Asahi filter with QE6500 spectrometer
 
 ![](notebooks/200410_class_relationships.png)
 

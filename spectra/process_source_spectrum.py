@@ -46,9 +46,9 @@ def main():
         exit()
 
     # Make sure file has expected suffix
-    if input_data_file.suffix != ".txt":
+    if not (input_data_file.suffix == ".txt" or input_data_file.suffix == ".csv"):
         print("\n~~~INVALID DATA FILE EXTENSION~~~")
-        print("Data file must be named '*.txt'")
+        print("Data file must be named '*.txt' or '*.csv'")
         print("Exiting...\n\n")
         exit()
 
