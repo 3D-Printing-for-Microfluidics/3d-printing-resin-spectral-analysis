@@ -46,23 +46,30 @@ def read_spectrometer_file(file, clip_to_zero=True):
     assert isinstance(file, Path)
     assert isinstance(clip_to_zero, bool)
 
+    # Data
     if file.name.endswith(".txt"):
         skiprows = 14
-        delimiter = None
+        data = np.loadtxt(file, skiprows=skiprows)
     elif file.name.endswith(".csv"):
-        skiprows = 2
+        skiprows = None
         delimiter = ","
+        data = np.loadtxt(file, delimiter=delimiter)
 
-    # Data
-    data = np.loadtxt(file, skiprows=skiprows, delimiter=delimiter)
     if clip_to_zero:
         data = np.clip(data, 0, None)
 
     # Header
     header_lines = []
     with file.open() as f:
-        for i in range(skiprows):  # pylint: disable=unused-variable
-            header_lines.append(f.readline().strip())
+        if skiprows:
+            for i in range(skiprows):  # pylint: disable=unused-variable
+                header_lines.append(f.readline().strip())
+        else:
+            for line in f:
+                if line.startswith("#"):
+                    header_lines.append(line.strip())
+                else:
+                    break
 
     return header_lines, data
 

@@ -15,7 +15,7 @@ from pathlib import Path
 import numpy as np
 import PySimpleGUI as sg
 
-from spectra.utilities import read_FIRE_spectrum_data_file
+from spectra.utilities import read_FIRE_spectrum_data_file, read_spectrometer_file
 
 
 def main():
@@ -53,7 +53,8 @@ def main():
         exit()
 
     # Read file
-    header, data = read_FIRE_spectrum_data_file(input_data_file)
+    header, data = read_spectrometer_file(input_data_file)
+    # header, data = read_FIRE_spectrum_data_file(input_data_file)
 
     # Normalize data
     max_value = np.amax(data[:, 1])
