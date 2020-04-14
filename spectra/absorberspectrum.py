@@ -4,6 +4,15 @@ import json
 
 class AbsorberSpectrum:
     """Optical absorption spectrum data.
+
+    Attributes:
+        name (str): Name of absorber.
+        wavelength (numpy.ndarray): Wavelength array over which molar absorptivity is sampled.
+        molar_absorptivity (numpy.ndarray): Array of molar absorptivities in units of L/(mole cm).
+        wavelength_absorbance (numpy.ndarray): Wavelength array over which absorbance is sampled.
+        absorbance (numpy.ndarray): Measured absorbance values.
+        parameters (dict): Information loaded from the first line in the molar absorptivity data file.
+        molar_mass_g_per_mole (float): Molar mass of absorber in grams/mole.
     """
 
     def __init__(self, directory):

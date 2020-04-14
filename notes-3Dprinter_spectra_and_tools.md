@@ -49,6 +49,13 @@
 - Create way to use the code (Jupyter notebooks, straight python code, in a web browser)?
 
 
+# Monday, 4/13/20
+
+## Log
+
+- Improve `AbsorberSpectrum` docstring
+
+
 # Friday, 4/10/20
 
 ## Log
@@ -57,10 +64,10 @@
 - Put spectrum models in a python module and make tests
 - Re-sample ideal source so it is much finer over a much smaller wavelength range
 - Create GraphViz diagram of relationships between classes
-- Learn how to use standard library package tempfile
+- Learn how to use standard library package `tempfile`
 - Put `NormalizedDose` in python module and create tests
 - Play with colors of nodes in GraphViz diagram
-- Refactor read_spectrometer_file in spectra.utilities to correctly read csv files with variable numbers of comment lines
+- Refactor `read_spectrometer_file` in `spectra.utilities` to correctly read csv files with variable numbers of comment lines
 - Add new source: 2018-11-22 measurement of Visitech and Asahi filter with QE6500 spectrometer
 - Start to create an example notebook to show how to use code based on analyzing 0.38% avobenzone resin
 
