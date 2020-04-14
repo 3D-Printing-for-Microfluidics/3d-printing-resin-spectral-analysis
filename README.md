@@ -1,6 +1,6 @@
 # Purpose
 
-This repository contains spectra and associated tools for resin and 3D printer development in the Nordin Group. Our focus is the development of 3D printer technology to meet the unique needs of microfluidic device fabrication.
+This repository contains spectrum data and associated tools for resin and 3D printer development in the Nordin Group. Our focus is the development of 3D printer technology to meet the unique needs of microfluidic device fabrication.
 
 # References
 
@@ -10,11 +10,11 @@ This repository contains spectra and associated tools for resin and 3D printer d
 
 # Installation
 
-TBD
+    $ pip install git+https://github.com/gregnordin/3dprinter_spectra_and_tools
 
 # How to use
 
-TBD
+See `examples/Example_normalized_dose_calculation.ipynb`.
 
 # Class relationships
 
