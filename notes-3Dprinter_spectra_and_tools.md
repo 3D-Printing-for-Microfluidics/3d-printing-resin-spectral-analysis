@@ -56,6 +56,7 @@
 - Improve `AbsorberSpectrum` docstring
 - Improve `SourceSpectrum` docstring
 - Improve `ArrayParams` docstring
+- Finish example notebook
 
 
 # Friday, 4/10/20
