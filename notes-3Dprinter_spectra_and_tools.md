@@ -55,6 +55,7 @@
 
 - Improve `AbsorberSpectrum` docstring
 - Improve `SourceSpectrum` docstring
+- Improve `ArrayParams` docstring
 
 
 # Friday, 4/10/20

@@ -16,8 +16,13 @@ def find_index_of_nearest(var_array, value):
 
 
 class ArrayParams(typing.NamedTuple):
-    """Container with named attributes for making 1D arrays of values.
+    """Container with named attributes for making 1D arrays of linearly spaced values.
     Intended for use with numpy.linspace.
+
+    Attributes:
+        min_value (float): Minimum value in array
+        max_value (float): Maximum value in array
+        num_pnts (int): number of values in array
     """
 
     min_value: float
