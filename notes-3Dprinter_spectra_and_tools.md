@@ -54,6 +54,7 @@
 ## Log
 
 - Improve `AbsorberSpectrum` docstring
+- Improve `SourceSpectrum` docstring
 
 
 # Friday, 4/10/20

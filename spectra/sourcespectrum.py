@@ -5,6 +5,11 @@ import numpy as np
 
 class SourceSpectrum:
     """Optical spectrum data.
+
+    Attributes:
+        name (str): Name of source.
+        wavelength (numpy.ndarray): Array of wavelengths over which source spectrum is sampled.
+        power (numpy.ndarray): Normalized power.
     """
 
     def __init__(self, directory):
