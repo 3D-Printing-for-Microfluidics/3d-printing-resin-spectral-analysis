@@ -49,6 +49,12 @@
 - Create way to use the code (Jupyter notebooks, straight python code, in a web browser)?
 
 
+# Tuesday, 4/14/20
+
+## Log
+
+
+
 # Monday, 4/13/20
 
 ## Log
