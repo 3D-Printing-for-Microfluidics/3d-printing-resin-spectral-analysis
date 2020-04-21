@@ -1,6 +1,6 @@
 # Purpose
 
-This repository contains spectrum data and associated tools for resin and 3D printer development in the Nordin Group. Our focus is the development of 3D printer technology to meet the unique needs of microfluidic device fabrication.
+This repository contains spectrum data and associated tools for resin and 3D printer development in the [Nordin Group](https://ece.byu.edu/faculty/greg_nordin) at Brigham Young University. Our focus is the development of 3D printer technology to meet the unique needs of microfluidic device fabrication.
 
 # References
 
