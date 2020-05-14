@@ -77,6 +77,9 @@ class ArrayParams(typing.NamedTuple):
         min_value (float): Minimum value in array
         max_value (float): Maximum value in array
         num_pnts (int): number of values in array
+
+    Example:
+        wavelengths = np.linspace(*ArrayParams(300, 440, 281))
     """
 
     min_value: float
