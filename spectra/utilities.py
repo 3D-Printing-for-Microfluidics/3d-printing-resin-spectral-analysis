@@ -15,6 +15,11 @@ def find_index_of_nearest(var_array, value):
     return idx
 
 
+def find_index_of_max(var_array):
+    idx = np.argmax(var_array, axis=0)
+    return idx
+
+
 class ArrayParams(typing.NamedTuple):
     """Container with named attributes for making 1D arrays of linearly spaced values.
     Intended for use with numpy.linspace.
