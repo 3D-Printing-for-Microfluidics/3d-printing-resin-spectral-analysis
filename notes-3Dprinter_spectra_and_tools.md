@@ -43,16 +43,17 @@
         - &#9989; Use ideal source, absorber for integrations checks over the source, and for D_n(z)
 - &#9989; Create examples that use the package
 - Validate D_n(z) - compare with what I got in January 2019?
-- Create data and classes to handle thickness vs exposure time measurements and Model 3 & 4 fits
 - Create a class like SourceSpectrum, except it lets you manipulate source with actual or ideal spectral filter
 - Create documentation to explain theory and how code works
 - Create way to use the code (Jupyter notebooks, straight python code, in a web browser)?
 
 
-# Tuesday, 4/14/20
+# Thursday, 5/14/20
 
 ## Log
 
+- Add new functions to utilities.py
+- Add tests for new functions in utilities.py
 
 
 # Monday, 4/13/20

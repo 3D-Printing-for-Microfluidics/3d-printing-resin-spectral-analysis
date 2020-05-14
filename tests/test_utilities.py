@@ -3,11 +3,42 @@ from pathlib import Path
 import numpy as np
 
 from spectra.utilities import (
+    find_index_of_nearest,
+    find_index_of_max,
+    shift,
+    shift_peak_wavelength,
     ArrayParams,
     read_spectrometer_file,
     read_FIRE_spectrum_data_file,
     read_OE65PRO_spectrum_data_file,
 )
+
+
+def test_find_index_of_max():
+    test_array = np.array([0, 1, 3, 2, 5, 0, 1])
+    test_array_index_of_max = find_index_of_max(test_array)
+    assert test_array_index_of_max == 4
+
+
+def test_shift():
+    start_array = np.array([x + 1 for x in range(10)])
+
+    result = np.array([5, 6, 7, 8, 9, 10, 0, 0, 0, 0])
+    assert np.array_equal(shift(start_array, -4), result)
+
+    result = np.array([20, 20, 20, 20, 1, 2, 3, 4, 5, 6])
+    assert np.array_equal(shift(start_array, 4, fill_value=20), result)
+
+    assert np.array_equal(shift(start_array, 0), start_array)
+
+
+def test_shift_peak_wavelength():
+    w = np.linspace(
+        360, 400, 9
+    )  # array([360., 365., 370., 375., 380., 385., 390., 395., 400.])
+    p = np.array([1, 2, 3, 4, 3.5, 2.5, 1.5, 1.0, 1.0])
+    result = np.array([0.0, 0.0, 1.0, 2.0, 3.0, 4.0, 3.5, 2.5, 1.5])
+    assert np.array_equal(shift_peak_wavelength(385, w, p), result)
 
 
 def test_ArrayParams():
