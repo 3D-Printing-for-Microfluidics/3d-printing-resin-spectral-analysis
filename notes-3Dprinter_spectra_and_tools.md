@@ -54,6 +54,8 @@
 
 - Add new functions to utilities.py
 - Add tests for new functions in utilities.py
+- Create bandpass filter function
+- Do analysis of 2% avobenzone and 2% NPS resin with MR1 sources
 
 
 # Monday, 4/13/20
