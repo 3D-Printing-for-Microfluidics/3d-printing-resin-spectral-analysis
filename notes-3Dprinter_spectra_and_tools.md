@@ -48,6 +48,13 @@
 - Create way to use the code (Jupyter notebooks, straight python code, in a web browser)?
 
 
+# Friday, 5/15/20
+
+## Log
+
+- Re-do analysis of 2% avobenzone and 2% NPS resin with MR1 sources
+
+
 # Thursday, 5/14/20
 
 ## Log
