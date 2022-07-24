@@ -47,6 +47,38 @@
 - Create documentation to explain theory and how code works
 - Create way to use the code (Jupyter notebooks, straight python code, in a web browser)?
 
+# Saturday 7/23/22
+
+Create new virtual environment and use as jupyter kernel:
+
+```
+$ cd ~/python_envs/
+$ conda activate py39
+$ python -m venv spectra_tools --prompt="spectra_tools"
+$ conda deactivate
+$ source spectra_tools/bin/activate
+$ cd ~/Documents/Projects/3D_printer_spectra_repos
+# Install local package spectra, which automatically uses setup.py,
+# and make it an editable install (-e).
+$ pip install -e .
+# Install this virtual environment as a jupyter kernel
+$ python -m ipykernel install --user --name=spectra_tools
+
+# In another terminal window (session) confirm available as jupyter kernel:
+(jupyter_py39)
+$ jupyter kernelspec list
+Available kernels:
+  anaconda_2022_05              /Users/nordin/Library/Jupyter/kernels/anaconda_2022_05
+  anaconda_py38                 /Users/nordin/Library/Jupyter/kernels/anaconda_py38
+  gmsh                          /Users/nordin/Library/Jupyter/kernels/gmsh
+  javascript                    /Users/nordin/Library/Jupyter/kernels/javascript
+  mu_venv-38-20210801-140553    /Users/nordin/Library/Jupyter/kernels/mu_venv-38-20210801-140553
+  panel_env                     /Users/nordin/Library/Jupyter/kernels/panel_env
+  panel_voila_opencv            /Users/nordin/Library/Jupyter/kernels/panel_voila_opencv
+  spectra_tools                 /Users/nordin/Library/Jupyter/kernels/spectra_tools
+  python3                       /Users/nordin/opt/miniconda3/envs/jupyter_py39/share/jupyter/kernels/python3
+```
+
 
 # Friday, 5/15/20
 
@@ -270,7 +302,7 @@ Current spectrometer data file format is different from several years ago:
     - 2 header lines starting with `#`
     - `,` separator between values
 
-Modify spectra.utilities.read_spectrometer_file to read both spectrometer file types 
+Modify `spectra.utilities.read_spectrometer_file` to read both spectrometer file types 
 
 - Process 2017-04-13 avobenzone data
 - Create an AbsorberSpectrum class
