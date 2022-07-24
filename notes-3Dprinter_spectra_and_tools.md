@@ -47,6 +47,12 @@
 - Create documentation to explain theory and how code works
 - Create way to use the code (Jupyter notebooks, straight python code, in a web browser)?
 
+# Next
+
+- Do series of cases with different avobenzone and NPS concentrations and filtered 365 source and unfiltered, short pass, and bandpass filtered 385 nm source to calculate `h_a` for each.
+    - **Determine whether short pass or bandpass filter is needed for 385 nm source.**
+- Use Asahi bandpass filter data to create filtered 385 nm source.
+
 # Saturday 7/23/22
 
 Create new virtual environment and use as jupyter kernel:
@@ -78,6 +84,13 @@ Available kernels:
   spectra_tools                 /Users/nordin/Library/Jupyter/kernels/spectra_tools
   python3                       /Users/nordin/opt/miniconda3/envs/jupyter_py39/share/jupyter/kernels/python3
 ```
+
+# Friday, 5/22/22
+
+Convert notebook to html file to send to Dallin Miner:
+
+    (jupyter_py39)
+    $ jupyter nbconvert --to html 200514_two_absorbers_for_MR1.ipynb
 
 
 # Friday, 5/15/20
