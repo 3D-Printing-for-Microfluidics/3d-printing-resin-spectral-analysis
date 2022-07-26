@@ -53,6 +53,11 @@
     - **Determine whether short pass or bandpass filter is needed for 385 nm source.**
 - Use Asahi bandpass filter data to create filtered 385 nm source.
 
+
+# Tuesday 7/26/22
+
+
+
 # Saturday 7/23/22
 
 Create new virtual environment and use as jupyter kernel:
