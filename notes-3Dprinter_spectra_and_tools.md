@@ -56,6 +56,10 @@
 
 # Tuesday 7/26/22
 
+Add 2021 Asahi-calculated band pass filter data:
+
+    - 10 nm band pass (380 nm with 10 nm width at 1% transmission bandwidth)
+    - 15 nm band pass (360 nm with 15 nm width at 1% transmission bandwidth)
 
 
 # Saturday 7/23/22
