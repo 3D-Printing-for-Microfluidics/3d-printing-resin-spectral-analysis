@@ -59,6 +59,7 @@
 `220726_Avo_NPS_calcs.ipynb`
 
 - Analyze 1% avobenzone and 3% NPS resin.
+- Analyze 2% avobenzone and 0.6% Sudan I resin.
 
 # Thursday 7/28/22
 
