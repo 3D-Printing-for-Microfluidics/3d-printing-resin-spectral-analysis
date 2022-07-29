@@ -54,10 +54,19 @@
 - Use Asahi bandpass filter data to create filtered 385 nm source.
 
 
+# Friday 7/29/22
+
+`220726_Avo_NPS_calcs.ipynb`
+
+- Analyze 1% avobenzone and 3% NPS resin.
+
 # Thursday 7/28/22
+
+`220726_Avo_NPS_calcs.ipynb`
 
 - Create `FilteredSpectrum` class and debug.
 - Use to begin analysis of short pass filtered 405 nm system with Avobenzone/NPS resin based on shifting 370 nm short pass filter spectrum by +40 nm to 410 nm.
+- Analyze 2% avobenzone and 2% NPS resin.
 
 
 # Tuesday 7/26/22
