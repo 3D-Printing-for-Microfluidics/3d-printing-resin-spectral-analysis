@@ -61,6 +61,14 @@
 - Analyze 1% avobenzone and 3% NPS resin.
 - Analyze 2% avobenzone and 0.6% Sudan I resin.
 
+## Results so far
+
+| Avo (%) | NPS (%) | Sudan I (%) | h_a 365 filtered (&mu;m) | h_a 405 filtered (&mu;m) | h_a 405 (&mu;m) |
+| --: | --: | ------: | :--: | :--: | :--: |
+| 2 | 2 | - | 1.8 | 18 | - |
+| 1 | 3 | - | 2.7 | 13 | - |
+| 2 | - | 0.6 | 2.0 | 13 | 13 |
+
 # Thursday 7/28/22
 
 `220726_Avo_NPS_calcs.ipynb`
