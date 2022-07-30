@@ -60,6 +60,8 @@
 
 - Analyze 1% avobenzone and 3% NPS resin.
 - Analyze 2% avobenzone and 0.6% Sudan I resin.
+- Analyze 2% avobenzone and 3% NPS resin.
+- Analyze 1.5% avobenzone and 3% NPS resin.
 
 ## Results so far
 
@@ -67,6 +69,8 @@
 | --: | --: | ------: | :--: | :--: | :--: |
 | 2 | 2 | - | 1.8 | 18 | - |
 | 1 | 3 | - | 2.7 | 13 | - |
+| 2 | 3 | - | 1.7 | 13 | - |
+| 1.5 | 3 | - | 2.1 | 13 | - |
 | 2 | - | 0.6 | 2.0 | 13 | 13 |
 
 # Thursday 7/28/22
