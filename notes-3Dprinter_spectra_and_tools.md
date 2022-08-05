@@ -54,6 +54,14 @@
 - Use Asahi bandpass filter data to create filtered 385 nm source.
 
 
+# Thursday 8/4/22
+
+`220726_Avo_NPS_calcs.ipynb`
+
+- Add Asahi-calculated transmission 410 nm short pass filter data.
+- Compare to shifted 370 nm short pass filter data to make a go/no-go decision about buying Asahi 410 nm short pass filter.
+
+
 # Friday 7/29/22
 
 `220726_Avo_NPS_calcs.ipynb`
@@ -65,13 +73,13 @@
 
 ## Results so far
 
-| Avo (%) | NPS (%) | Sudan I (%) | h_a 365 filtered (&mu;m) | h_a 405 filtered (&mu;m) | h_a 405 (&mu;m) |
-| --: | --: | ------: | :--: | :--: | :--: |
-| 2 | 2 | - | 1.8 | 18 | - |
-| 1 | 3 | - | 2.7 | 13 | - |
-| 2 | 3 | - | 1.7 | 13 | - |
-| 1.5 | 3 | - | 2.1 | 13 | - |
-| 2 | - | 0.6 | 2.0 | 13 | 13 |
+| Avo (%) | NPS (%) | Sudan I (%) | | h_a 365 filtered (&mu;m) | h_a 405 filtered (&mu;m) | h_a 405 (&mu;m) |
+| --: | --: | ------: | :--: | :--: | :--: | :--: |
+| 2 | 2 | - | | 1.8 | 18 | - |
+| 1 | 3 | - | | 2.7 | 13 | - |
+| 2 | 3 | - | | 1.7 | 13 | - |
+| 1.5 | 3 | - | | 2.1 | 13 | - |
+| 2 | - | 0.6 | | 2.0 | 13 | 13 |
 
 # Thursday 7/28/22
 
