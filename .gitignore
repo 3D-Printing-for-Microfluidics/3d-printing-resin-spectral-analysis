@@ -8,6 +8,6 @@ lastfailed
 *.stl
 *.zip
 env/
-.venv/
+.venv*/
 *.egg-info/
 nohup.out
