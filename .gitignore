@@ -11,3 +11,4 @@ env/
 .venv*/
 *.egg-info/
 nohup.out
+build/
