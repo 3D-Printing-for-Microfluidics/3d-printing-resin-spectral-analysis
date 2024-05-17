@@ -1,7 +1,17 @@
-
 # How to create a new absorber spectrum
 
+## Spectrometer measurements
+
+Prepare 2 samples for measurement, each of which is a thin liquid film sandwiched between 2 glass slides with spacers to ensure a known liquid thickness:
+
+1. Solvent (resin monomer) with absorber at known w/w percent concentration. You want to choose the concentration so that wavelengths of maximum absorption still let some light through. If no light is transmitted at these wavelengths, you cannot calculate accurate absorbance.
+2. Same except only the solvent (no absorber). Use the same integration time as for Sample 1 so the data is consistent.
+
+The 2nd sample is used to provide a transmission baseline against which the extra absorption ofthe absorber is measured with the first sample.
+
 ## Basic process
+
+Once the above spectrometer measurements have been made, then:
 
 1. Create directory with name `<dir_name>` in `spectra/data/absorbers`.
 2. Inside this directory create directory `raw_data`
