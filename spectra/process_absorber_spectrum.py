@@ -1,3 +1,11 @@
+"""
+5/17/24 - Convert from using PySimpleGUI to tkinter with ChatGPT 4o.
+Prompt: "Convert the following python code snippet to use tkinter instead of pysimplegui:" and
+copy all code from the "if '__name__' == '__main__' block. After adding the tk imports, the
+converted code ran as-is. Note that the converted code put all of the action into a new main()
+function.
+"""
+
 import json
 from pathlib import Path
 import sys
@@ -42,7 +50,6 @@ def calc_absorbance(
     force_zero=True,
     num_samples_for_average=10,
 ):
-
     # Make sure wavelengths are the same for both data sets
     assert np.allclose(source_spectrum[:, 0], absorber_spectrum[:, 0])
 
@@ -90,7 +97,7 @@ def process_spectrum_data(
     num_samples_for_average=10,
 ):
     """Process spectrometer data to create absorbance and molar absorptivity csv files.
-    
+
     Parameters
     ----------
     directory - Path object
@@ -106,11 +113,11 @@ def process_spectrum_data(
         Used in calc_absorbance()
     num_samples_for_average - int
         Used in calc_absorbance()
-        
+
     Returns
     -------
     Nothing
-    
+
     Outputs
     -------
     absorbance.csv file
@@ -196,45 +203,75 @@ def process_spectrum_data(
     )
 
 
-if __name__ == "__main__":
-    import PySimpleGUI as sg
+def main():
+    import tkinter as tk
+    from tkinter import filedialog, messagebox, ttk
 
-    # Open a file browser to get spectrum_config.json file
-    checkbox_text = "Correct absorbance to zero at long wavelengths"
+    def browse_file():
+        file_path = filedialog.askopenfilename(
+            initialdir=Path.cwd(),
+            title="Select file",
+            filetypes=(("JSON files", "*.json"), ("all files", "*.*")),
+        )
+        file_entry.delete(0, tk.END)
+        file_entry.insert(0, file_path)
+
+    def on_submit():
+        file_path = Path(file_entry.get())
+        if not file_path or file_path.suffix != ".json":
+            messagebox.showerror("Invalid File", "Please select a valid JSON file.")
+            return
+        root.quit()
+
+    root = tk.Tk()
+    root.title("Select JSON file")
+
     size = (40, 1)
-    layout = [
-        [sg.Text("Select JSON spectrum config file")],
-        [sg.Input(size=size), sg.FileBrowse(initial_folder=Path.cwd()),],
-        [sg.Checkbox(checkbox_text, default=True, size=size), sg.Submit(), sg.Cancel(),],
-    ]
-    window = sg.Window("Select JSON file", layout)
-    event, values = window.read()  # pylint: disable=unused-variable
-    window.close()
 
-    # print(f"values: {values}")
+    tk.Label(root, text="Select JSON spectrum config file").grid(
+        row=0, column=0, columnspan=2
+    )
 
-    # Only continue if file was selected
-    if event != "Submit":
+    file_entry = tk.Entry(root, width=size[0])
+    file_entry.grid(row=1, column=0)
+    ttk.Button(root, text="Browse", command=browse_file).grid(row=1, column=1)
+
+    force_zero_var = tk.BooleanVar(value=True)
+    tk.Checkbutton(
+        root, text="Correct absorbance to zero at long wavelengths", var=force_zero_var
+    ).grid(row=2, column=0, columnspan=2)
+
+    ttk.Button(root, text="Submit", command=on_submit).grid(row=3, column=0)
+    ttk.Button(root, text="Cancel", command=root.quit).grid(row=3, column=1)
+
+    root.mainloop()
+
+    input_json_file = Path(file_entry.get())
+    force_zero = force_zero_var.get()
+
+    if not input_json_file.exists():
         print("No file selected. Now exiting...")
-        exit()
+        return
 
-    # Extract GUI values
-    input_json_file = Path(values[0])
     print(f"You chose file:\n    {input_json_file}")
-    force_zero = values[1]
 
-    # Make sure file has expected suffix
     if input_json_file.suffix != ".json":
         print("\n~~~INVALID DATA FILE EXTENSION~~~")
         print("Data file must be named '*.json'")
         print("Exiting...\n\n")
-        exit()
+        return
 
     spectrum_config = read_spectrum_config_json(input_json_file)
     print("spectrum_config.json:")
     print(json.dumps(spectrum_config, indent=2))
 
-    process_spectrum_data(input_json_file.parent, spectrum_config, force_zero=force_zero)
-    print(
-        f"Spectrum successfully processed to create 'absorbance.csv' and 'molar_absorptivity.csv'"
+    process_spectrum_data(
+        input_json_file.parent, spectrum_config, force_zero=force_zero
     )
+    print(
+        "Spectrum successfully processed to create 'absorbance.csv' and 'molar_absorptivity.csv'"
+    )
+
+
+if __name__ == "__main__":
+    main()
