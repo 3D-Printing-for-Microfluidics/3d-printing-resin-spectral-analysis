@@ -11,6 +11,7 @@
 4. Create `spectrum_config.json` in `<dir_name>`
 5. Edit `spectrum_config.json` with information needed to do absorbance (required) and molar absorptivity (optional but strongly recommended) calculations
 6. Edit `data/__init__.py` to add 3 letter abbreviation to `_absorber_abbreviations` dict. The key in the dict should be the value of `Absorber` in the `spectrum_config.json` file below.
+7. Run `python -m spectra.process_absorber_spectrum`, click the `Browse` button and select the JSON file, then click the `Submit` button. New absorbance and molar absorptivity csv files are created in `<dir_name>`.
 
 ## Example `spectrum_config.json` file
 
@@ -34,19 +35,20 @@
 - Spectrometer transmission measurements
     - Monomer
     - Monomer + absorber
-        - `spectrum_config.json` with the following entries
-        
-        
-                {
-                    "Measurement": "Avobenzone absorption in PEGDA",
-                    "Measurement Date": "2020-01-20",
-                    "Measurement Spectrometer": "Ocean Optics FIRE",
-                    "Absorber": "Avobenzone",
-                    "Concentration w/w percent": 0.24,
-                    "Solvent": "PEGDA",
-                    "Solvent absorption measurement file": "QEPB00791_17-10-07-458.txt",
-                    "Solvent + absorber absorption measurement file": "QEPB00791_17-18-57-140.txt"
-                }
+
+- `spectrum_config.json` with the following entries
+
+
+            {
+                "Measurement": "Avobenzone absorption in PEGDA",
+                "Measurement Date": "2020-01-20",
+                "Measurement Spectrometer": "Ocean Optics FIRE",
+                "Absorber": "Avobenzone",
+                "Concentration w/w percent": 0.24,
+                "Solvent": "PEGDA",
+                "Solvent absorption measurement file": "QEPB00791_17-10-07-458.txt",
+                "Solvent + absorber absorption measurement file": "QEPB00791_17-18-57-140.txt"
+            }
 
 With the above parameters and data the absorbance will be calculated.
 
