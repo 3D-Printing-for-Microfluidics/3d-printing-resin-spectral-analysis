@@ -20,6 +20,7 @@ setuptools.setup(
         "scipy",
         "jupyterlab",
         "ipykernel",
+        "ipympl",
         "tk",
         "pytest",
         "pytest-cov",
