@@ -8,10 +8,6 @@ standard name, `measured_spectrum_normalized.csv`.
 
 This module is intended to be run on its own and not imported,
 e.g., execute `python -m spectra.process_source_spectrum`.
-
-5/17/24 - Convert from using PySimpleGUI to tkinter with ChatGPT 4o.
-Prompt: "Convert the following python code to use tkinter instead of pysimplegui:" and
-copy all code below this docstring. The converted code ran as-is.
 """
 
 from pathlib import Path

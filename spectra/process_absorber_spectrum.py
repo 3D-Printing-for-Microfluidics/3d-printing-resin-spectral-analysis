@@ -1,11 +1,3 @@
-"""
-5/17/24 - Convert from using PySimpleGUI to tkinter with ChatGPT 4o.
-Prompt: "Convert the following python code snippet to use tkinter instead of pysimplegui:" and
-copy all code from the "if '__name__' == '__main__' block. After adding the tk imports, the
-converted code ran as-is. Note that the converted code put all of the action into a new main()
-function.
-"""
-
 import json
 from pathlib import Path
 import sys
