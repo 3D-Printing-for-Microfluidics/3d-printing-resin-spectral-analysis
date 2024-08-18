@@ -9,6 +9,10 @@ This repository contains spectrum data and associated tools for resin and 3D pri
 
 # Installation
 
+Clone the repo
+
+    git clone https://github.com/gregnordin/3dprinter_spectra_and_tools
+
 Create a new python virtual environment and activate it.
 
 ```
@@ -20,7 +24,6 @@ source .venv/bin/activate
 
 Install package
 
-    git clone https://github.com/gregnordin/3dprinter_spectra_and_tools
     cd 3dprinter_spectra_and_tools
     pip install -e .
     # Make this virtual environment a generally-available Jupyter kernel to use with notebooks
