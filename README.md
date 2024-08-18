@@ -39,7 +39,7 @@ Also look at the analyses in `notebooks/220515...` and `notebooks/220516...` for
 
 Once the example notebook is understood, the following class diagram may be helpful in understanding the organization and use of the code.
 
-![](notebooks/200410_class_relationships.png)
+![](class_relationships.png)
 
 # Run tests
 
