@@ -28,8 +28,8 @@ class NormalizedDose:
         self.z_um = np.linspace(*z_array_params)
 
         # Pre-calculate source integral over wavelengths
-        self.source_integral = integrate.simps(
-            self.irradiance(0), self.irradiance.wavelengths
+        self.source_integral = integrate.simpson(
+            y=self.irradiance(0), x=self.irradiance.wavelengths
         )
 
         # Calculate normalized dose as a function of z
@@ -57,7 +57,7 @@ class NormalizedDose:
         norm_dose = np.zeros(len(self.z_um))
         for i, z_value in enumerate(self.z_um):
             norm_dose[i] = (
-                integrate.simps(self.irradiance(z_value), self.irradiance.wavelengths)
+                integrate.simpson(y=self.irradiance(z_value), x=self.irradiance.wavelengths)
                 / self.source_integral
             )
         return norm_dose
