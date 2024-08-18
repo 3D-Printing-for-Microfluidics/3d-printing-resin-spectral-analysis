@@ -19,12 +19,12 @@ class ResinConstituentAbsorber:
     --------
     1% Irgacure 819:
         `irgacure819 = ResinConstituentAbsorber(
-            data.photoinitiators['irgacure819_in_PEGDA_2020-01-20'],
+            data.photoinitiators['irgacure_819_in_PEGDA'],
             1.0
         )`
     0.38% avobenzone:
         `avobenzone = ResinConstituentAbsorber(
-            data.absorbers['avobenzone_in_PEGDA_2020-01-20'],
+            data.absorbers['avobenzone_in_PEGDA'],
             0.38
         )`
     """
@@ -77,11 +77,11 @@ class Resin:
     PEGDA with 0.38% avobenzone and 1% Irgacure 819:
         pegda = ResinConstituentMonomer(data.monomers['PEGDA'], 100)
         avobenzone = ResinConstituentAbsorber(
-            data.absorbers['avobenzone_in_PEGDA_2020-01-20'],
+            data.absorbers['avobenzone_in_PEGDA'],
             0.38
         )
         irgacure819 = ResinConstituentAbsorber(
-            data.photoinitiators['irgacure819_in_PEGDA_2020-01-20'],
+            data.photoinitiators['irgacure_819_in_PEGDA'],
             1.0
         )
         resin = Resin(monomers=pegda, absorbers=avobenzone, photoinitiators=irgacure819)
@@ -89,15 +89,15 @@ class Resin:
         pegda = ResinConstituentMonomer(data.monomers['PEGDA'], 60)
         hdda = ResinConstituentMonomer(data.monomers['HDDA'], 40)
         nps = ResinConstituentAbsorber(
-            data.absorbers['nps_in_PEGDA_2017-04-13'],
+            data.absorbers['nps_in_PEGDA'],
             2.0
         )
         avobenzone = ResinConstituentAbsorber(
-            data.absorbers['avobenzone_in_PEGDA_2020-01-20'],
+            data.absorbers['avobenzone_in_PEGDA'],
             1.0
         )
         irgacure819 = ResinConstituentAbsorber(
-            data.photoinitiators['irgacure819_in_PEGDA_2020-01-20'],
+            data.photoinitiators['irgacure_819_in_PEGDA'],
             1.0
         )
         resin = Resin(monomers=[pegda, hdda], absorbers=[nps, avobenzone], photoinitiators=irgacure819)

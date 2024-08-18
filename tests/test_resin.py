@@ -12,7 +12,7 @@ from spectra.resin import ResinConstituentAbsorber, ResinConstituentMonomer, Res
 
 def test_ResinConstituentAbsorber():
     temp_absorber = ResinConstituentAbsorber(
-        data.absorbers["avobenzone_in_PEGDA_2020-01-20"], 0.38
+        data.absorbers["avobenzone_in_PEGDA"], 0.38
     )
     assert temp_absorber.concentration_ww_percent == 0.38
 
@@ -27,10 +27,10 @@ def test_Resin():
     # PEGDA - Avobenzone - Irgacure 819
     pegda = ResinConstituentMonomer(data.monomers["PEGDA"], 100)
     avobenzone = ResinConstituentAbsorber(
-        data.absorbers["avobenzone_in_PEGDA_2020-01-20"], 0.38
+        data.absorbers["avobenzone_in_PEGDA"], 0.38
     )
     irgacure819 = ResinConstituentAbsorber(
-        data.photoinitiators["irgacure819_in_PEGDA_2020-01-20"], 1.0
+        data.photoinitiators["irgacure_819_in_PEGDA"], 1.0
     )
     resin = Resin(monomers=pegda, absorbers=avobenzone, photoinitiators=irgacure819)
     assert resin.name == "PEG-100__Avo-0.38__Irg-1"
@@ -70,26 +70,26 @@ def test_Resin():
     hdda = ResinConstituentMonomer(data.monomers["PEGDA"], 85)
     la = ResinConstituentMonomer(data.monomers["TET"], 15)
     avobenzone = ResinConstituentAbsorber(
-        data.absorbers["avobenzone_in_PEGDA_2020-01-20"], 1.5
+        data.absorbers["avobenzone_in_PEGDA"], 1.5
     )
-    nps = ResinConstituentAbsorber(data.absorbers["nps_in_PEGDA_2017-04-13"], 2.0)
+    nps = ResinConstituentAbsorber(data.absorbers["nps_in_PEGDA"], 2.0)
     irgacure819 = ResinConstituentAbsorber(
-        data.photoinitiators["irgacure819_in_PEGDA_2020-01-20"], 1
+        data.photoinitiators["irgacure_819_in_PEGDA"], 1
     )
-    tmdpo = ResinConstituentAbsorber(
-        data.photoinitiators["tmdpo_in_PEGDA_2017-04-13"], 0.25
+    tpo = ResinConstituentAbsorber(
+        data.photoinitiators["tpo_in_PEGDA"], 0.25
     )
     resin = Resin(
         monomers=[hdda, la],
         absorbers=[avobenzone, nps],
-        photoinitiators=[irgacure819, tmdpo],
+        photoinitiators=[irgacure819, tpo],
     )
-    assert resin.name == "PEG-85_TET-15__Avo-1.5_NPS-2__Irg-1_TMD-0.25"
+    assert resin.name == "PEG-85_TET-15__Avo-1.5_NPS-2__Irg-1_TPO-0.25"
 
 
 def test_resin_with_ideal_data():
     monomer = ResinConstituentMonomer(data.monomers["Ideal"], 100)
-    absorber = ResinConstituentAbsorber(data.absorbers["ideal_uniform_absorber"], 1)
+    absorber = ResinConstituentAbsorber(data.absorbers["ideal_uniform_absorber_320nm-390nm"], 1)
     resin = Resin(monomers=monomer, absorbers=absorber)
 
     assert resin.name == "Ide-100__Uni-1__"

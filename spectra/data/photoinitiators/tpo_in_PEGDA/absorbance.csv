@@ -1,4 +1,4 @@
-# {"Measurement": "TMDPO absorption in PEGDA", "Measurement Date": "2017-04-13", "Measurement Spectrometer": "Ocean Optics OE65PRO", "Absorber": "TMDPO", "Concentration w/w percent": 5.0, "Film thickness microns": 66.04, "Molar mass g/mole": 348.37, "Solvent": "PEGDA", "Solvent density g/L": 1110, "Solvent absorption measurement file": "TMDPO_5per_noresin_72ms_0_01.csv", "Solvent + absorber absorption measurement file": "TMDPO_5per_72ms_0_01.csv"}
+# {"Measurement": "TPO absorption in PEGDA", "Measurement Date": "2017-04-13", "Measurement Spectrometer": "Ocean Optics OE65PRO", "Absorber": "TPO", "Concentration w/w percent": 5.0, "Film thickness microns": 66.04, "Molar mass g/mole": 348.37, "Solvent": "PEGDA", "Solvent density g/L": 1110, "Solvent absorption measurement file": "TPO_5per_noresin_72ms_0_01.csv", "Solvent + absorber absorption measurement file": "TPO_5per_72ms_0_01.csv"}
 2.999694198695810883e+02,2.867647553041030584e-01
 3.007672975609717696e+02,2.965942272733804730e-01
 3.015651034220029487e+02,2.873998436319648020e-01

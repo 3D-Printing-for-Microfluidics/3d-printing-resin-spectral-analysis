@@ -115,7 +115,7 @@ _absorber_abbreviations = {
     "Uniform absorber": "Uni",
 }
 
-_photoinitiator_abbreviations = {"Irgacure 819": "Irg", "TMDPO": "TMD", "BME": "BME"}
+_photoinitiator_abbreviations = {"Irgacure 819": "Irg", "TPO": "TPO", "BME": "BME"}
 
 material_abbreviations = {
     **_monomer_abbreviations,

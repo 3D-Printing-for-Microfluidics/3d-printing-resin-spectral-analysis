@@ -17,7 +17,7 @@
 After performing the above process for 2 directories of data, the directory structure looks like this:
 
     sources
-    ├── HR3.2_365nm_370nm_short_pass_filter-2019-12-31
+    ├── HR3v3_365nm_Visitech_370nm_shortpass
     │   ├── 200311_process_data.ipynb
     │   ├── measured_spectrum_normalized.csv
     │   └── raw_data

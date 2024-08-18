@@ -22,10 +22,10 @@ from spectra.spectrummodels import (
 
 def test_normalizeddose():
     monomer = ResinConstituentMonomer(data.monomers["Ideal"], 100)
-    absorber = ResinConstituentAbsorber(data.absorbers["ideal_uniform_absorber"], 1)
+    absorber = ResinConstituentAbsorber(data.absorbers["ideal_uniform_absorber_320nm-390nm"], 1)
     resin = Resin(monomers=monomer, absorbers=absorber)
 
-    source = data.sources["Ideal_uniform_10nm_source"]
+    source = data.sources["ideal_uniform_source_360nm-370nm"]
     irradiance = Irradiance(
         source=source, resin=resin, wavelength_array_params=ArrayParams(300, 440, 701)
     )
