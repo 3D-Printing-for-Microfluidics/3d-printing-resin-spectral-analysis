@@ -57,7 +57,9 @@ class NormalizedDose:
         norm_dose = np.zeros(len(self.z_um))
         for i, z_value in enumerate(self.z_um):
             norm_dose[i] = (
-                integrate.simpson(y=self.irradiance(z_value), x=self.irradiance.wavelengths)
+                integrate.simpson(
+                    y=self.irradiance(z_value), x=self.irradiance.wavelengths
+                )
                 / self.source_integral
             )
         return norm_dose
@@ -86,8 +88,10 @@ class NormalizedDose:
         a_b_c_model["stdev"] = np.sqrt(np.diag(pcov))
         return a_b_c_model
 
-    def plot(self, grid=True, title=None, file=None):
+    def plot(self, grid=True, title=None, file=None, log=False):
         fig, ax = plt.subplots()
+        if log:
+            ax.set_yscale("log")
         ax.plot(self.z_um, self.normalized_dose, "r", label="$D_n(z)$")
 
         text_func3 = "fit: y = a*exp(-z/b) + c\n"
@@ -97,7 +101,9 @@ class NormalizedDose:
             self.a_b_c_model,
             "r--",
             label=text_func3
-            + "a={:4.3}, b={:5.3f}, c={:5.3f}".format(model["a"], model["b"], model["c"]),
+            + "a={:4.3}, b={:5.3f}, c={:5.3f}".format(
+                model["a"], model["b"], model["c"]
+            ),
         )
 
         text_func2 = "fit: y = a*exp(-z/b) + (1-a)\n"
@@ -118,7 +124,9 @@ class NormalizedDose:
             label=text_func1 + "b={:7.5f}".format(model["ha"]),
         )
 
-        ax.set_xlim(0,)
+        ax.set_xlim(
+            0,
+        )
         ax.set_xlabel(r"z ($\mu$m)")
         ax.set_ylabel("D'(z)")
         ax.set_ylim(0, 1)
