@@ -1,0 +1,45 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "spectra"
+version = "0.2.0"
+description = "3D printer resin absorption and LED emission spectra and tools"
+readme = "README.md"
+authors = [{name = "Greg Nordin", email = "nordin@byu.edu"}]
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.24",
+    "matplotlib>=3.6",
+    "scipy>=1.10",
+]
+
+[project.scripts]
+process-absorber-spectrum = "spectra.process_absorber_spectrum:main"
+process-source-spectrum   = "spectra.process_source_spectrum:main"
+
+[dependency-groups]
+dev = [
+    "pytest>=7",
+    "pytest-cov>=4",
+    "ruff>=0.4",
+]
+notebooks = [
+    "jupyterlab>=4",
+    "ipykernel>=6",
+    "ipympl>=0.9",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/spectra"]
+
+[tool.pytest.ini_options]
+addopts = "--cov=spectra --cov-report=term-missing -v"
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 90
+
+[tool.ruff.lint]
+select = ["E", "F", "W"]
