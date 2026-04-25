@@ -9,28 +9,29 @@ This repository contains spectrum data and associated tools for resin and 3D pri
 
 # Installation
 
-Create a new python virtual environment and activate it.
+Install [uv](https://docs.astral.sh/uv/getting-started/installation/) if not already present, then:
 
+```bash
+git clone https://github.com/gregnordin/3dprinter_spectra_and_tools
+cd 3dprinter_spectra_and_tools
+uv sync --all-groups
+# Make the environment available as a Jupyter kernel
+uv run python -m ipykernel install --user --name spectra --display-name=spectra
 ```
-# Make sure you are in a directory in which you want your virtual environment
-# and the 3dprinter_spectra_and_tools package to reside.
-python -m venv .venv --prompt spectra
-source .venv/bin/activate
-```
 
-Install package
+`uv sync` creates a `.venv` automatically and installs the package in editable mode along with all dependencies.
 
-    git clone https://github.com/gregnordin/3dprinter_spectra_and_tools
-    cd 3dprinter_spectra_and_tools
-    pip install -e .
-    # Make this virtual environment a generally-available Jupyter kernel to use with notebooks
-    python -m ipykernel install --user --name spectra_and_tools --display-name=spectra_and_tools
+# How to run a notebook
 
-# How to use
+From the terminal in the `3dprinter_spectra_and_tools` directory, execute`uv run jupyter lab`, which will open Jupyter Lab in a window in your default browser. In Jupyter Lab navigate to the notebook you wish to open and double click on it. A dialog box will pop up for you to select a python kernel. Select `spectra`. Now you can run the code cells as usual in a notebook.
 
-Start with `examples/Example_normalized_dose_calculation.ipynb`, which shows how to use the package to create resins, plot spectra, and show the normalized dose as a function of `z`.
+# How to learn how to use
 
-Also look at the analyses in `notebooks/220515...` and `notebooks/220516...` for futher examples. Other notebooks may also be helpful.
+Start with `notebooks/examples/Example_normalized_dose_calculation.ipynb`, which shows how to use the package to create resins, plot spectra, and show the normalized dose as a function of `z`.
+
+Also look at the analyses in `notebooks/220515...` and `notebooks/220516...` for further examples. Other notebooks may also be helpful.
+
+Using what you learn from the examples, create your own notebook and write code to analyze/design your own resins.
 
 # Class relationships
 
@@ -40,4 +41,6 @@ Once the example notebook is understood, the following class diagram may be help
 
 # Run tests
 
-    $ pytest --cov spectra --cov-report term-missing -vv -s
+```bash
+uv run pytest
+```
