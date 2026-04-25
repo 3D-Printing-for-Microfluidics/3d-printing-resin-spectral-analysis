@@ -13,3 +13,4 @@ env/
 nohup.out
 build/
 .DS_Store
+.claude/

@@ -21,11 +21,17 @@ uv run python -m ipykernel install --user --name spectra --display-name=spectra
 
 `uv sync` creates a `.venv` automatically and installs the package in editable mode along with all dependencies.
 
-# How to use
+# How to run a notebook
+
+From the terminal in the `3dprinter_spectra_and_tools` directory, execute`uv run jupyter lab`, which will open Jupyter Lab in a window in your default browser. In Jupyter Lab navigate to the notebook you wish to open and double click on it. A dialog box will pop up for you to select a python kernel. Select `spectra`. Now you can run the code cells as usual in a notebook.
+
+# How to learn how to use
 
 Start with `notebooks/examples/Example_normalized_dose_calculation.ipynb`, which shows how to use the package to create resins, plot spectra, and show the normalized dose as a function of `z`.
 
 Also look at the analyses in `notebooks/220515...` and `notebooks/220516...` for further examples. Other notebooks may also be helpful.
+
+Using what you learn from the examples, create your own notebook and write code to analyze/design your own resins.
 
 # Class relationships
 
