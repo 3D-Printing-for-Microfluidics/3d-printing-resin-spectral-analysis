@@ -1,4 +1,4 @@
-from pathlib import Path
+from importlib.resources import files
 
 from spectra.absorberspectrum import AbsorberSpectrum
 from spectra.sourcespectrum import SourceSpectrum
@@ -39,7 +39,7 @@ def _populate_data_from_directories(dir_name, class_type):
     Path - Path object for `dir_name` in case the user needs to reach in and directly
         get raw data (which should be extremely rare).
     """
-    main_directory = Path(__file__).resolve().parent / dir_name
+    main_directory = files("spectra.data") / dir_name
     data_directories = _get_data_directories(main_directory)
     result = {}
     for d in data_directories:
@@ -48,7 +48,7 @@ def _populate_data_from_directories(dir_name, class_type):
 
 
 def _populate_data_from_json_files(dir_name, class_type):
-    main_directory = Path(__file__).resolve().parent / dir_name
+    main_directory = files("spectra.data") / dir_name
     json_files = sorted([f for f in main_directory.glob("*.json")])
     result = {}
     for json_file in json_files:
