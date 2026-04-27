@@ -1,4 +1,5 @@
 from importlib.resources import files
+from pathlib import Path
 
 from spectra.absorberspectrum import AbsorberSpectrum
 from spectra.sourcespectrum import SourceSpectrum
@@ -122,3 +123,85 @@ material_abbreviations = {
     **_absorber_abbreviations,
     **_photoinitiator_abbreviations,
 }
+
+
+# -----------------------------------------------------------------------------
+#  Programmatic load functions
+# -----------------------------------------------------------------------------
+
+
+def load_absorber(directory, *, name=None):
+    """Load an AbsorberSpectrum from an arbitrary directory and register it in data.absorbers.
+
+    Parameters
+    ----------
+    directory : str or Path
+        Directory containing absorbance.csv and molar_absorptivity.csv.
+    name : str, optional
+        Key to use in data.absorbers. Defaults to the directory's name.
+
+    Returns
+    -------
+    AbsorberSpectrum
+    """
+    path = Path(directory)
+    key = name if name is not None else path.name
+    absorbers[key] = AbsorberSpectrum(path)
+    return absorbers[key]
+
+
+def load_photoinitiator(directory, *, name=None):
+    """Load an AbsorberSpectrum from an arbitrary directory and register it in data.photoinitiators.
+
+    Parameters
+    ----------
+    directory : str or Path
+        Directory containing absorbance.csv and molar_absorptivity.csv.
+    name : str, optional
+        Key to use in data.photoinitiators. Defaults to the directory's name.
+
+    Returns
+    -------
+    AbsorberSpectrum
+    """
+    path = Path(directory)
+    key = name if name is not None else path.name
+    photoinitiators[key] = AbsorberSpectrum(path)
+    return photoinitiators[key]
+
+
+def load_source(directory, *, name=None):
+    """Load a SourceSpectrum from an arbitrary directory and register it in data.sources.
+
+    Parameters
+    ----------
+    directory : str or Path
+        Directory containing measured_spectrum_normalized.csv.
+    name : str, optional
+        Key to use in data.sources. Defaults to the directory's name.
+
+    Returns
+    -------
+    SourceSpectrum
+    """
+    path = Path(directory)
+    key = name if name is not None else path.name
+    sources[key] = SourceSpectrum(path)
+    return sources[key]
+
+
+def load_monomer(json_file):
+    """Load a Monomer from a JSON file and register it in data.monomers.
+
+    Parameters
+    ----------
+    json_file : str or Path
+        Path to a monomer JSON file with keys "Name", "Long name", "Density g/L".
+
+    Returns
+    -------
+    Monomer
+    """
+    obj = Monomer(Path(json_file))
+    monomers[obj.name] = obj
+    return obj
