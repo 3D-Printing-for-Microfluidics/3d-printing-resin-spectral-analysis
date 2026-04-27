@@ -1,4 +1,23 @@
-# How to create a new source spectrum resource
+# Loading your own source data
+
+To load source spectrum data from an arbitrary directory in a notebook or script:
+
+```python
+import spectra.data as data
+
+# Key defaults to the directory name
+data.load_source("/path/to/my_source_dir")
+
+# Or supply an explicit key
+data.load_source("/path/to/my_source_dir", name="my_key")
+
+print(data.sources.keys())   # bundled + newly loaded entries
+```
+
+The directory must contain `measured_spectrum_normalized.csv` — two columns: wavelength, normalized power (peak = 1.0). Loaded entries are in-memory only and do not persist across sessions.
+
+
+# Adding a new source spectrum to the package
 
 1. Make directory in `spectra/data/sources` to contain source spectrum files. The name of the directory, `<directory name>`, will be the name used to identify this source spectrum; this includes using it as a key in a sources dict.
 2. Move (`cd`) into the new directory.

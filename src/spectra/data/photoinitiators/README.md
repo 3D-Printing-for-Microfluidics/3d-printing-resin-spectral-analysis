@@ -1,4 +1,25 @@
-To add absorption data for a photoinitiator, follow the same instructions as for adding an absorber. These are found at [absorbers/README.md](../absorbers/README.md). The only differences are:
+# Loading your own photoinitiator data
 
-- Perform Step 1 in the `spectra/data/photoinitiators` directory instead of in the `spectra/data/absorbers` directory
-- In Step 6, add entry to `_photoinitiator_abbreviations` instead of `_absorber_abbreviations`
+To load photoinitiator data from an arbitrary directory in a notebook or script:
+
+```python
+import spectra.data as data
+
+# Key defaults to the directory name
+data.load_photoinitiator("/path/to/my_photoinitiator_dir")
+
+# Or supply an explicit key
+data.load_photoinitiator("/path/to/my_photoinitiator_dir", name="my_key")
+
+print(data.photoinitiators.keys())   # bundled + newly loaded entries
+```
+
+The required directory structure and file formats are identical to those for absorbers — see [absorbers/README.md](../absorbers/README.md) for details. Loaded entries are in-memory only and do not persist across sessions.
+
+
+# Adding a new photoinitiator to the package
+
+To permanently add a new photoinitiator to the bundled package data, follow the same instructions as for adding an absorber in [absorbers/README.md](../absorbers/README.md), with two differences:
+
+- Perform Step 1 in the `spectra/data/photoinitiators` directory instead of `spectra/data/absorbers`.
+- In Step 6, add the entry to `_photoinitiator_abbreviations` instead of `_absorber_abbreviations`.

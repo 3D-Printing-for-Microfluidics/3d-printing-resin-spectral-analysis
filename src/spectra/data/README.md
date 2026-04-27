@@ -18,9 +18,34 @@ This material absorption data and source emission data can be used to calculate 
 
 The `resins` directory contains measured polymerization thickness as a function of exposure time. This data can be used to derive $h_a$ and $T_c$ for Model 3 and $a$, $b$, and $T_c$ for Model 4 in [Custom 3D printer and resin for 18 μm × 20 μm microfluidic flow channels](https://www.ncbi.nlm.nih.gov/pubmed/28726927).
 
+# Loading your own data
+
+You can load spectrum data from any directory on your filesystem — useful in notebooks and scripts without modifying the package. Loaded entries are added to the in-memory dicts for the current session only.
+
+```python
+import spectra.data as data
+
+# Absorber or photoinitiator: directory must contain absorbance.csv and molar_absorptivity.csv
+data.load_absorber("/path/to/my_absorber_dir")
+data.load_absorber("/path/to/my_absorber_dir", name="my_key")   # explicit registry key
+data.load_photoinitiator("/path/to/my_pi_dir")
+
+# Source: directory must contain measured_spectrum_normalized.csv
+data.load_source("/path/to/my_source_dir")
+
+# Monomer: path to a JSON file with "Name", "Long name", and "Density g/L" fields
+data.load_monomer("/path/to/my_monomer.json")
+
+# Loaded entries appear in the same dicts as bundled data
+print(data.absorbers.keys())
+print(data.sources.keys())
+```
+
+See the README.md in each sub-directory for the required file formats.
+
 # Adding new spectrum data
 
-See the README.md file in each sub-directory (sources, absorbers, photoinitiators) for directions on how to add new spectrum data.
+See the README.md file in each sub-directory (sources, absorbers, photoinitiators) for directions on how to add new spectrum data to the package.
 
 # Ideal uniform source and absorber for tests
 
