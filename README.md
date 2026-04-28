@@ -41,7 +41,9 @@ Once the example notebook is understood, the following class diagram may be help
 
 # Data
 
-The `spectra` package has built-in spectral data stored in the `data` directory. UV absorber and photoinitiator absorption spectra are found in `spectra.data.absorbers` and `spectra.data.photoinitiators`, respectively, while LED emission spectra are found in `spectra.data.sources`. See the [`src/spectra/data/README.md`](src/spectra/data/README.md) file for more details.
+The `spectra` package has built-in spectral data stored in the `data` directory. UV absorber and photoinitiator absorption spectra are found in `spectra.data.absorbers` and `spectra.data.photoinitiators`, respectively, while LED emission spectra are found in `spectra.data.sources`. See [`src/spectra/data/README.md`](src/spectra/data/README.md) for more details.
+
+You can also process your own raw spectrometer measurements into the format the package expects. Run `process-absorber-spectrum` from the terminal — a GUI opens to select a `spectrum_config.json` file and produce `absorbance.csv` and `molar_absorptivity.csv`. See [`src/spectra/data/absorbers/README.md`](src/spectra/data/absorbers/README.md) for the required directory layout, file format, and config options.
 
 # Run tests
 

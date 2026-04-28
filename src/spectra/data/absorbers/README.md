@@ -23,6 +23,76 @@ The directory must contain these two files:
 
 Loaded entries are in-memory only and do not persist across sessions.
 
+If you have raw spectrometer measurement files, see the next section to produce these CSV files first.
+
+
+# Processing your own raw spectrometer data
+
+Use `process-absorber-spectrum` to convert raw spectrometer measurements into the `absorbance.csv` and `molar_absorptivity.csv` files needed by `load_absorber()`.
+
+## Raw data file format
+
+Each raw data file must be a CSV with two columns: wavelength (nm) and intensity. Lines beginning with `#` are treated as comments and skipped. A non-numeric header row (e.g. `wavelength,intensity`) is also handled automatically.
+
+## Directory structure
+
+Create a working directory anywhere on your filesystem with the following layout:
+
+```
+my_absorber/
+├── spectrum_config.json
+└── raw_data/
+    ├── solvent.csv
+    └── solvent_plus_absorber.csv
+```
+
+`raw_data/` holds your two raw spectrometer CSV files:
+
+- **Solvent only** — the resin monomer with no absorber, at the same integration time as the absorber measurement
+- **Solvent + absorber** — the same monomer with absorber dissolved in it at a known concentration
+
+## `spectrum_config.json`
+
+| Key | Required | Description |
+|-----|----------|-------------|
+| `"Solvent absorption measurement file"` | yes | filename inside `raw_data/` |
+| `"Solvent + absorber absorption measurement file"` | yes | filename inside `raw_data/` |
+| `"Concentration w/w percent"` | yes | absorber concentration (w/w %) |
+| `"Film thickness microns"` | recommended | cuvette / spacer thickness in µm |
+| `"Molar mass g/mole"` | recommended | absorber molar mass |
+| `"Solvent density g/L"` | recommended | solvent density |
+| `"Absorber"` | optional | name used in output file header |
+| `"Measurement"`, `"Measurement Date"`, etc. | optional | any extra metadata |
+
+The three recommended keys are required to produce `molar_absorptivity.csv`; without them only `absorbance.csv` is written.
+
+Example:
+
+```json
+{
+  "Measurement": "Avobenzone absorption in PEGDA",
+  "Measurement Date": "2024-05-01",
+  "Absorber": "Avobenzone",
+  "Concentration w/w percent": 0.24,
+  "Film thickness microns": 60,
+  "Molar mass g/mole": 310.39,
+  "Solvent": "PEGDA",
+  "Solvent density g/L": 1110,
+  "Solvent absorption measurement file": "solvent.csv",
+  "Solvent + absorber absorption measurement file": "solvent_plus_absorber.csv"
+}
+```
+
+## Run the processing script
+
+```bash
+process-absorber-spectrum
+```
+
+A GUI opens. Click **Browse**, select `spectrum_config.json`, then click **Submit**. The script writes `absorbance.csv` and `molar_absorptivity.csv` into the same directory as `spectrum_config.json` (`my_absorber/` in the example above).
+
+You can then load the result with `data.load_absorber("path/to/my_absorber")`.
+
 
 # Adding a new absorber to the package
 
@@ -30,87 +100,15 @@ Follow this process to permanently add a new absorber to the bundled package dat
 
 ## Spectrometer measurements
 
-Prepare 2 samples for measurement, each of which is a thin liquid film sandwiched between 2 glass slides with spacers to ensure a known liquid thickness:
+Prepare 2 samples for measurement, each a thin liquid film sandwiched between 2 glass slides with spacers to ensure a known liquid thickness:
 
-1. Solvent (resin monomer) with absorber at known w/w percent concentration. You want to choose the concentration so that wavelengths of maximum absorption still let some light through. If no light is transmitted at these wavelengths, you cannot calculate accurate absorbance.
-2. Same except only the solvent (no absorber). Use the same integration time as for Sample 1 so the data is consistent.
+1. Solvent (resin monomer) with absorber at known w/w percent concentration. Choose the concentration so that wavelengths of maximum absorption still let some light through — if no light is transmitted at these wavelengths you cannot calculate accurate absorbance.
+2. Same solvent with no absorber, at the same integration time as Sample 1.
 
-The 2nd sample is used to provide a transmission baseline against which the extra absorption of the absorber is measured with the first sample.
+## Process
 
-## Basic process
-
-Once the above spectrometer measurements have been made, then:
-
-1. Create directory with name `<dir_name>` in `spectra/data/absorbers`.
-2. Inside this directory create directory `raw_data`
-3. Inside `raw_data`, copy 2 spectrometer measurement files:
-    - Solvent spectrum data
-    - Solvent + absorber spectrum data
-4. Create `spectrum_config.json` in `<dir_name>`
-5. Edit `spectrum_config.json` with information needed to do absorbance (required) and molar absorptivity (optional but strongly recommended) calculations
-6. Edit `data/__init__.py` to add 3 letter abbreviation to `_absorber_abbreviations` dict. The key in the dict should be the value of `Absorber` in the `spectrum_config.json` file below.
-7. Run `uv run process-absorber-spectrum`, click the `Browse` button and select the JSON file, then click the `Submit` button. New absorbance and molar absorptivity csv files are created in `<dir_name>`.
-
-## Example `spectrum_config.json` file
-
-    {
-      "Measurement": "Avobenzone absorption in PEGDA",
-      "Measurement Date": "2020-01-20",
-      "Measurement Spectrometer": "Ocean Optics OE65PRO",
-      "Absorber": "Avobenzone",
-      "Concentration w/w percent": 0.24,
-      "Film thickness microns": 60,
-      "Molar mass g/mole": 310.39,
-      "Solvent": "PEGDA",
-      "Solvent density g/L": 1110,
-      "Solvent absorption measurement file": "QEPB00791_17-10-07-458.txt",
-      "Solvent + absorber absorption measurement file": "QEPB00791_17-18-57-140.txt"
-    }
-
-
-## Required parameters in JSON file
-
-- Spectrometer transmission measurements
-    - Monomer
-    - Monomer + absorber
-
-- `spectrum_config.json` with the following entries
-
-
-            {
-                "Measurement": "Avobenzone absorption in PEGDA",
-                "Measurement Date": "2020-01-20",
-                "Measurement Spectrometer": "Ocean Optics FIRE",
-                "Absorber": "Avobenzone",
-                "Concentration w/w percent": 0.24,
-                "Solvent": "PEGDA",
-                "Solvent absorption measurement file": "QEPB00791_17-10-07-458.txt",
-                "Solvent + absorber absorption measurement file": "QEPB00791_17-18-57-140.txt"
-            }
-
-With the above parameters and data the absorbance will be calculated.
-
-## Optional (but strongly recommended) parameters
-
-- Film thickness in microns
-- Molar mass in g/mole
-- Solvent density in g/L
-
-The `spectrum_config.json` will have the following entries:
-
-      {
-        "Measurement": "Avobenzone absorption in PEGDA",
-        "Measurement Date": "2020-01-20",
-        "Measurement Spectrometer": "Ocean Optics FIRE",
-        "Absorber": "Avobenzone",
-        "Concentration w/w percent": 0.24,
-        "Film thickness microns": 70,
-        "Molar mass g/mole": 310.39,
-        "Solvent": "PEGDA",
-        "Solvent density g/L": 1110,
-        "Solvent absorption measurement file": "QEPB00791_17-10-07-458.txt",
-        "Solvent + absorber absorption measurement file": "QEPB00791_17-18-57-140.txt"
-      }
-
-
-With the above parameters and data the absorbance and molar absorptivity will be calculated.
+1. Create directory `<dir_name>` in `spectra/data/absorbers/`.
+2. Inside it, create `raw_data/` and copy your two spectrometer CSV files into it.
+3. Create `spectrum_config.json` in `<dir_name>` following the format described in the previous section.
+4. Edit `data/__init__.py` to add a 3-letter abbreviation to `_absorber_abbreviations`. The key must match the value of `"Absorber"` in `spectrum_config.json`.
+5. Run `process-absorber-spectrum`, select the JSON file, and click **Submit**. This writes `absorbance.csv` and `molar_absorptivity.csv` into `<dir_name>`.

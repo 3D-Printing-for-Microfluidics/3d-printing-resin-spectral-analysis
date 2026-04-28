@@ -41,7 +41,7 @@ print(data.absorbers.keys())
 print(data.sources.keys())
 ```
 
-See the README.md in each sub-directory for the required file formats.
+See the README.md in each sub-directory for the required file formats. If you have raw spectrometer measurement files rather than pre-processed CSV files, run `process-absorber-spectrum` first to produce `absorbance.csv` and `molar_absorptivity.csv` — see [`absorbers/README.md`](absorbers/README.md) for the full workflow.
 
 # Adding new spectrum data
 
