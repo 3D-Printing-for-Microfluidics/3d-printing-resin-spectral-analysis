@@ -39,6 +39,10 @@ Once the example notebook is understood, the following class diagram may be help
 
 ![](notebooks/200410_class_relationships.png)
 
+# Data
+
+The `spectra` package has built-in spectral data stored in the `data` directory. UV absorber and photoinitiator absorption spectra are found in `spectra.data.absorbers` and `spectra.data.photoinitiators`, respectively, while LED emission spectra are found in `spectra.data.sources`. See the [`src/spectra/data/README.md`](src/spectra/data/README.md) file for more details.
+
 # Run tests
 
 ```bash
