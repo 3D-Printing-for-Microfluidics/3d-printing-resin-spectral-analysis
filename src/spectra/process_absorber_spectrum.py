@@ -12,7 +12,7 @@ import sys
 
 import numpy as np
 
-from spectra.utilities import read_OE65PRO_spectrum_data_file, find_index_of_nearest
+from spectra.utilities import read_spectrometer_file, find_index_of_nearest
 
 
 def read_spectrum_config_json(spectrum_config_file):
@@ -105,6 +105,9 @@ def process_spectrum_data(
         will be written.
     spectrum_config - dict
         Specify files and parameters needed to create absorbance and molar absorptivity.
+        Raw data files referenced in spectrum_config must be CSV files with two columns
+        (wavelength, intensity). Lines beginning with '#' are treated as comments and
+        skipped; all other lines must be numeric.
     wavelength_range - list
         Wavelength range over which to do calculations. Low end is set by signal to noise
         ratio of data, and high end is larger than 532 nm laser wavelength, but smaller than
@@ -146,7 +149,7 @@ def process_spectrum_data(
     (
         solvent_spectrometer_header,
         solvent_spectrometer_data,
-    ) = read_OE65PRO_spectrum_data_file(solvent_file)
+    ) = read_spectrometer_file(solvent_file)
 
     # Read solvent + absorber data
     solvent_and_absorber_file = (
@@ -156,7 +159,7 @@ def process_spectrum_data(
     (
         solvent_and_absorber_spectrometer_header,
         solvent_and_absorber_spectrometer_data,
-    ) = read_OE65PRO_spectrum_data_file(solvent_and_absorber_file)
+    ) = read_spectrometer_file(solvent_and_absorber_file)
 
     # Create absorbance data & write to file
     absorbance = calc_absorbance(

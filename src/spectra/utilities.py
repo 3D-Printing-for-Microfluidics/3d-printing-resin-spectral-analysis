@@ -90,10 +90,16 @@ class ArrayParams(typing.NamedTuple):
 def read_spectrometer_file(file, clip_to_zero=True):
     """Read spectrometer-generated spectrum data file.
 
+    Supports two file formats:
+    - .txt: Ocean Optics fixed-format with a 14-line header followed by whitespace-delimited
+      wavelength/intensity columns.
+    - .csv: Two comma-separated columns (wavelength, intensity). Lines beginning with '#'
+      are treated as comments and skipped. Non-numeric header rows (e.g. "wavelength,intensity")
+      are also skipped automatically.
+
     Parameters
     ----------
     file - Path object
-    skiprows - Skip the first `skiprows` rows in data file
     clip_to_zero - If true, set minimum spectrometer value to zero.
                    If false, don't change any values.
 
@@ -102,7 +108,7 @@ def read_spectrometer_file(file, clip_to_zero=True):
     header_lines - list
         Each list entry is one header line
     data - numpy array
-        two column array 2D array, first column is wavelength and 2nd is spectrometer value
+        Two-column 2D array; first column is wavelength, second is spectrometer value.
     """
 
     assert isinstance(file, Path)
@@ -114,8 +120,8 @@ def read_spectrometer_file(file, clip_to_zero=True):
         data = np.loadtxt(file, skiprows=skiprows)
     elif file.name.endswith(".csv"):
         skiprows = None
-        delimiter = ","
-        data = np.loadtxt(file, delimiter=delimiter)
+        data = np.genfromtxt(file, delimiter=",", comments="#", invalid_raise=False)
+        data = data[~np.isnan(data).any(axis=1)]
 
     if clip_to_zero:
         data = np.clip(data, 0, None)
