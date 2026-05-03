@@ -24,7 +24,7 @@ The directory must contain `measured_spectrum_normalized.csv` — two columns: w
 3. Make a directory, `raw_data`, and put data file with measured spectrum from spectrometer into it.
 4. Create a file, `measured_spectrum_normalized.csv`, in the main directory, `<directory name>`:
     - This is a data file in format suitable to read with numpy.loadtxt with comment lines that begin with `#` and normalized data (i.e., max spectrum value is 1.0).
-    - This file can be created by running `python -m spectra.process_source_spectrum`, which uses `pysimplegui` to create a file browser dialog to select which raw data file the user wants to convert.
+    - This file can be created by running `python -m spectra.process_source_spectrum`, which uses `tkinter` to create a file browser dialog to select which raw data file the user wants to convert.
 
 ## Notes
 
