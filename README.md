@@ -27,7 +27,7 @@ From the terminal in the `3dprinter_spectra_and_tools` directory, execute`uv run
 
 # How to learn how to use
 
-Start with `notebooks/examples/Example_normalized_dose_calculation.ipynb`, which shows how to use the package to create resins, plot spectra, and show the normalized dose as a function of `z`.
+Start with `notebooks/Example_normalized_dose_calculation.ipynb`, which shows how to use the package to create resins, plot spectra, and show the normalized dose as a function of `z`.
 
 Also look at the analyses in `notebooks/220515...` and `notebooks/220516...` for further examples. Other notebooks may also be helpful.
 
