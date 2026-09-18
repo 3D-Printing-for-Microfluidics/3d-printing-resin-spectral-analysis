@@ -21,15 +21,21 @@ uv run python -m ipykernel install --user --name resin_spectral_analysis --displ
 
 `uv sync` creates a `.venv` automatically and installs the package in editable mode along with all dependencies.
 
+If the repository directory has been moved after the environment was created, rebuild the environment so its command-line entry points use the current path:
+
+```bash
+uv sync --all-groups --reinstall
+```
+
 # How to run a notebook
 
-From the terminal in the `3d-printing-resin-spectral-analysis` directory, execute `uv run jupyter lab`, which will open Jupyter Lab in a window in your default browser. In Jupyter Lab navigate to the notebook you wish to open and double click on it. A dialog box will pop up for you to select a Python kernel. Select `resin_spectral_analysis`. Now you can run the code cells as usual in a notebook.
+From the terminal in the `3d-printing-resin-spectral-analysis` directory, execute `uv run python -m jupyter lab`, which will open Jupyter Lab in a window in your default browser. In Jupyter Lab navigate to the notebook you wish to open and double click on it. A dialog box will pop up for you to select a Python kernel. Select `resin_spectral_analysis`. Now you can run the code cells as usual in a notebook.
 
 # How to learn how to use
 
 Start with `notebooks/Example_normalized_dose_calculation.ipynb`, which shows how to use the package to create resins, plot spectra, and show the normalized dose as a function of `z`.
 
-Also look at the analyses in `notebooks/220515...` and `notebooks/220516...` for further examples. Other notebooks may also be helpful.
+Also look at the analyses in [`notebooks/240515_NPS_25um_depth_385nmLED/2024-05-15_resin_spectra_Voronov.ipynb`](notebooks/240515_NPS_25um_depth_385nmLED/2024-05-15_resin_spectra_Voronov.ipynb) and [`notebooks/240516_NPS_25um_depth_405nmLED/2024-05-16_NPS_25um_depth_405nmLED.ipynb`](notebooks/240516_NPS_25um_depth_405nmLED/2024-05-16_NPS_25um_depth_405nmLED.ipynb) for further examples. Other notebooks may also be helpful.
 
 Using what you learn from the examples, create your own notebook and write code to analyze/design your own resins.
 
@@ -48,5 +54,5 @@ You can also process your own raw spectrometer measurements into the format the 
 # Run tests
 
 ```bash
-uv run pytest
+uv run python -m pytest
 ```
