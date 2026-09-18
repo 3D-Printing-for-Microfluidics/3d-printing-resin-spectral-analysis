@@ -3,7 +3,7 @@ from pathlib import Path
 import numpy as np
 import pytest
 
-from spectra.absorberspectrum import AbsorberSpectrum
+from resin_spectral_analysis.absorberspectrum import AbsorberSpectrum
 
 
 def test_absorberspectrum():

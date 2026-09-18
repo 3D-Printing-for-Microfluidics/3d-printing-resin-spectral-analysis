@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "spectra"
+name = "3d-printing-resin-spectral-analysis"
 version = "0.2.0"
 description = "3D printer resin absorption and LED emission spectra and tools"
 license = "GPL-3.0-only"
@@ -17,8 +17,8 @@ dependencies = [
 ]
 
 [project.scripts]
-process-absorber-spectrum = "spectra.process_absorber_spectrum:main"
-process-source-spectrum   = "spectra.process_source_spectrum:main"
+process-absorber-spectrum = "resin_spectral_analysis.process_absorber_spectrum:main"
+process-source-spectrum   = "resin_spectral_analysis.process_source_spectrum:main"
 
 [dependency-groups]
 dev = [
@@ -33,10 +33,10 @@ notebooks = [
 ]
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/spectra"]
+packages = ["src/resin_spectral_analysis"]
 
 [tool.pytest.ini_options]
-addopts = "--cov=spectra --cov-report=term-missing -v"
+addopts = "--cov=resin_spectral_analysis --cov-report=term-missing -v"
 testpaths = ["tests"]
 
 [tool.ruff]

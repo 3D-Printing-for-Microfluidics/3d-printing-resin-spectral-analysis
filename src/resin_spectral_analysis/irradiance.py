@@ -1,8 +1,8 @@
 import numpy as np
 
-from spectra.resin import ResinConstituentAbsorber, ResinConstituentMonomer, Resin
-from spectra.sourcespectrum import SourceSpectrum
-from spectra.utilities import ArrayParams
+from resin_spectral_analysis.resin import ResinConstituentAbsorber, ResinConstituentMonomer, Resin
+from resin_spectral_analysis.sourcespectrum import SourceSpectrum
+from resin_spectral_analysis.utilities import ArrayParams
 
 
 class Irradiance:

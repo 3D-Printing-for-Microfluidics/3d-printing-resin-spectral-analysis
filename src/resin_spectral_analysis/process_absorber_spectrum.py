@@ -12,7 +12,7 @@ import sys
 
 import numpy as np
 
-from spectra.utilities import read_spectrometer_file, find_index_of_nearest
+from resin_spectral_analysis.utilities import read_spectrometer_file, find_index_of_nearest
 
 
 def read_spectrum_config_json(spectrum_config_file):

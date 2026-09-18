@@ -1,6 +1,6 @@
 import numpy as np
 
-from spectra.spectrummodels import (
+from resin_spectral_analysis.spectrummodels import (
     ha_model,
     a_b_model,
     a_b_c_model,

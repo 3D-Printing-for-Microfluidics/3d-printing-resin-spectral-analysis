@@ -112,7 +112,7 @@ $ python -m venv spectra_tools --prompt="spectra_tools"
 $ conda deactivate
 $ source spectra_tools/bin/activate
 $ cd ~/Documents/Projects/3D_printer_spectra_repos
-# Install local package spectra, which automatically uses setup.py,
+# Install local package resin_spectral_analysis, which automatically uses setup.py,
 # and make it an editable install (-e).
 $ pip install -e .
 # Install this virtual environment as a jupyter kernel
@@ -180,7 +180,7 @@ Convert notebook to html file to send to Dallin Miner:
 - Learn how to use standard library package `tempfile`
 - Put `NormalizedDose` in python module and create tests
 - Play with colors of nodes in GraphViz diagram
-- Refactor `read_spectrometer_file` in `spectra.utilities` to correctly read csv files with variable numbers of comment lines
+- Refactor `read_spectrometer_file` in `resin_spectral_analysis.utilities` to correctly read csv files with variable numbers of comment lines
 - Add new source: 2018-11-22 measurement of Visitech and Asahi filter with QE6500 spectrometer
 - Start to create an example notebook to show how to use code based on analyzing 0.38% avobenzone resin
 
@@ -284,7 +284,7 @@ We need a method of naming a resin, and naming a resin-spectrum combination. See
 - Add left=0.0, right=0.0 to np.interp arguments
 - Add name attribute to SourceSpectrum
 - Come up with a resin naming convention with my students
-- Develop code in `spectra.data.__init__.py` for generating name abberviation and material type
+- Develop code in `resin_spectral_analysis.data.__init__.py` for generating name abberviation and material type
 
 
 
@@ -363,7 +363,7 @@ Current spectrometer data file format is different from several years ago:
     - 2 header lines starting with `#`
     - `,` separator between values
 
-Modify `spectra.utilities.read_spectrometer_file` to read both spectrometer file types 
+Modify `resin_spectral_analysis.utilities.read_spectrometer_file` to read both spectrometer file types
 
 - Process 2017-04-13 avobenzone data
 - Create an AbsorberSpectrum class
@@ -389,5 +389,4 @@ Modify `spectra.utilities.read_spectrometer_file` to read both spectrometer file
 
 Pytest command to get code coverage, verbose, and allow code to print to terminal:
 
-    $ pytest --cov spectra --cov-report term-missing -vv -s
-
+    $ pytest --cov resin_spectral_analysis --cov-report term-missing -vv -s

@@ -6,11 +6,11 @@ import numpy as np
 from scipy.optimize import curve_fit
 import scipy.integrate as integrate
 
-import spectra.data as data
-from spectra.resin import ResinConstituentAbsorber, ResinConstituentMonomer, Resin
-from spectra.sourcespectrum import SourceSpectrum
-from spectra.utilities import ArrayParams
-from spectra.irradiance import Irradiance
+import resin_spectral_analysis.data as data
+from resin_spectral_analysis.resin import ResinConstituentAbsorber, ResinConstituentMonomer, Resin
+from resin_spectral_analysis.sourcespectrum import SourceSpectrum
+from resin_spectral_analysis.utilities import ArrayParams
+from resin_spectral_analysis.irradiance import Irradiance
 
 
 def test_irradiance():

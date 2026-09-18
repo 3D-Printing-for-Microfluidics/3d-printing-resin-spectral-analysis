@@ -2,7 +2,7 @@ from pathlib import Path
 
 import numpy as np
 
-from spectra.utilities import (
+from resin_spectral_analysis.utilities import (
     find_index_of_nearest,
     find_index_of_max,
     shift,

@@ -3,7 +3,7 @@ from pathlib import Path
 import numpy as np
 import pytest
 
-from spectra.process_absorber_spectrum import (
+from resin_spectral_analysis.process_absorber_spectrum import (
     read_spectrum_config_json,
     find_indices_of_range,
     select_wavelength_range,

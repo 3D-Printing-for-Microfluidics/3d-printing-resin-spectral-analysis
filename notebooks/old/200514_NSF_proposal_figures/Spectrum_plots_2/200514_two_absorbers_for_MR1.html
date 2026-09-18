@@ -14531,12 +14531,12 @@ a.anchor-link {
 <span class="kn">import</span> <span class="nn">scipy</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">scipy</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
 
-<span class="kn">import</span> <span class="nn">spectra.data</span> <span class="k">as</span> <span class="nn">data</span>
-<span class="kn">from</span> <span class="nn">spectra.resin</span> <span class="kn">import</span> <span class="n">ResinConstituentAbsorber</span><span class="p">,</span> <span class="n">ResinConstituentMonomer</span><span class="p">,</span> <span class="n">Resin</span>
-<span class="kn">from</span> <span class="nn">spectra.irradiance</span> <span class="kn">import</span> <span class="n">Irradiance</span>
-<span class="kn">from</span> <span class="nn">spectra.utilities</span> <span class="kn">import</span> <span class="n">ArrayParams</span><span class="p">,</span> <span class="n">find_index_of_nearest</span><span class="p">,</span> <span class="n">find_index_of_max</span><span class="p">,</span> <span class="n">shift</span><span class="p">,</span> <span class="n">shift_peak_wavelength</span>
-<span class="kn">from</span> <span class="nn">spectra.normalizeddose</span> <span class="kn">import</span> <span class="n">NormalizedDose</span>
-<span class="kn">from</span> <span class="nn">spectra.sourcespectrum</span> <span class="kn">import</span> <span class="n">SourceSpectrum</span>
+<span class="kn">import</span> <span class="nn">resin_spectral_analysis.data</span> <span class="k">as</span> <span class="nn">data</span>
+<span class="kn">from</span> <span class="nn">resin_spectral_analysis.resin</span> <span class="kn">import</span> <span class="n">ResinConstituentAbsorber</span><span class="p">,</span> <span class="n">ResinConstituentMonomer</span><span class="p">,</span> <span class="n">Resin</span>
+<span class="kn">from</span> <span class="nn">resin_spectral_analysis.irradiance</span> <span class="kn">import</span> <span class="n">Irradiance</span>
+<span class="kn">from</span> <span class="nn">resin_spectral_analysis.utilities</span> <span class="kn">import</span> <span class="n">ArrayParams</span><span class="p">,</span> <span class="n">find_index_of_nearest</span><span class="p">,</span> <span class="n">find_index_of_max</span><span class="p">,</span> <span class="n">shift</span><span class="p">,</span> <span class="n">shift_peak_wavelength</span>
+<span class="kn">from</span> <span class="nn">resin_spectral_analysis.normalizeddose</span> <span class="kn">import</span> <span class="n">NormalizedDose</span>
+<span class="kn">from</span> <span class="nn">resin_spectral_analysis.sourcespectrum</span> <span class="kn">import</span> <span class="n">SourceSpectrum</span>
 </pre></div>
 
      </div>
@@ -14727,23 +14727,23 @@ a.anchor-link {
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>{&#39;365nm_visitech_with_50mm_asahi_filter_2018-11-22&#39;: &lt;spectra.sourcespectrum.SourceSpectrum at 0x7fa0681a5890&gt;,
- &#39;Asiga_405nm_100um_fiber-2016-12-14&#39;: &lt;spectra.sourcespectrum.SourceSpectrum at 0x7fa0681a5b50&gt;,
- &#39;HR1_385nm_100um_fiber-2016-12-14&#39;: &lt;spectra.sourcespectrum.SourceSpectrum at 0x7fa0681a53d0&gt;,
- &#39;HR2_385nm_2020-03-23&#39;: &lt;spectra.sourcespectrum.SourceSpectrum at 0x7fa0681a59d0&gt;,
- &#39;HR3.2_365nm_370nm_short_pass_filter-2019-12-31&#39;: &lt;spectra.sourcespectrum.SourceSpectrum at 0x7fa0681a4d50&gt;,
- &#39;HR3.2_365nm_no_filter-2019-12-31&#39;: &lt;spectra.sourcespectrum.SourceSpectrum at 0x7fa06819eed0&gt;,
- &#39;HR3.3_365nm_370nm_short_pass_filter-2020-03-23&#39;: &lt;spectra.sourcespectrum.SourceSpectrum at 0x7fa0681a4e10&gt;,
- &#39;HR3.3_365nm_no_filter-2020-03-23&#39;: &lt;spectra.sourcespectrum.SourceSpectrum at 0x7fa06819ef50&gt;,
- &#39;HR3.3_365nm_through_tray_370nm_short_pass_filter-2020-03-23&#39;: &lt;spectra.sourcespectrum.SourceSpectrum at 0x7fa0681a4f50&gt;,
- &#39;HR3.3_365nm_through_tray_no_filter-2020-03-23&#39;: &lt;spectra.sourcespectrum.SourceSpectrum at 0x7fa0681b9050&gt;,
- &#39;Ideal_uniform_10nm_source&#39;: &lt;spectra.sourcespectrum.SourceSpectrum at 0x7fa0785f8110&gt;,
- &#39;MR1_365nm_Wintech_100um_fiber_370nm_short_pass_filter_2019-01-26&#39;: &lt;spectra.sourcespectrum.SourceSpectrum at 0x7fa06819ef10&gt;,
- &#39;MR1_365nm_Wintech_100um_fiber_no_filter_2019-01-26&#39;: &lt;spectra.sourcespectrum.SourceSpectrum at 0x7fa0681a56d0&gt;,
- &#39;MR1_365nm_Wintech_370_nm_short_pass_filter_2020-03-25&#39;: &lt;spectra.sourcespectrum.SourceSpectrum at 0x7fa06819e3d0&gt;,
- &#39;MR1_365nm_Wintech_no_filter_2020-03-25&#39;: &lt;spectra.sourcespectrum.SourceSpectrum at 0x7fa0881e8190&gt;,
- &#39;MR1_385nm_Visitech-2020-03-25&#39;: &lt;spectra.sourcespectrum.SourceSpectrum at 0x7fa0680fee90&gt;,
- &#39;Visitech_with_Asahi_filter_QE6500_2018-11-22&#39;: &lt;spectra.sourcespectrum.SourceSpectrum at 0x7fa099db9b90&gt;}</pre>
+<pre>{&#39;365nm_visitech_with_50mm_asahi_filter_2018-11-22&#39;: &lt;resin_spectral_analysis.sourcespectrum.SourceSpectrum at 0x7fa0681a5890&gt;,
+ &#39;Asiga_405nm_100um_fiber-2016-12-14&#39;: &lt;resin_spectral_analysis.sourcespectrum.SourceSpectrum at 0x7fa0681a5b50&gt;,
+ &#39;HR1_385nm_100um_fiber-2016-12-14&#39;: &lt;resin_spectral_analysis.sourcespectrum.SourceSpectrum at 0x7fa0681a53d0&gt;,
+ &#39;HR2_385nm_2020-03-23&#39;: &lt;resin_spectral_analysis.sourcespectrum.SourceSpectrum at 0x7fa0681a59d0&gt;,
+ &#39;HR3.2_365nm_370nm_short_pass_filter-2019-12-31&#39;: &lt;resin_spectral_analysis.sourcespectrum.SourceSpectrum at 0x7fa0681a4d50&gt;,
+ &#39;HR3.2_365nm_no_filter-2019-12-31&#39;: &lt;resin_spectral_analysis.sourcespectrum.SourceSpectrum at 0x7fa06819eed0&gt;,
+ &#39;HR3.3_365nm_370nm_short_pass_filter-2020-03-23&#39;: &lt;resin_spectral_analysis.sourcespectrum.SourceSpectrum at 0x7fa0681a4e10&gt;,
+ &#39;HR3.3_365nm_no_filter-2020-03-23&#39;: &lt;resin_spectral_analysis.sourcespectrum.SourceSpectrum at 0x7fa06819ef50&gt;,
+ &#39;HR3.3_365nm_through_tray_370nm_short_pass_filter-2020-03-23&#39;: &lt;resin_spectral_analysis.sourcespectrum.SourceSpectrum at 0x7fa0681a4f50&gt;,
+ &#39;HR3.3_365nm_through_tray_no_filter-2020-03-23&#39;: &lt;resin_spectral_analysis.sourcespectrum.SourceSpectrum at 0x7fa0681b9050&gt;,
+ &#39;Ideal_uniform_10nm_source&#39;: &lt;resin_spectral_analysis.sourcespectrum.SourceSpectrum at 0x7fa0785f8110&gt;,
+ &#39;MR1_365nm_Wintech_100um_fiber_370nm_short_pass_filter_2019-01-26&#39;: &lt;resin_spectral_analysis.sourcespectrum.SourceSpectrum at 0x7fa06819ef10&gt;,
+ &#39;MR1_365nm_Wintech_100um_fiber_no_filter_2019-01-26&#39;: &lt;resin_spectral_analysis.sourcespectrum.SourceSpectrum at 0x7fa0681a56d0&gt;,
+ &#39;MR1_365nm_Wintech_370_nm_short_pass_filter_2020-03-25&#39;: &lt;resin_spectral_analysis.sourcespectrum.SourceSpectrum at 0x7fa06819e3d0&gt;,
+ &#39;MR1_365nm_Wintech_no_filter_2020-03-25&#39;: &lt;resin_spectral_analysis.sourcespectrum.SourceSpectrum at 0x7fa0881e8190&gt;,
+ &#39;MR1_385nm_Visitech-2020-03-25&#39;: &lt;resin_spectral_analysis.sourcespectrum.SourceSpectrum at 0x7fa0680fee90&gt;,
+ &#39;Visitech_with_Asahi_filter_QE6500_2018-11-22&#39;: &lt;resin_spectral_analysis.sourcespectrum.SourceSpectrum at 0x7fa099db9b90&gt;}</pre>
 </div>
 
 </div>

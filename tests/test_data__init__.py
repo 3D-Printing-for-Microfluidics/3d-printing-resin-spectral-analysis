@@ -3,10 +3,10 @@ from pathlib import Path
 
 import pytest
 
-from spectra.absorberspectrum import AbsorberSpectrum
-from spectra.sourcespectrum import SourceSpectrum
-from spectra.monomer import Monomer
-import spectra.data as data
+from resin_spectral_analysis.absorberspectrum import AbsorberSpectrum
+from resin_spectral_analysis.sourcespectrum import SourceSpectrum
+from resin_spectral_analysis.monomer import Monomer
+import resin_spectral_analysis.data as data
 
 
 def test_sources_absorbers_monomers():
@@ -21,7 +21,7 @@ def test_sources_absorbers_monomers():
 
 
 def test_load_absorber():
-    path = files("spectra.data") / "absorbers" / "avobenzone_in_PEGDA_2017-04-13"
+    path = files("resin_spectral_analysis.data") / "absorbers" / "avobenzone_in_PEGDA_2017-04-13"
     obj = data.load_absorber(path, name="test_absorber")
     assert isinstance(obj, AbsorberSpectrum)
     assert "test_absorber" in data.absorbers
@@ -30,7 +30,7 @@ def test_load_absorber():
 
 
 def test_load_photoinitiator():
-    path = files("spectra.data") / "photoinitiators" / "irgacure819_in_PEGDA_2017-04-13"
+    path = files("resin_spectral_analysis.data") / "photoinitiators" / "irgacure819_in_PEGDA_2017-04-13"
     obj = data.load_photoinitiator(path, name="test_photoinitiator")
     assert isinstance(obj, AbsorberSpectrum)
     assert "test_photoinitiator" in data.photoinitiators
@@ -40,7 +40,7 @@ def test_load_photoinitiator():
 
 def test_load_source():
     path = (
-        files("spectra.data") / "sources" / "365nm_visitech_with_50mm_asahi_filter_2018-11-22"
+        files("resin_spectral_analysis.data") / "sources" / "365nm_visitech_with_50mm_asahi_filter_2018-11-22"
     )
     obj = data.load_source(path, name="test_source")
     assert isinstance(obj, SourceSpectrum)
@@ -50,7 +50,7 @@ def test_load_source():
 
 
 def test_load_monomer():
-    json_file = files("spectra.data") / "monomers" / "hdda.json"
+    json_file = files("resin_spectral_analysis.data") / "monomers" / "hdda.json"
     obj = data.load_monomer(json_file)
     assert isinstance(obj, Monomer)
     assert obj.name in data.monomers

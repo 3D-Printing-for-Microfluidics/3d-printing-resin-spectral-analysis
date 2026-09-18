@@ -7,7 +7,7 @@ In my `3dprinter_spectra_and_tools` folder/package, create virtual environment a
 conda activate default
 
 # Create virtual environment and activate
-python -m venv .venv --prompt spectra
+python -m venv .venv --prompt resin_spectral_analysis
 conda deactivate
 source .venv/bin/activate
 

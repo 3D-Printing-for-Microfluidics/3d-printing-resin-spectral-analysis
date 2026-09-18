@@ -5,12 +5,12 @@ import numpy as np
 
 import matplotlib.pyplot as plt
 
-import spectra.data as data
-from spectra.resin import ResinConstituentAbsorber, ResinConstituentMonomer, Resin
-from spectra.irradiance import Irradiance
-from spectra.utilities import ArrayParams
-from spectra.normalizeddose import NormalizedDose
-from spectra.spectrummodels import (
+import resin_spectral_analysis.data as data
+from resin_spectral_analysis.resin import ResinConstituentAbsorber, ResinConstituentMonomer, Resin
+from resin_spectral_analysis.irradiance import Irradiance
+from resin_spectral_analysis.utilities import ArrayParams
+from resin_spectral_analysis.normalizeddose import NormalizedDose
+from resin_spectral_analysis.spectrummodels import (
     ha_model,
     a_b_model,
     a_b_c_model,

@@ -12,18 +12,18 @@ This repository contains spectrum data and associated tools for resin and 3D pri
 Install [uv](https://docs.astral.sh/uv/getting-started/installation/) if not already present, then:
 
 ```bash
-git clone https://github.com/gregnordin/3dprinter_spectra_and_tools
-cd 3dprinter_spectra_and_tools
+git clone https://github.com/3D-Printing-for-Microfluidics/3d-printing-resin-spectral-analysis
+cd 3d-printing-resin-spectral-analysis
 uv sync --all-groups
 # Make the environment available as a Jupyter kernel
-uv run python -m ipykernel install --user --name spectra --display-name=spectra
+uv run python -m ipykernel install --user --name resin_spectral_analysis --display-name=resin_spectral_analysis
 ```
 
 `uv sync` creates a `.venv` automatically and installs the package in editable mode along with all dependencies.
 
 # How to run a notebook
 
-From the terminal in the `3dprinter_spectra_and_tools` directory, execute`uv run jupyter lab`, which will open Jupyter Lab in a window in your default browser. In Jupyter Lab navigate to the notebook you wish to open and double click on it. A dialog box will pop up for you to select a python kernel. Select `spectra`. Now you can run the code cells as usual in a notebook.
+From the terminal in the `3d-printing-resin-spectral-analysis` directory, execute `uv run jupyter lab`, which will open Jupyter Lab in a window in your default browser. In Jupyter Lab navigate to the notebook you wish to open and double click on it. A dialog box will pop up for you to select a Python kernel. Select `resin_spectral_analysis`. Now you can run the code cells as usual in a notebook.
 
 # How to learn how to use
 
@@ -41,9 +41,9 @@ Once the example notebook is understood, the following class diagram may be help
 
 # Data
 
-The `spectra` package has built-in spectral data stored in the `data` directory. UV absorber and photoinitiator absorption spectra are found in `spectra.data.absorbers` and `spectra.data.photoinitiators`, respectively, while LED emission spectra are found in `spectra.data.sources`. See [`src/spectra/data/README.md`](src/spectra/data/README.md) for more details.
+The `resin_spectral_analysis` package has built-in spectral data stored in the `data` directory. UV absorber and photoinitiator absorption spectra are found in `resin_spectral_analysis.data.absorbers` and `resin_spectral_analysis.data.photoinitiators`, respectively, while LED emission spectra are found in `resin_spectral_analysis.data.sources`. See [`src/resin_spectral_analysis/data/README.md`](src/resin_spectral_analysis/data/README.md) for more details.
 
-You can also process your own raw spectrometer measurements into the format the package expects. Run `process-absorber-spectrum` from the terminal — a GUI opens to select a `spectrum_config.json` file and produce `absorbance.csv` and `molar_absorptivity.csv`. See [`src/spectra/data/absorbers/README.md`](src/spectra/data/absorbers/README.md) for the required directory layout, file format, and config options.
+You can also process your own raw spectrometer measurements into the format the package expects. Run `process-absorber-spectrum` from the terminal — a GUI opens to select a `spectrum_config.json` file and produce `absorbance.csv` and `molar_absorptivity.csv`. See [`src/resin_spectral_analysis/data/absorbers/README.md`](src/resin_spectral_analysis/data/absorbers/README.md) for the required directory layout, file format, and config options.
 
 # Run tests
 

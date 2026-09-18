@@ -4,10 +4,10 @@ from pathlib import Path
 import numpy as np
 import pytest
 
-import spectra.data as data
-from spectra.absorberspectrum import AbsorberSpectrum
-from spectra.monomer import Monomer
-from spectra.resin import ResinConstituentAbsorber, ResinConstituentMonomer, Resin
+import resin_spectral_analysis.data as data
+from resin_spectral_analysis.absorberspectrum import AbsorberSpectrum
+from resin_spectral_analysis.monomer import Monomer
+from resin_spectral_analysis.resin import ResinConstituentAbsorber, ResinConstituentMonomer, Resin
 
 
 def test_ResinConstituentAbsorber():

@@ -3,7 +3,7 @@
 To load photoinitiator data from an arbitrary directory in a notebook or script:
 
 ```python
-import spectra.data as data
+import resin_spectral_analysis.data as data
 
 # Key defaults to the directory name
 data.load_photoinitiator("/path/to/my_photoinitiator_dir")
@@ -26,5 +26,5 @@ The workflow for converting raw spectrometer CSV files into `absorbance.csv` and
 
 To permanently add a new photoinitiator to the bundled package data, follow the same instructions as for adding an absorber in [absorbers/README.md](../absorbers/README.md), with two differences:
 
-- Perform Step 1 in the `spectra/data/photoinitiators/` directory instead of `spectra/data/absorbers/`.
+- Perform Step 1 in the `resin_spectral_analysis/data/photoinitiators/` directory instead of `resin_spectral_analysis/data/absorbers/`.
 - In Step 4, add the entry to `_photoinitiator_abbreviations` instead of `_absorber_abbreviations`.

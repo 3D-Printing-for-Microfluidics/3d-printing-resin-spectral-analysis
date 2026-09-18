@@ -1,7 +1,7 @@
 from pathlib import Path
 import json
 
-from spectra.monomer import Monomer
+from resin_spectral_analysis.monomer import Monomer
 
 
 def test_monomer():

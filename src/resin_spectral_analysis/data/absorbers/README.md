@@ -3,7 +3,7 @@
 To load absorber data from an arbitrary directory in a notebook or script:
 
 ```python
-import spectra.data as data
+import resin_spectral_analysis.data as data
 
 # Key defaults to the directory name
 data.load_absorber("/path/to/my_absorber_dir")
@@ -107,7 +107,7 @@ Prepare 2 samples for measurement, each a thin liquid film sandwiched between 2 
 
 ## Process
 
-1. Create directory `<dir_name>` in `spectra/data/absorbers/`.
+1. Create directory `<dir_name>` in `resin_spectral_analysis/data/absorbers/`.
 2. Inside it, create `raw_data/` and copy your two spectrometer CSV files into it.
 3. Create `spectrum_config.json` in `<dir_name>` following the format described in the previous section.
 4. Edit `data/__init__.py` to add a 3-letter abbreviation to `_absorber_abbreviations`. The key must match the value of `"Absorber"` in `spectrum_config.json`.

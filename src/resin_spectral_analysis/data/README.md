@@ -20,7 +20,7 @@ This material absorption data and source emission data can be used to calculate 
 You can load spectrum data from any directory on your filesystem — useful in notebooks and scripts without modifying the package. Loaded entries are added to the in-memory dicts for the current session only.
 
 ```python
-import spectra.data as data
+import resin_spectral_analysis.data as data
 
 # Absorber or photoinitiator: directory must contain absorbance.csv and molar_absorptivity.csv
 data.load_absorber("/path/to/my_absorber_dir")

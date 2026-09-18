@@ -7,7 +7,7 @@ directory that contains `raw_data` and has a
 standard name, `measured_spectrum_normalized.csv`.
 
 This module is intended to be run on its own and not imported,
-e.g., execute `python -m spectra.process_source_spectrum`.
+e.g., execute `python -m resin_spectral_analysis.process_source_spectrum`.
 
 5/17/24 - Convert from using PySimpleGUI to tkinter with ChatGPT 4o.
 Prompt: "Convert the following python code to use tkinter instead of pysimplegui:" and
@@ -18,7 +18,7 @@ from pathlib import Path
 import numpy as np
 import tkinter as tk
 from tkinter import filedialog, messagebox
-from spectra.utilities import read_FIRE_spectrum_data_file, read_spectrometer_file
+from resin_spectral_analysis.utilities import read_FIRE_spectrum_data_file, read_spectrometer_file
 
 
 def main():

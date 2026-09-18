@@ -3,7 +3,7 @@
 To load a monomer from an arbitrary JSON file in a notebook or script:
 
 ```python
-import spectra.data as data
+import resin_spectral_analysis.data as data
 
 data.load_monomer("/path/to/my_monomer.json")
 
@@ -25,7 +25,7 @@ The monomer is registered in `data.monomers` under the value of `"Name"`. Loaded
 
 To permanently add a new monomer to the bundled package data:
 
-1. Create a JSON file in `spectra/data/monomers` named `<abbreviation>.json` with contents like the following, with values appropriate for the new monomer:
+1. Create a JSON file in `resin_spectral_analysis/data/monomers` named `<abbreviation>.json` with contents like the following, with values appropriate for the new monomer:
 
        {
          "Name": "PEGDA",

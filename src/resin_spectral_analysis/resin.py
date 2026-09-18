@@ -4,9 +4,9 @@ from dataclasses import dataclass
 
 import numpy as np
 
-import spectra.data as data
-from spectra.absorberspectrum import AbsorberSpectrum
-from spectra.monomer import Monomer
+import resin_spectral_analysis.data as data
+from resin_spectral_analysis.absorberspectrum import AbsorberSpectrum
+from resin_spectral_analysis.monomer import Monomer
 
 
 @dataclass

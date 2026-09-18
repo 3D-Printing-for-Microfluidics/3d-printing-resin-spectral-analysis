@@ -2,9 +2,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 import scipy.integrate as integrate
 
-from spectra.irradiance import Irradiance
-from spectra.utilities import ArrayParams
-from spectra.spectrummodels import (
+from resin_spectral_analysis.irradiance import Irradiance
+from resin_spectral_analysis.utilities import ArrayParams
+from resin_spectral_analysis.spectrummodels import (
     ha_model,
     a_b_model,
     a_b_c_model,

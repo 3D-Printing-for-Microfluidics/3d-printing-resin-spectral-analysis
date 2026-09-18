@@ -3,7 +3,7 @@ from pathlib import Path
 import numpy as np
 import pytest
 
-from spectra.sourcespectrum import SourceSpectrum
+from resin_spectral_analysis.sourcespectrum import SourceSpectrum
 
 
 def test_sourcespectrum():
