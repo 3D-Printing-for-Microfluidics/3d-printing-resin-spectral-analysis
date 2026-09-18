@@ -6,6 +6,7 @@ build-backend = "hatchling.build"
 name = "spectra"
 version = "0.2.0"
 description = "3D printer resin absorption and LED emission spectra and tools"
+license = "GPL-3.0-only"
 readme = "README.md"
 authors = [{name = "Greg Nordin", email = "nordin@byu.edu"}]
 requires-python = ">=3.10"

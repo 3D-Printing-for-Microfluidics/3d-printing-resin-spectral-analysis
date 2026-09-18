@@ -45,13 +45,11 @@
 - Validate D_n(z) - compare with what I got in January 2019?
 - Create a class like SourceSpectrum, except it lets you manipulate source with actual or ideal spectral filter
 - Create documentation to explain theory and how code works
-- Create way to use the code (Jupyter notebooks, straight python code, in a web browser)?
+- Create way to use the code interactively in a marimo notebook/app?
 
-# Next
+# Prep to open source and put on PyPI
 
-- Do series of cases with different avobenzone and NPS concentrations and filtered 365 source and unfiltered, short pass, and bandpass filtered 385 nm source to calculate `h_a` for each.
-    - **Determine whether short pass or bandpass filter is needed for 385 nm source.**
-- Use Asahi bandpass filter data to create filtered 385 nm source.
+- Rename sources to start with wavelength and filter followed by other info
 
 
 # Thursday 8/4/22
@@ -392,5 +390,4 @@ Modify `spectra.utilities.read_spectrometer_file` to read both spectrometer file
 Pytest command to get code coverage, verbose, and allow code to print to terminal:
 
     $ pytest --cov spectra --cov-report term-missing -vv -s
-
 
