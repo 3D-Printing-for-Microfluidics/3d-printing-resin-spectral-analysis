@@ -3,21 +3,12 @@ import tempfile
 
 import numpy as np
 
-import matplotlib.pyplot as plt
 
 import resin_spectral_analysis.data as data
 from resin_spectral_analysis.resin import ResinConstituentAbsorber, ResinConstituentMonomer, Resin
 from resin_spectral_analysis.irradiance import Irradiance
 from resin_spectral_analysis.utilities import ArrayParams
 from resin_spectral_analysis.normalizeddose import NormalizedDose
-from resin_spectral_analysis.spectrummodels import (
-    ha_model,
-    a_b_model,
-    a_b_c_model,
-    fit_ha_model,
-    fit_a_b_model,
-    fit_a_b_c_model,
-)
 
 
 def test_normalizeddose():

@@ -1,5 +1,3 @@
-import json
-from pathlib import Path
 from dataclasses import dataclass
 
 import numpy as np
@@ -14,8 +12,8 @@ class ResinConstituentAbsorber:
     """Container with 2 pieces of information:
     1. Absorber material
     2. Concentration w/w (percent) in resin
-    
-    Examples 
+
+    Examples
     --------
     1% Irgacure 819:
         `irgacure819 = ResinConstituentAbsorber(
@@ -44,7 +42,7 @@ class ResinConstituentMonomer:
     """Container with 2 pieces of information:
     1. Monomer material
     2. Concentration as percent of all MONOMERS in resin (not percent of total resin)
-    
+
     Example: monomers for 60-40 PEGDA-HDDA resin:
         `pegda = ResinConstituentMonomer(data.monomers['PEGDA'], 60)`
         `hdda = ResinConstituentMonomer(data.monomers['HDDA'], 40)`
@@ -65,13 +63,13 @@ class Resin:
     as a function of wavelength.
 
     Note: self.absorption_coeff_inv_cm is in units of inverse cm
-    
+
     Parameters
     ----------
     monomers - ResinConstituentMonomer of list of ResinConstituentMonomer
     photoinitiators - ResinConstituentAbsorber or list of ResinConstituentAbsorber
     absorbers - ResinConstituentAbsorber or list of ResinConstituentAbsorber
-    
+
     Examples
     -------
     PEGDA with 0.38% avobenzone and 1% Irgacure 819:

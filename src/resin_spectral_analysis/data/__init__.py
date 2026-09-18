@@ -26,7 +26,7 @@ def _populate_data_from_directories(dir_name, class_type):
     Each of these directories is passed to the appropriate class, `AbsorberSpectrum`
     or `SourceSpectrum`, to load the data within the directory so that it is ready
     for use. These are put into a list that is returned by the function.
-    
+
     Parameters
     ----------
     dir_name - str

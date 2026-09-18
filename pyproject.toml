@@ -40,7 +40,10 @@ addopts = "--cov=resin_spectral_analysis --cov-report=term-missing -v"
 testpaths = ["tests"]
 
 [tool.ruff]
-line-length = 90
+line-length = 100
+extend-exclude = [
+    "**/*.ipynb",
+]
 
 [tool.ruff.lint]
-select = ["E", "F", "W"]
+select = ["E4", "E7", "E9", "F"]

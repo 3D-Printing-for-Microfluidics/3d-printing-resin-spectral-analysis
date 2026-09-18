@@ -1,14 +1,14 @@
 import numpy as np
 
-from resin_spectral_analysis.resin import ResinConstituentAbsorber, ResinConstituentMonomer, Resin
+from resin_spectral_analysis.resin import Resin
 from resin_spectral_analysis.sourcespectrum import SourceSpectrum
 from resin_spectral_analysis.utilities import ArrayParams
 
 
 class Irradiance:
-    """Callable class that calculates the irradiance over an array of 
+    """Callable class that calculates the irradiance over an array of
     wavelengths for a given value of z in microns.
-    
+
     Parameters
     ----------
     source - SourceSpectrum
@@ -17,8 +17,8 @@ class Irradiance:
         Resin light propagates through
     wavelength_array_params - ArrayParams
         Minimum, maximum wavelength and number of points for array of wavelengths
-        
-        
+
+
     Example
     -------
         # Create irradiance object for particular source, resin, and wavelength parameters

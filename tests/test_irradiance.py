@@ -1,14 +1,9 @@
-from pathlib import Path
-import typing
 
 import numpy as np
 
-from scipy.optimize import curve_fit
-import scipy.integrate as integrate
 
 import resin_spectral_analysis.data as data
 from resin_spectral_analysis.resin import ResinConstituentAbsorber, ResinConstituentMonomer, Resin
-from resin_spectral_analysis.sourcespectrum import SourceSpectrum
 from resin_spectral_analysis.utilities import ArrayParams
 from resin_spectral_analysis.irradiance import Irradiance
 

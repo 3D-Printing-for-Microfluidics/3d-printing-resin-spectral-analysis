@@ -5,7 +5,6 @@ import pytest
 
 from resin_spectral_analysis.process_absorber_spectrum import (
     read_spectrum_config_json,
-    find_indices_of_range,
     select_wavelength_range,
     calc_absorbance,
     calc_molar_concentration,

@@ -1,7 +1,5 @@
 from importlib.resources import files
-from pathlib import Path
 
-import pytest
 
 from resin_spectral_analysis.absorberspectrum import AbsorberSpectrum
 from resin_spectral_analysis.sourcespectrum import SourceSpectrum

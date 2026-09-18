@@ -3,7 +3,6 @@ from pathlib import Path
 import numpy as np
 
 from resin_spectral_analysis.utilities import (
-    find_index_of_nearest,
     find_index_of_max,
     shift,
     shift_peak_wavelength,

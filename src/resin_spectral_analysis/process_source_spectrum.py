@@ -18,7 +18,7 @@ from pathlib import Path
 import numpy as np
 import tkinter as tk
 from tkinter import filedialog, messagebox
-from resin_spectral_analysis.utilities import read_FIRE_spectrum_data_file, read_spectrometer_file
+from resin_spectral_analysis.utilities import read_spectrometer_file
 
 
 def main():
