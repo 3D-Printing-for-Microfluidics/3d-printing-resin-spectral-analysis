@@ -98,4 +98,4 @@ Raw spectrometer files go in a `raw_data/` subdirectory alongside a `spectrum_co
 
 ### Example usage
 
-See `notebooks/examples/Example_normalized_dose_calculation.ipynb` for a complete walkthrough. The `tests/` directory mirrors the module structure and contains good usage examples for each class.
+See `notebooks/Example_normalized_dose_calculation.ipynb` for a complete walkthrough. The `tests/` directory mirrors the module structure and contains good usage examples for each class.
