@@ -41,6 +41,10 @@ def _(mo):
     Normalized LED source spectra measured 2026-05-12, loaded from
     `resin_spectral_analysis.data.sources`. Irradiances are from the raw data file names.
     HR3.3u spectra were measured off the turning mirror.
+
+    The plot also shows the molar absorptivity (right axis) of two absorbers
+    (dashed) and of the photoinitiator Irgacure 819 (dotted, scaled ×10 to be
+    visible) for comparison.
     """)
     return
 
@@ -69,21 +73,45 @@ def _(data):
         "sudanI_in_PEGDA_2017-04-13": "Sudan I in PEGDA (2017)",
     }
     absorbers = {key: data.absorbers[key] for key in absorber_labels}
-    return absorber_labels, absorbers
+
+    # Photoinitiator, scaled so it is visible next to the absorbers
+    photoinitiator = data.photoinitiators["irgacure819_in_PEGDA_2017-04-13"]
+    photoinitiator_multiplier = 10
+    photoinitiator_label = f"Irgacure 819 in PEGDA (2017) ×{photoinitiator_multiplier}"
+    return (
+        absorber_labels,
+        absorbers,
+        photoinitiator,
+        photoinitiator_label,
+        photoinitiator_multiplier,
+    )
 
 
 @app.cell(hide_code=True)
-def _(absorber_labels, absorbers, new_sources, plt, spectra):
+def _(
+    absorber_labels,
+    absorbers,
+    new_sources,
+    photoinitiator,
+    photoinitiator_label,
+    photoinitiator_multiplier,
+    plt,
+    spectra,
+):
     # Categorical palette, fixed order (validated for color-vision deficiency)
-    colors = ["#2a78d6", "#1baf7a", "#eda100", "#e87ba4", "#4a3aa7", "#e34948"]
-    source_colors, absorber_colors = colors[: len(new_sources)], colors[len(new_sources) :]
+    colors = ["#2a78d6", "#1baf7a", "#eda100", "#e87ba4", "#4a3aa7", "#e34948", "#008300"]
+    n_sources, n_absorbers = len(new_sources), len(absorber_labels)
+    source_colors = colors[:n_sources]
+    absorber_colors = colors[n_sources : n_sources + n_absorbers]
+    photoinitiator_color = colors[n_sources + n_absorbers]
 
     fig, ax = plt.subplots(figsize=(11, 5))
     for (key, (label, _)), color in zip(new_sources.items(), source_colors):
         s = spectra[key]
         ax.plot(s.wavelength, s.power, color=color, linewidth=2, label=label)
 
-    # Absorbers on the right axis, dashed to separate them from the sources
+    # Absorbers and photoinitiator on the right axis, broken lines to separate them
+    # from the sources
     ax_right = ax.twinx()
     for (key, label), color in zip(absorber_labels.items(), absorber_colors):
         a = absorbers[key]
@@ -91,13 +119,27 @@ def _(absorber_labels, absorbers, new_sources, plt, spectra):
             a.wavelength, a.molar_absorptivity, color=color, linewidth=2, linestyle="--",
             label=label,
         )
+    # Photoinitiator dotted so it is less prominent than the absorbers
+    ax_right.plot(
+        photoinitiator.wavelength,
+        photoinitiator_multiplier * photoinitiator.molar_absorptivity,
+        color=photoinitiator_color, linewidth=2, linestyle=":", label=photoinitiator_label,
+    )
 
-    ax.set_xlim(340, 440)
+    wavelength_min, wavelength_max = 340, 440
+    ax.set_xlim(wavelength_min, wavelength_max)
     ax.set_ylim(0, 1.05)
-    ax_right.set_ylim(bottom=0)
+    # Scale the right axis to the data shown, not the data outside the x limits
+    right_max = max(
+        line.get_ydata()[
+            (line.get_xdata() >= wavelength_min) & (line.get_xdata() <= wavelength_max)
+        ].max()
+        for line in ax_right.get_lines()
+    )
+    ax_right.set_ylim(0, 1.05 * right_max)
     ax.set_xlabel("Wavelength (nm)")
     ax.set_ylabel("Normalized source power (solid)")
-    ax_right.set_ylabel("Molar absorptivity, L/(mol·cm) (dashed)")
+    ax_right.set_ylabel("Molar absorptivity, L/(mol·cm) (dashed, dotted)")
     ax.grid(color="0.9", linewidth=0.8)
     ax.set_axisbelow(True)
     ax.spines["top"].set_visible(False)
