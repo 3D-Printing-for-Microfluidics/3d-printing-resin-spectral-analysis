@@ -163,16 +163,9 @@ def _(Resin, ResinConstituentAbsorber, ResinConstituentMonomer, data):
         )
 
 
-    # name: (resin, description used in plot titles)
     resins = {
-        "NPS": (
-            make_resin("nps_in_PEGDA_2017-04-13", 2.0),
-            "PEGDA + 1% Irgacure 819 + 2% NPS",
-        ),
-        "Sudan I": (
-            make_resin("sudanI_in_PEGDA_2017-04-13", 0.145),
-            "PEGDA + 1% Irgacure 819 + 0.145% Sudan I",
-        ),
+        "NPS": make_resin("nps_in_PEGDA_2017-04-13", 2.0),
+        "Sudan I": make_resin("sudanI_in_PEGDA_2017-04-13", 0.145),
     }
     return (resins,)
 
@@ -196,21 +189,21 @@ def _(ArrayParams, Irradiance, NormalizedDose, data, resins):
         _key: NormalizedDose(
             irradiance=Irradiance(
                 source=data.sources[_key],
-                resin=resins[_resin_name][0],
+                resin=resins[_resin_name],
                 wavelength_array_params=wavelength_array_params,
             ),
             z_array_params=_z_array_params,
         )
         for _key, (_resin_name, _z_array_params) in dose_cases.items()
     }
-    return dose_cases, norm_doses
+    return (norm_doses,)
 
 
 @app.cell(hide_code=True, expand_output=True)
-def _(dose_cases, mo, new_sources, norm_doses, resins):
+def _(mo, new_sources, norm_doses):
     dose_figs = []
     for _key, _norm_dose in norm_doses.items():
-        _title = resins[dose_cases[_key][0]][1] + "\n" + new_sources[_key][0]
+        _title = _norm_dose.irradiance.resin.name + "\n" + new_sources[_key][0]
         _fig, _ = _norm_dose.plot(title=_title)
         dose_figs.append(_fig)
 
@@ -219,12 +212,12 @@ def _(dose_cases, mo, new_sources, norm_doses, resins):
 
 
 @app.cell(hide_code=True)
-def _(dose_cases, mo, new_sources, norm_doses, resins):
+def _(mo, new_sources, norm_doses):
     mo.ui.table(
         [
             {
                 "Source": new_sources[_key][0],
-                "Resin": resins[dose_cases[_key][0]][1],
+                "Resin": _nd.irradiance.resin.name,
                 "exp(-z/b): b (µm)": round(_nd.ha_model_params["ha"], 3),
                 "a·exp(-z/b)+(1-a): a": round(_nd.a_b_model_params["a"], 4),
                 "a·exp(-z/b)+(1-a): b (µm)": round(_nd.a_b_model_params["b"], 3),
