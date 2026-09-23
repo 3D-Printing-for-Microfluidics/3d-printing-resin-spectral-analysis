@@ -34,9 +34,21 @@ uv run process-source-spectrum
 
 # Start JupyterLab
 uv run jupyter lab
+
+# Start a marimo notebook server (--no-token makes the server discoverable)
+uv run marimo edit <path>.py --no-token
+
+# Check that a marimo notebook runs from start to finish
+MPLBACKEND=Agg uv run python <path>.py
 ```
 
 Code is formatted with ruff at 90-character line length (`uv run ruff format .`).
+
+### Notebooks
+
+New notebooks are marimo (`.py`) notebooks, each in its own directory under `notebooks/` (for example `notebooks/2026_PIR_paper/`). Existing `.ipynb` notebooks are Jupyter; don't convert them unless asked.
+
+`resin_spectral_analysis.data` loads data when it's imported, so restart the marimo server after adding a data directory, or the new keys won't exist in `data.sources` etc.
 
 ## Architecture
 
