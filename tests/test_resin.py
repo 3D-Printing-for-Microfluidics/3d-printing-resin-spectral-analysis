@@ -82,6 +82,11 @@ def test_Resin():
     )
     assert resin.name == "PEG-85_TET-15__Avo-1.5_NPS-2__Irg-1_TMD-0.25"
 
+    # Name with a concentration that has three decimal places
+    sudan = ResinConstituentAbsorber(data.absorbers["sudanI_in_PEGDA_2017-04-13"], 0.145)
+    temp = Resin(monomers=pegda, absorbers=sudan)
+    assert temp.name == "PEG-100__SuI-0.145__"
+
 
 def test_resin_with_ideal_data():
     monomer = ResinConstituentMonomer(data.monomers["Ideal"], 100)

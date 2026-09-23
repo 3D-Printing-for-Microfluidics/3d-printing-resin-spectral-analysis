@@ -150,19 +150,13 @@ class Resin:
 
             Examples
             --------
-            100 -> 100.00 -> 100
-            0.38 -> 0.38 -> 0.38
-            55.2 -> 55.20 -> 55.2
-            2.0 -> 2.00 -> 2
+            100 -> 100
+            0.38 -> 0.38
+            55.2 -> 55.2
+            2.0 -> 2
+            0.145 -> 0.145
             """
-            temp = f"{number:.2f}"
-            # Remove trailing zeros
-            while temp.endswith("0"):
-                temp = temp[:-1]
-            # Remove trailing decimal
-            if temp.endswith("."):
-                temp = temp[:-1]
-            return temp
+            return f"{number:g}"
 
         temp_name = ""
 
