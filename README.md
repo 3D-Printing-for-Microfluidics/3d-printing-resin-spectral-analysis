@@ -39,7 +39,7 @@ The repository contains two kinds of notebooks:
 From the `3d-printing-resin-spectral-analysis` directory, open an existing notebook:
 
 ```bash
-uv run marimo edit notebooks/2026_PIR_paper/compare_source_spectra.py
+uv run marimo edit notebooks/2026_PIR_paper/source_spectra_and_optical_penetration_depth.py
 ```
 
 marimo opens the notebook in your browser. No kernel selection is needed: the notebook runs in the project's environment, so `resin_spectral_analysis` imports directly.
@@ -72,7 +72,7 @@ Things to know:
 
 - **Cells rerun automatically.** When a cell changes, marimo reruns every cell that depends on it. Each variable can be defined in only one cell. Prefix loop and temporary variables with `_` (for example `_fig`) to keep them local to a cell.
 - **Restart after adding data.** `resin_spectral_analysis.data` loads the source, absorber, and monomer directories once, when it's imported. After adding a data directory, restart the notebook (stop `marimo edit` and run it again) so it picks up the new data.
-- **Notebooks are plain Python.** They diff cleanly in git and can run as a script, which is a quick way to check that a notebook runs from start to finish: `uv run python notebooks/2026_PIR_paper/compare_source_spectra.py`
+- **Notebooks are plain Python.** They diff cleanly in git and can run as a script, which is a quick way to check that a notebook runs from start to finish: `uv run python notebooks/2026_PIR_paper/source_spectra_and_optical_penetration_depth.py`
 - **Don't use `--sandbox`.** It creates an isolated environment that doesn't include the local package.
 
 ## Jupyter notebooks
@@ -85,7 +85,7 @@ Start with `notebooks/Example_normalized_dose_calculation.ipynb`, which shows ho
 
 Also look at the analyses in [`notebooks/240515_NPS_25um_depth_385nmLED/2024-05-15_resin_spectra_Voronov.ipynb`](notebooks/240515_NPS_25um_depth_385nmLED/2024-05-15_resin_spectra_Voronov.ipynb) and [`notebooks/240516_NPS_25um_depth_405nmLED/2024-05-16_NPS_25um_depth_405nmLED.ipynb`](notebooks/240516_NPS_25um_depth_405nmLED/2024-05-16_NPS_25um_depth_405nmLED.ipynb) for further examples. Other notebooks may also be helpful.
 
-For a marimo example, see [`notebooks/2026_PIR_paper/compare_source_spectra.py`](notebooks/2026_PIR_paper/compare_source_spectra.py), which plots source spectra with absorber molar absorptivity, builds resins, and plots the normalized dose `D'(z)` for several sources.
+For a marimo example, see [`notebooks/2026_PIR_paper/source_spectra_and_optical_penetration_depth.py`](notebooks/2026_PIR_paper/source_spectra_and_optical_penetration_depth.py), which plots source spectra with absorber molar absorptivity, builds resins, plots the normalized dose `D'(z)` for several sources, and compares the fitted optical penetration depths.
 
 Using what you learn from the examples, create your own notebook and write code to analyze/design your own resins.
 

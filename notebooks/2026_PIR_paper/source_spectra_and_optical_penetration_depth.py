@@ -36,7 +36,7 @@ def _():
 @app.cell(hide_code=True)
 def _(mo):
     mo.md("""
-    # Source spectra for the PIR paper
+    # Source spectra and optical penetration depth for the PIR paper
 
     Normalized LED source spectra measured 2026-05-12, loaded from
     `resin_spectral_analysis.data.sources`. Irradiances are from the raw data file names.
@@ -363,7 +363,7 @@ def _(
         title=hr33_norm_dose.irradiance.resin.name + "\n" + extended_sources[hr33_key][0]
     )
     hr33_dose_fig
-    return
+    return hr33_key, hr33_norm_dose
 
 
 @app.cell(hide_code=True)
@@ -401,6 +401,57 @@ def _(
         title=os1_norm_dose.irradiance.resin.name + "\n" + extended_sources[os1_key][0]
     )
     os1_dose_fig
+    return os1_key, os1_norm_dose
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md("""
+    ## Optical penetration depth summary
+
+    Optical penetration depth $b$ from each of the three fits to $D'(z)$, for all source and
+    resin combinations above.
+    """)
+    return
+
+
+@app.cell(hide_code=True)
+def _(
+    extended_sources,
+    hr33_key,
+    hr33_norm_dose,
+    mo,
+    norm_doses,
+    os1_key,
+    os1_norm_dose,
+):
+    # All normalized dose results, grouped by resin
+    _all_norm_doses = {
+        "HR3.3u_365nm_Asahi_370nm_short_pass_filter_2026-05-12": norm_doses[
+            "HR3.3u_365nm_Asahi_370nm_short_pass_filter_2026-05-12"
+        ],
+        hr33_key: hr33_norm_dose,
+        os1_key: os1_norm_dose,
+        **{
+            _key: _nd
+            for _key, _nd in norm_doses.items()
+            if _key != "HR3.3u_365nm_Asahi_370nm_short_pass_filter_2026-05-12"
+        },
+    }
+
+    mo.ui.table(
+        [
+            {
+                "Source": extended_sources[_key][0],
+                "Resin": _nd.irradiance.resin.name,
+                "b (µm), exp(-z/b)": round(_nd.ha_model_params["ha"], 3),
+                "b (µm), a·exp(-z/b)+(1-a)": round(_nd.a_b_model_params["b"], 3),
+                "b (µm), a·exp(-z/b)+c": round(_nd.a_b_c_model_params["b"], 3),
+            }
+            for _key, _nd in _all_norm_doses.items()
+        ],
+        selection=None,
+    )
     return
 
 
