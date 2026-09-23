@@ -91,69 +91,87 @@ def _(data):
 def _(
     absorber_labels,
     absorbers,
+    data,
     new_sources,
     photoinitiator,
     photoinitiator_label,
     photoinitiator_multiplier,
     plt,
-    spectra,
 ):
-    # Categorical palette, fixed order (validated for color-vision deficiency)
-    colors = ["#2a78d6", "#1baf7a", "#eda100", "#e87ba4", "#4a3aa7", "#e34948", "#008300"]
-    n_sources, n_absorbers = len(new_sources), len(absorber_labels)
-    source_colors = colors[:n_sources]
-    absorber_colors = colors[n_sources : n_sources + n_absorbers]
-    photoinitiator_color = colors[n_sources + n_absorbers]
+    # Colors follow each spectrum so they stay the same across plots. Categorical palette
+    # in fixed order, validated for color-vision deficiency.
+    series_colors = {
+        "HR3.3u_365nm_Asahi_370nm_short_pass_filter_2026-05-12": "#2a78d6",
+        "HR3.3_365nm_Asahi_370nm_short_pass_filter_grayscale_2026-05-12": "#eb6834",
+        "Asiga_385nm_MAX_X27_2026-05-12": "#1baf7a",
+        "Anycubic_405nm_Photon_D2_2026-05-12": "#eda100",
+        "Elegoo_405nm_Mars4_Ultra_2026-05-12": "#e87ba4",
+        "OS1_365nm_Asahi_370nm_short_pass_filter_grayscale_2026-05-12": "#008300",
+        "nps_in_PEGDA_2017-04-13": "#4a3aa7",
+        "sudanI_in_PEGDA_2017-04-13": "#e34948",
+        # Neutral gray so the photoinitiator is less prominent than the other curves
+        "irgacure819_in_PEGDA_2017-04-13": "#898781",
+    }
 
-    fig, ax = plt.subplots(figsize=(11, 5))
-    for (key, (label, _)), color in zip(new_sources.items(), source_colors):
-        s = spectra[key]
-        ax.plot(s.wavelength, s.power, color=color, linewidth=2, label=label)
 
-    # Absorbers and photoinitiator on the right axis, broken lines to separate them
-    # from the sources
-    ax_right = ax.twinx()
-    for (key, label), color in zip(absorber_labels.items(), absorber_colors):
-        a = absorbers[key]
+    def plot_spectra(sources, wavelength_min=340, wavelength_max=440):
+        """Plot normalized source spectra (left axis) with absorber and photoinitiator
+        molar absorptivity (right axis).
+
+        sources - dict of data.sources key: (plot label, irradiance in mW/cm^2)
+        """
+        fig, ax = plt.subplots(figsize=(11, 5))
+        for key, (label, _) in sources.items():
+            s = data.sources[key]
+            ax.plot(s.wavelength, s.power, color=series_colors[key], linewidth=2, label=label)
+
+        # Absorbers and photoinitiator on the right axis, broken lines to separate them
+        # from the sources
+        ax_right = ax.twinx()
+        for key, label in absorber_labels.items():
+            a = absorbers[key]
+            ax_right.plot(
+                a.wavelength, a.molar_absorptivity, color=series_colors[key], linewidth=2,
+                linestyle="--", label=label,
+            )
+        # Photoinitiator dotted so it is less prominent than the absorbers
         ax_right.plot(
-            a.wavelength, a.molar_absorptivity, color=color, linewidth=2, linestyle="--",
-            label=label,
+            photoinitiator.wavelength,
+            photoinitiator_multiplier * photoinitiator.molar_absorptivity,
+            color=series_colors["irgacure819_in_PEGDA_2017-04-13"], linewidth=2,
+            linestyle=":", label=photoinitiator_label,
         )
-    # Photoinitiator dotted so it is less prominent than the absorbers
-    ax_right.plot(
-        photoinitiator.wavelength,
-        photoinitiator_multiplier * photoinitiator.molar_absorptivity,
-        color=photoinitiator_color, linewidth=2, linestyle=":", label=photoinitiator_label,
-    )
 
-    wavelength_min, wavelength_max = 340, 440
-    ax.set_xlim(wavelength_min, wavelength_max)
-    ax.set_ylim(0, 1.05)
-    # Scale the right axis to the data shown, not the data outside the x limits
-    right_max = max(
-        line.get_ydata()[
-            (line.get_xdata() >= wavelength_min) & (line.get_xdata() <= wavelength_max)
-        ].max()
-        for line in ax_right.get_lines()
-    )
-    ax_right.set_ylim(0, 1.05 * right_max)
-    ax.set_xlabel("Wavelength (nm)")
-    ax.set_ylabel("Normalized source power (solid)")
-    ax_right.set_ylabel("Molar absorptivity, L/(mol·cm) (dashed, dotted)")
-    ax.grid(color="0.9", linewidth=0.8)
-    ax.set_axisbelow(True)
-    ax.spines["top"].set_visible(False)
-    ax_right.spines["top"].set_visible(False)
+        ax.set_xlim(wavelength_min, wavelength_max)
+        ax.set_ylim(0, 1.05)
+        # Scale the right axis to the data shown, not the data outside the x limits
+        right_max = max(
+            line.get_ydata()[
+                (line.get_xdata() >= wavelength_min) & (line.get_xdata() <= wavelength_max)
+            ].max()
+            for line in ax_right.get_lines()
+        )
+        ax_right.set_ylim(0, 1.05 * right_max)
+        ax.set_xlabel("Wavelength (nm)")
+        ax.set_ylabel("Normalized source power (solid)")
+        ax_right.set_ylabel("Molar absorptivity, L/(mol·cm) (dashed, dotted)")
+        ax.grid(color="0.9", linewidth=0.8)
+        ax.set_axisbelow(True)
+        ax.spines["top"].set_visible(False)
+        ax_right.spines["top"].set_visible(False)
 
-    handles, labels = ax.get_legend_handles_labels()
-    handles_right, labels_right = ax_right.get_legend_handles_labels()
-    ax.legend(
-        handles + handles_right, labels + labels_right, frameon=False, loc="upper left",
-        bbox_to_anchor=(1.13, 1),
-    )
-    fig.tight_layout()
-    fig
-    return
+        handles, labels = ax.get_legend_handles_labels()
+        handles_right, labels_right = ax_right.get_legend_handles_labels()
+        ax.legend(
+            handles + handles_right, labels + labels_right, frameon=False, loc="upper left",
+            bbox_to_anchor=(1.13, 1),
+        )
+        fig.tight_layout()
+        return fig
+
+
+    plot_spectra(new_sources)
+    return (plot_spectra,)
 
 
 @app.cell(hide_code=True)
@@ -238,7 +256,7 @@ def _(ArrayParams, Irradiance, NormalizedDose, data, resins):
         )
         for _key, (_resin_name, _z_array_params) in dose_cases.items()
     }
-    return (norm_doses,)
+    return dose_cases, norm_doses, wavelength_array_params
 
 
 @app.cell(hide_code=True, expand_output=True)
@@ -271,6 +289,118 @@ def _(mo, new_sources, norm_doses):
         ],
         selection=None,
     )
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md("""
+    ## Source spectra including the HR3.3 and OS1
+
+    The first plot with the HR3.3 and OS1 365 nm, Asahi 370 nm short pass filter spectra
+    added. Both were measured with a grayscale image. The HR3.3 was measured off the turning
+    mirror, like the HR3.3u; the OS1 was not.
+    """)
+    return
+
+
+@app.cell(hide_code=True)
+def _(new_sources, plot_spectra):
+    # new_sources with the HR3.3 spectrum inserted after the HR3.3u, and the OS1 spectrum
+    # after the other sources (keeps the validated color order)
+    _items = list(new_sources.items())
+    extended_sources = dict(
+        [
+            _items[0],
+            (
+                "HR3.3_365nm_Asahi_370nm_short_pass_filter_grayscale_2026-05-12",
+                ("HR3.3 365 nm, Asahi 370 nm SP filter", 46.7),
+            ),
+            *_items[1:],
+            (
+                "OS1_365nm_Asahi_370nm_short_pass_filter_grayscale_2026-05-12",
+                ("OS1 365 nm, Asahi 370 nm SP filter", 47.5),
+            ),
+        ]
+    )
+
+    plot_spectra(extended_sources)
+    return (extended_sources,)
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md("""
+    ## Normalized dose for the HR3.3
+
+    $D'(z)$ for the HR3.3 365 nm, Asahi 370 nm short pass filter source in the NPS resin,
+    with the same settings as the HR3.3u plot above for direct comparison.
+    """)
+    return
+
+
+@app.cell(hide_code=True)
+def _(
+    Irradiance,
+    NormalizedDose,
+    data,
+    dose_cases,
+    extended_sources,
+    resins,
+    wavelength_array_params,
+):
+    hr33_key = "HR3.3_365nm_Asahi_370nm_short_pass_filter_grayscale_2026-05-12"
+    hr33_norm_dose = NormalizedDose(
+        irradiance=Irradiance(
+            source=data.sources[hr33_key],
+            resin=resins["NPS"],
+            wavelength_array_params=wavelength_array_params,
+        ),
+        z_array_params=dose_cases["HR3.3u_365nm_Asahi_370nm_short_pass_filter_2026-05-12"][1],
+    )
+
+    hr33_dose_fig, _ = hr33_norm_dose.plot(
+        title=hr33_norm_dose.irradiance.resin.name + "\n" + extended_sources[hr33_key][0]
+    )
+    hr33_dose_fig
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md("""
+    ## Normalized dose for the OS1
+
+    $D'(z)$ for the OS1 365 nm, Asahi 370 nm short pass filter source in the NPS resin,
+    with the same settings as the HR3.3u and HR3.3 plots above for direct comparison.
+    """)
+    return
+
+
+@app.cell(hide_code=True)
+def _(
+    Irradiance,
+    NormalizedDose,
+    data,
+    dose_cases,
+    extended_sources,
+    resins,
+    wavelength_array_params,
+):
+    os1_key = "OS1_365nm_Asahi_370nm_short_pass_filter_grayscale_2026-05-12"
+    os1_norm_dose = NormalizedDose(
+        irradiance=Irradiance(
+            source=data.sources[os1_key],
+            resin=resins["NPS"],
+            wavelength_array_params=wavelength_array_params,
+        ),
+        z_array_params=dose_cases["HR3.3u_365nm_Asahi_370nm_short_pass_filter_2026-05-12"][1],
+    )
+
+    os1_dose_fig, _ = os1_norm_dose.plot(
+        title=os1_norm_dose.irradiance.resin.name + "\n" + extended_sources[os1_key][0]
+    )
+    os1_dose_fig
     return
 
 
